@@ -1,0 +1,252 @@
+web app,DB source,reflection sink,id,payload,description
+piwigo,piwigo_sites.galleries_url,http://localhost/admin.php?page=site_update&site=1,903573,"""'><script>xss(903573)</script>","
+            piwigo.piwigo_sites.galleries_url[0][1]
+            original row: [1, './galleries/']
+            fuzzed row: [1, '""\'><script>xss(903573)</script>']
+            change: './galleries/' => '""'><script>xss(903573)</script>'
+            
+fuzzed after scan 43 / 62
+found as XSS in scan 44 / 62"
+piwigo,piwigo_users.mail_address,http://localhost/admin.php?page=notification_by_mail,905897,"""'><script>xss(905897)</script>","
+            piwigo.piwigo_users.mail_address[1][3]
+            original row: [2, 'guest', None, None]
+            fuzzed row: [2, 'guest', None, '""\'><script>xss(905897)</script>']
+            change: 'None' => '""'><script>xss(905897)</script>'
+            
+fuzzed after scan 62 / 62
+found as XSS in scan 63 / 62"
+piwigo,piwigo_config.value,"http://localhost/admin.php
+http://localhost/admin.php#
+http://localhost/admin.php?page=albums
+http://localhost/admin.php?page=batch_manager
+http://localhost/admin.php?page=batch_manager&filter=prefilter-last_import
+http://localhost/admin.php?page=batch_manager&filter=prefilter-no_album
+http://localhost/admin.php?page=cat_options
+http://localhost/admin.php?page=configuration
+http://localhost/admin.php?page=group_list
+http://localhost/admin.php?page=help
+http://localhost/admin.php?page=languages
+http://localhost/admin.php?page=maintenance
+http://localhost/admin.php?page=menubar
+http://localhost/admin.php?page=notification_by_mail
+http://localhost/admin.php?page=photos_add
+http://localhost/admin.php?page=plugins
+http://localhost/admin.php?page=site_update&site=1
+http://localhost/admin.php?page=stats&year=2025&month=3
+http://localhost/admin.php?page=tags
+http://localhost/admin.php?page=themes
+http://localhost/admin.php?page=updates
+http://localhost/admin.php?page=updates&tab=ext
+http://localhost/admin.php?page=user_list",918003,"""'><script>xss(918003)</script>","
+            piwigo.piwigo_config.value[14][1]
+            original row: ['gallery_title', 'Just another Piwigo gallery', 'Title at top of each page and for RSS feed']
+            fuzzed row: ['gallery_title', '""\'><script>xss(918003)</script>', 'Title at top of each page and for RSS feed']
+            change: 'Just another Piwigo gallery' => '""'><script>xss(918003)</script>'
+            
+fuzzed after scan 20 / 62
+found as XSS in scan 21 / 62"
+piwigo,piwigo_users.mail_address,"http://localhost/
+http://localhost/about.php
+http://localhost/admin.php
+http://localhost/admin.php#
+http://localhost/admin.php?page=albums
+http://localhost/admin.php?page=batch_manager
+http://localhost/admin.php?page=batch_manager&filter=prefilter-last_import
+http://localhost/admin.php?page=batch_manager&filter=prefilter-no_album
+http://localhost/admin.php?page=cat_options
+http://localhost/admin.php?page=configuration
+http://localhost/admin.php?page=group_list
+http://localhost/admin.php?page=help
+http://localhost/admin.php?page=languages
+http://localhost/admin.php?page=maintenance
+http://localhost/admin.php?page=menubar
+http://localhost/admin.php?page=notification_by_mail
+http://localhost/admin.php?page=photos_add
+http://localhost/admin.php?page=plugins
+http://localhost/admin.php?page=site_update&site=1
+http://localhost/admin.php?page=stats&year=2025&month=3
+http://localhost/admin.php?page=tags
+http://localhost/admin.php?page=themes
+http://localhost/admin.php?page=updates
+http://localhost/admin.php?page=updates&tab=ext
+http://localhost/admin.php?page=user_list
+http://localhost/feed.php?feed=8oVjkXmmWEm4QjbnO3BuddgMuyXM40FQOLHLk17zLvhzV21chH
+http://localhost/feed.php?feed=8oVjkXmmWEm4QjbnO3BuddgMuyXM40FQOLHLk17zLvhzV21chH&image_only
+http://localhost/index.php
+http://localhost/index.php?/categories
+http://localhost/index.php?/categories/created-monthly-list
+http://localhost/index.php?/categories/posted-monthly-list
+http://localhost/index.php?/created-monthly-calendar
+http://localhost/index.php?/favorites
+http://localhost/index.php?/list/
+http://localhost/index.php?/list/-1
+http://localhost/index.php?/list/-1/created-monthly-list
+http://localhost/index.php?/list/-1/posted-monthly-list
+http://localhost/index.php?/most_visited
+http://localhost/index.php?/recent_cats
+http://localhost/index.php?/recent_pics
+http://localhost/notification.php
+http://localhost/popuphelp.php?page=search
+http://localhost/popuphelp.php?page=search#
+http://localhost/profile.php
+http://localhost/search.php
+http://localhost/search.php#
+http://localhost/tags.php
+http://localhost/tags.php?display_mode=letters",919085,"""'><script>xss(919085)</script>","
+            piwigo.piwigo_users.mail_address[0][3]
+            original row: [1, 'admin', '$P$GfxiJoY3hRdXC1SoJlScIXOEn0s6Vw.', 'admin@email.com']
+            fuzzed row: [1, 'admin', '$P$GfxiJoY3hRdXC1SoJlScIXOEn0s6Vw.', '""\'><script>xss(919085)</script>']
+            change: 'admin@email.com' => '""'><script>xss(919085)</script>'
+            
+fuzzed after scan 62 / 62
+found as XSS in scan 63 / 62"
+piwigo,piwigo_images.file,"http://localhost/admin.php?page=batch_manager
+http://localhost/admin.php?page=batch_manager&filter=prefilter-last_import
+http://localhost/admin.php?page=batch_manager&filter=prefilter-no_album",920092,"""'><script>xss(920092)</script>","
+            piwigo.piwigo_images.file[0][1]
+            original row: [1, 'a', datetime.datetime(1970, 1, 1, 0, 0, 1), datetime.datetime(1970, 1, 1, 0, 0, 1), 'a', 'a', 'a', 0, 0, 0, 0, 'a', 'a', datetime.date(1970, 1, 1), 0.0, 'a', 0, 0, 'a', 0, 0, 0.0, 0.0, datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            fuzzed row: [1, '""\'><script>xss(920092)</script>', datetime.datetime(1970, 1, 1, 0, 0, 1), datetime.datetime(1970, 1, 1, 0, 0, 1), 'a', 'a', 'a', 0, 0, 0, 0, 'a', 'a', datetime.date(1970, 1, 1), 0.0, 'a', 0, 0, 'a', 0, 0, 0.0, 0.0, datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            change: 'a' => '""'><script>xss(920092)</script>'
+            
+fuzzed after scan 27 / 62
+found as XSS in scan 28 / 62"
+piwigo,piwigo_users.username,"http://localhost/admin.php?page=group_list
+http://localhost/admin.php?page=user_list",927498,"""'><script>xss(927498)</script>","
+            piwigo.piwigo_users.username[1][1]
+            original row: [2, 'guest', None, None]
+            fuzzed row: [2, '""\'><script>xss(927498)</script>', None, None]
+            change: 'guest' => '""'><script>xss(927498)</script>'
+            
+fuzzed after scan 60 / 62
+found as XSS in scan 61 / 62"
+piwigo,piwigo_groups.name,http://localhost/admin.php?page=group_list,927542,"""'><script>xss(927542)</script>","
+            piwigo.piwigo_groups.name[0][1]
+            original row: [1, 'a', 'true', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            fuzzed row: [1, '""\'><script>xss(927542)</script>', 'true', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            change: 'a' => '""'><script>xss(927542)</script>'
+            
+fuzzed after scan 24 / 62
+found as XSS in scan 25 / 62"
+piwigo,piwigo_tags.url_name,http://localhost/admin.php?page=tags,946135,"""'><script>xss(946135)</script>","
+            piwigo.piwigo_tags.url_name[0][2]
+            original row: [1, 'a', 'a', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            fuzzed row: [1, 'a', '""\'><script>xss(946135)</script>', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            change: 'a' => '""'><script>xss(946135)</script>'
+            
+fuzzed after scan 45 / 62
+found as XSS in scan 46 / 62"
+piwigo,piwigo_config.value,"http://localhost/admin.php?page=batch_manager
+http://localhost/admin.php?page=batch_manager&filter=prefilter-last_import
+http://localhost/admin.php?page=batch_manager&filter=prefilter-no_album
+http://localhost/index.php?/favorites
+http://localhost/index.php?/list/
+http://localhost/index.php?/recent_pics",946287,"""'><script>xss(946287)</script>","
+            piwigo.piwigo_config.value[52][1]
+            original row: ['order_by', 'ORDER BY date_available DESC, file ASC, id ASC', 'default photo order']
+            fuzzed row: ['order_by', '""\'><script>xss(946287)</script>', 'default photo order']
+            change: 'ORDER BY date_available DESC, file ASC, id ASC' => '""'><script>xss(946287)</script>'
+            
+fuzzed after scan 21 / 62
+found as XSS in scan 22 / 62"
+piwigo,piwigo_categories.uppercats,"http://localhost/admin.php?page=cat_options
+http://localhost/search.php
+http://localhost/search.php#",949699,"""'><script>xss(949699)</script>","
+            piwigo.piwigo_categories.uppercats[0][10]
+            original row: [1, 'a', 0, 'a', 'a', 0, 'public', 0, 'true', 0, 'a', 'true', 'a', 'a', 'a', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            fuzzed row: [1, 'a', 0, 'a', 'a', 0, 'public', 0, 'true', 0, '""\'><script>xss(949699)</script>', 'true', 'a', 'a', 'a', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            change: 'a' => '""'><script>xss(949699)</script>'
+            
+fuzzed after scan 9 / 62
+found as XSS in scan 10 / 62"
+piwigo,piwigo_config.value,"http://localhost/index.php?/categories/created-monthly-list
+http://localhost/index.php?/categories/posted-monthly-list",953791,"""'><script>xss(953791)</script>","
+            piwigo.piwigo_config.value[53][1]
+            original row: ['order_by_inside_category', 'ORDER BY date_available DESC, file ASC, id ASC', 'default photo order inside category']
+            fuzzed row: ['order_by_inside_category', '""\'><script>xss(953791)</script>', 'default photo order inside category']
+            change: 'ORDER BY date_available DESC, file ASC, id ASC' => '""'><script>xss(953791)</script>'
+            
+fuzzed after scan 21 / 62
+found as XSS in scan 22 / 62"
+piwigo,piwigo_plugins.id,http://localhost/admin.php?page=plugins,954071,"""'><script>xss(954071)</script>","
+            piwigo.piwigo_plugins.id[0][0]
+            original row: ['a', 'inactive', 'a']
+            fuzzed row: ['""\'><script>xss(954071)</script>', 'inactive', 'a']
+            change: 'a' => '""'><script>xss(954071)</script>'
+            
+fuzzed after scan 37 / 62
+found as XSS in scan 38 / 62"
+piwigo,piwigo_plugins.version,http://localhost/admin.php?page=plugins,956749,"""'><script>xss(956749)</script>","
+            piwigo.piwigo_plugins.version[0][2]
+            original row: ['a', 'inactive', 'a']
+            fuzzed row: ['a', 'inactive', '""\'><script>xss(956749)</script>']
+            change: 'a' => '""'><script>xss(956749)</script>'
+            
+fuzzed after scan 38 / 62
+found as XSS in scan 39 / 62"
+piwigo,piwigo_tags.name,"http://localhost/admin.php?page=batch_manager
+http://localhost/admin.php?page=batch_manager&filter=prefilter-last_import
+http://localhost/admin.php?page=batch_manager&filter=prefilter-no_album
+http://localhost/admin.php?page=tags",957215,"""'><script>xss(957215)</script>","
+            piwigo.piwigo_tags.name[0][1]
+            original row: [1, 'a', 'a', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            fuzzed row: [1, '""\'><script>xss(957215)</script>', 'a', datetime.datetime(1970, 1, 1, 0, 0, 1)]
+            change: 'a' => '""'><script>xss(957215)</script>'
+            
+fuzzed after scan 44 / 62
+found as XSS in scan 45 / 62"
+piwigo,piwigo_users.username,"http://localhost/
+http://localhost/about.php
+http://localhost/admin.php
+http://localhost/admin.php#
+http://localhost/admin.php?page=albums
+http://localhost/admin.php?page=batch_manager
+http://localhost/admin.php?page=batch_manager&filter=prefilter-last_import
+http://localhost/admin.php?page=batch_manager&filter=prefilter-no_album
+http://localhost/admin.php?page=cat_options
+http://localhost/admin.php?page=configuration
+http://localhost/admin.php?page=group_list
+http://localhost/admin.php?page=help
+http://localhost/admin.php?page=languages
+http://localhost/admin.php?page=maintenance
+http://localhost/admin.php?page=menubar
+http://localhost/admin.php?page=notification_by_mail
+http://localhost/admin.php?page=photos_add
+http://localhost/admin.php?page=plugins
+http://localhost/admin.php?page=site_update&site=1
+http://localhost/admin.php?page=stats&year=2025&month=3
+http://localhost/admin.php?page=tags
+http://localhost/admin.php?page=themes
+http://localhost/admin.php?page=updates
+http://localhost/admin.php?page=updates&tab=ext
+http://localhost/admin.php?page=user_list
+http://localhost/index.php
+http://localhost/index.php?/categories
+http://localhost/index.php?/categories/created-monthly-list
+http://localhost/index.php?/categories/posted-monthly-list
+http://localhost/index.php?/created-monthly-calendar
+http://localhost/index.php?/favorites
+http://localhost/index.php?/list/
+http://localhost/index.php?/most_visited
+http://localhost/index.php?/recent_cats
+http://localhost/index.php?/recent_pics
+http://localhost/notification.php
+http://localhost/profile.php
+http://localhost/search.php
+http://localhost/search.php#
+http://localhost/tags.php
+http://localhost/tags.php?display_mode=letters",975602,"""'><script>xss(975602)</script>","
+            piwigo.piwigo_users.username[0][1]
+            original row: [1, 'admin', '$P$GfxiJoY3hRdXC1SoJlScIXOEn0s6Vw.', 'admin@email.com']
+            fuzzed row: [1, '""\'><script>xss(975602)</script>', '$P$GfxiJoY3hRdXC1SoJlScIXOEn0s6Vw.', 'admin@email.com']
+            change: 'admin' => '""'><script>xss(975602)</script>'
+            
+fuzzed after scan 60 / 62
+found as XSS in scan 61 / 62"
+piwigo,piwigo_languages.id,http://localhost/admin.php?page=languages,984683,"""'><script>xss(984683)</script>","
+            piwigo.piwigo_languages.id[0][0]
+            original row: ['en_GB', '13.6.0', 'English [GB]']
+            fuzzed row: ['""\'><script>xss(984683)</script>', '13.6.0', 'English [GB]']
+            change: 'en_GB' => '""'><script>xss(984683)</script>'
+            
+fuzzed after scan 33 / 62
+found as XSS in scan 34 / 62"

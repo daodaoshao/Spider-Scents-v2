@@ -1,0 +1,17 @@
+Column,Type,Size,Fuzzed,XSS,Token
+tblappointment.Name,varchar,250,True,True,True
+tblappointment.Email,varchar,250,True,True,True
+tblappointment.Specialization,varchar,250,True,False,False
+tblappointment.Message,mediumtext,,True,False,False
+tblappointment.Remark,varchar,250,True,False,True
+tblappointment.Status,varchar,250,True,False,True
+tbldoctor.FullName,varchar,250,True,True,True
+tbldoctor.Email,varchar,250,True,True,True
+tbldoctor.Specialization,varchar,250,True,False,False
+tbldoctor.Password,varchar,259,True,False,False
+tblpage.PageType,varchar,200,True,False,False
+tblpage.PageTitle,mediumtext,,True,False,True
+tblpage.PageDescription,mediumtext,,True,True,True
+tblpage.Email,varchar,200,True,True,True
+tblpage.Timing,varchar,200,True,True,True
+tblspecialization.Specialization,varchar,250,True,True,True

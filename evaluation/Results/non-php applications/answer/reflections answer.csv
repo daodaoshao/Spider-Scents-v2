@@ -1,0 +1,97 @@
+web app,DB source,reflection sink,id,payload,description
+answer,question.parsed_text,"http://localhost/questions/10010000000000002
+http://localhost/questions/10010000000000002/10020000000000003",902827,"""'><script>xss(902827)</script>","
+            answer.question.parsed_text[0][8]
+            original row: [10010000000000002, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 1, '', 1, 'What is a tag?', 'When asking a question, we need to choose tags. What are tags and why should I use them?', '<p>When asking a question, we need to choose tags. What are tags and why should I use them?</p>', 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 10020000000000003, datetime.datetime(2025, 4, 2, 4, 19, 52), 0, 0]
+            fuzzed row: [10010000000000002, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 1, '', 1, 'What is a tag?', 'When asking a question, we need to choose tags. What are tags and why should I use them?', '""\'><script>xss(902827)</script>', 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 10020000000000003, datetime.datetime(2025, 4, 2, 4, 19, 52), 0, 0]
+            change: '<p>When asking a question, we need to choose tags. What are tags and why should I use them?</p>' => '""'><script>xss(902827)</script>'
+            
+fuzzed after scan 28 / 61
+found as XSS in scan 29 / 61"
+answer,question.parsed_text,"http://localhost/questions/10010000000000004
+http://localhost/questions/10010000000000004/10020000000000005",914546,"""'><script>xss(914546)</script>","
+            answer.question.parsed_text[1][8]
+            original row: [10010000000000004, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 1, '', 1, 'What is reputation and how do I earn them?', 'I see that each user has reputation points, What is it and how do I earn them?', '<p>I see that each user has reputation points, What is it and how do I earn them?</p>', 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 10020000000000005, datetime.datetime(2025, 4, 2, 4, 19, 52), 0, 0]
+            fuzzed row: [10010000000000004, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 1, '', 1, 'What is reputation and how do I earn them?', 'I see that each user has reputation points, What is it and how do I earn them?', '""\'><script>xss(914546)</script>', 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 10020000000000005, datetime.datetime(2025, 4, 2, 4, 19, 52), 0, 0]
+            change: '<p>I see that each user has reputation points, What is it and how do I earn them?</p>' => '""'><script>xss(914546)</script>'
+            
+fuzzed after scan 28 / 61
+found as XSS in scan 29 / 61"
+answer,answer.parsed_text,"http://localhost/questions/10010000000000004
+http://localhost/questions/10010000000000004/10020000000000005",935541,"""'><script>xss(935541)</script>","
+            answer.answer.parsed_text[1][7]
+            original row: [10020000000000005, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 10010000000000004, 1, 0, 'Your reputation points show how much the community values your knowledge. You earn points when someone find your question or answer helpful. You also get points when the person who asked the question thinks you did a good job and accepts your answer.', '<p>Your reputation points show how much the community values your knowledge. You earn points when someone find your question or answer helpful. You also get points when the person who asked the question thinks you did a good job and accepts your answer.</p>', 1, 0, 0, 0, 0]
+            fuzzed row: [10020000000000005, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 10010000000000004, 1, 0, 'Your reputation points show how much the community values your knowledge. You earn points when someone find your question or answer helpful. You also get points when the person who asked the question thinks you did a good job and accepts your answer.', '""\'><script>xss(935541)</script>', 1, 0, 0, 0, 0]
+            change: '<p>Your reputation points show how much the community values your knowledge. You earn points when someone find your question or answer helpful. You also get points when the person who asked the question thinks you did a good job and accepts your answer.</p>' => '""'><script>xss(935541)</script>'
+            
+fuzzed after scan 1 / 61
+found as XSS in scan 2 / 61"
+answer,tag.parsed_text,"http://localhost/tags
+http://localhost/tags/support
+http://localhost/tags?sort=name
+http://localhost/tags?sort=newest
+http://localhost/tags?sort=popular",945766,"""'><script>xss(945766)</script>","
+            answer.tag.parsed_text[0][8]
+            original row: [10030000000000001, datetime.datetime(2025, 4, 2, 4, 19, 52), datetime.datetime(2025, 4, 2, 4, 19, 52), 0, '', 'support', 'support', 'For general support questions.', '<p>For general support questions.</p>', 0, 2, 1, 0, 0, 0, 1]
+            fuzzed row: [10030000000000001, datetime.datetime(2025, 4, 2, 4, 19, 52), datetime.datetime(2025, 4, 2, 4, 19, 52), 0, '', 'support', 'support', 'For general support questions.', '""\'><script>xss(945766)</script>', 0, 2, 1, 0, 0, 0, 1]
+            change: '<p>For general support questions.</p>' => '""'><script>xss(945766)</script>'
+            
+fuzzed after scan 45 / 61
+found as XSS in scan 46 / 61"
+answer,user.bio_html,http://localhost/users/admin,957034,"""'><script>xss(957034)</script>","
+            answer.user.bio_html[0][21]
+            original row: [1, datetime.datetime(2025, 4, 2, 4, 19, 52), datetime.datetime(2025, 4, 2, 6, 0, 53), None, None, datetime.datetime(2025, 4, 2, 6, 0, 53), 'admin', '$2a$10$xakGDuYXhswa5at5mkwRkuT0CZuHKJMZR5lp6lTAdHe3nwffAv/EO', 'admin@123.com', 1, 1, 0, 0, 0, 1, 1, 0, 'admin', '', '', '', '', '', '', '', 0, '', '']
+            fuzzed row: [1, datetime.datetime(2025, 4, 2, 4, 19, 52), datetime.datetime(2025, 4, 2, 6, 0, 53), None, None, datetime.datetime(2025, 4, 2, 6, 0, 53), 'admin', '$2a$10$xakGDuYXhswa5at5mkwRkuT0CZuHKJMZR5lp6lTAdHe3nwffAv/EO', 'admin@123.com', 1, 1, 0, 0, 0, 1, 1, 0, 'admin', '', '', '', '""\'><script>xss(957034)</script>', '', '', '', 0, '', '']
+            change: '' => '""'><script>xss(957034)</script>'
+            
+fuzzed after scan 51 / 61
+found as XSS in scan 52 / 61"
+answer,site_info.content,"http://localhost/
+http://localhost/questions
+http://localhost/questions?order=active
+http://localhost/questions?order=frequent
+http://localhost/questions?order=newest
+http://localhost/questions?order=unanswered
+http://localhost/tags
+http://localhost/tags/support
+http://localhost/tags?sort=name
+http://localhost/tags?sort=newest
+http://localhost/tags?sort=popular
+http://localhost/users/admin",963156,"""'><script>xss(963156)</script>","
+            answer.site_info.content[1][4]
+            original row: [2, datetime.datetime(2025, 4, 2, 4, 19, 52), datetime.datetime(2025, 4, 2, 4, 19, 52), 'general', '{""contact_email"":""admin@123.com"",""name"":""test"",""site_url"":""http://localhost""}', 1]
+            fuzzed row: [2, datetime.datetime(2025, 4, 2, 4, 19, 52), datetime.datetime(2025, 4, 2, 4, 19, 52), 'general', '{""contact_email"": ""\\""\'><script>xss(963156)</script>"", ""name"": ""\\""\'><script>xss(963156)</script>"", ""site_url"": ""\\""\'><script>xss(963156)</script>""}', 1]
+            change: '{""contact_email"":""admin@123.com"",""name"":""test"",""site_url"":""http://localhost""}' => '{""contact_email"": ""\""'><script>xss(963156)</script>"", ""name"": ""\""'><script>xss(963156)</script>"", ""site_url"": ""\""'><script>xss(963156)</script>""}'
+            
+fuzzed after scan 40 / 61
+found as XSS in scan 41 / 61
+found as XSS in scan 42 / 61
+found as XSS in scan 43 / 61
+found as XSS in scan 44 / 61
+found as XSS in scan 45 / 61
+found as XSS in scan 46 / 61
+found as XSS in scan 47 / 61
+found as XSS in scan 48 / 61
+found as XSS in scan 49 / 61
+found as XSS in scan 50 / 61
+found as XSS in scan 51 / 61
+found as XSS in scan 52 / 61
+found as XSS in scan 53 / 61
+found as XSS in scan 54 / 61
+found as XSS in scan 55 / 61
+found as XSS in scan 56 / 61
+found as XSS in scan 57 / 61
+found as XSS in scan 58 / 61
+found as XSS in scan 59 / 61
+found as XSS in scan 60 / 61
+found as XSS in scan 61 / 61
+found as XSS in scan 62 / 61"
+answer,answer.parsed_text,"http://localhost/questions/10010000000000002
+http://localhost/questions/10010000000000002/10020000000000003",973801,"""'><script>xss(973801)</script>","
+            answer.answer.parsed_text[0][7]
+            original row: [10020000000000003, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 10010000000000002, 1, 0, 'Tags help to organize content and make searching easier. It helps your question get more attention from people interested in that tag. Tags also send notifications. If you are interested in some topic, follow that tag to get updates.', '<p>Tags help to organize content and make searching easier. It helps your question get more attention from people interested in that tag. Tags also send notifications. If you are interested in some topic, follow that tag to get updates.</p>', 1, 0, 0, 0, 0]
+            fuzzed row: [10020000000000003, datetime.datetime(2025, 4, 2, 4, 19, 52), None, 10010000000000002, 1, 0, 'Tags help to organize content and make searching easier. It helps your question get more attention from people interested in that tag. Tags also send notifications. If you are interested in some topic, follow that tag to get updates.', '""\'><script>xss(973801)</script>', 1, 0, 0, 0, 0]
+            change: '<p>Tags help to organize content and make searching easier. It helps your question get more attention from people interested in that tag. Tags also send notifications. If you are interested in some topic, follow that tag to get updates.</p>' => '""'><script>xss(973801)</script>'
+            
+fuzzed after scan 1 / 61
+found as XSS in scan 2 / 61"

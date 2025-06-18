@@ -1,0 +1,802 @@
+web app,DB source,reflection sink,id,payload,description
+hospital,userlog.logout,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",900045,"""'><script>xss(900045)</script>","
+            hms.userlog.logout[1][5]
+            original row: [2, 1, 'johndoe12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 21, 20), '06-11-2022 05:53:00 PM', 1]
+            fuzzed row: [2, 1, 'johndoe12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 21, 20), '""\'><script>xss(900045)</script>', 1]
+            change: '06-11-2022 05:53:00 PM' => '""'><script>xss(900045)</script>'
+            
+fuzzed after scan 35 / 41
+found as XSS in scan 36 / 41"
+hospital,tblcontactus.message,"http://localhost/hospital/hms/admin/query-details.php?id=2
+http://localhost/hospital/hms/admin/read-query.php
+http://localhost/hospital/hms/admin/read-query.php#",900832,"""'><script>xss(900832)</script>","
+            hms.tblcontactus.message[1][4]
+            original row: [2, 'Anuj kumar', 'ak@gmail.com', 1111122233, 'This is for testing', datetime.datetime(2022, 11, 6, 13, 13, 41), 'Contact the patient', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            fuzzed row: [2, 'Anuj kumar', 'ak@gmail.com', 1111122233, '""\'><script>xss(900832)</script>', datetime.datetime(2022, 11, 6, 13, 13, 41), 'Contact the patient', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            change: 'This is for testing' => '""'><script>xss(900832)</script>'
+            
+fuzzed after scan 27 / 41
+found as XSS in scan 28 / 41"
+hospital,doctors.specilization,"http://localhost/hospital/hms/admin/Manage-doctors.php
+http://localhost/hospital/hms/admin/Manage-doctors.php#
+http://localhost/hospital/hms/admin/manage-doctors.php
+http://localhost/hospital/hms/admin/manage-doctors.php#",901495,"""'><script>xss(901495)</script>","
+            hms.doctors.specilization[0][1]
+            original row: [1, 'ENT', 'Anuj kumar', 'A 123 XYZ Apartment Raj Nagar Ext Ghaziabad', '500', 142536250, 'anujk123@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 10, 30, 18, 16, 52), datetime.datetime(2022, 11, 6, 13, 20, 17)]
+            fuzzed row: [1, '""\'><script>xss(901495)</script>', 'Anuj kumar', 'A 123 XYZ Apartment Raj Nagar Ext Ghaziabad', '500', 142536250, 'anujk123@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 10, 30, 18, 16, 52), datetime.datetime(2022, 11, 6, 13, 20, 17)]
+            change: 'ENT' => '""'><script>xss(901495)</script>'
+            
+fuzzed after scan 6 / 41
+found as XSS in scan 7 / 41"
+hospital,tblmedicalhistory.MedicalPres,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,902535,"""'><script>xss(902535)</script>","
+            hms.tblmedicalhistory.MedicalPres[0][6]
+            original row: [1, 1, '80/120', '120', '85', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            fuzzed row: [1, 1, '80/120', '120', '85', '98', '""\'><script>xss(902535)</script>', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            change: 'Test' => '""'><script>xss(902535)</script>'
+            
+fuzzed after scan 23 / 41
+found as XSS in scan 24 / 41"
+hospital,tblpage.PageTitle,"http://localhost/hospital/hms/admin/about-us.php
+http://localhost/hospital/hms/admin/about-us.php#",903468,"""'><script>xss(903468)</script>","
+            hms.tblpage.PageTitle[0][2]
+            original row: [1, 'aboutus', 'About Us', '<ul style=""padding: 0px; margin-right: 0px; margin-bottom: 1.313em; margin-left: 1.655em;"" times="""" new="""" roman"";="""" font-size:="""" 14px;="""" text-align:="""" center;="""" background-color:="""" rgb(255,="""" 246,="""" 246);""=""""><li style=""text-align: left;""><font color=""#000000"">The Hospital Management System (HMS) is designed for Any Hospital to replace their existing manual, paper based system. The new system is to control the following information; patient information, room availability, staff and operating room schedules, and patient invoices. These services are to be provided in an efficient, cost effective manner, with the goal of reducing the time and resources currently required for such tasks.</font></li><li style=""text-align: left;""><font color=""#000000"">A significant part of the operation of any hospital involves the acquisition, management and timely retrieval of great volumes of information. This information typically involves; patient personal information and medical history, staff information, room and ward scheduling, staff scheduling, operating theater scheduling and various facilities waiting lists. All of this information must be managed in an efficient and cost wise fashion so that an institution\'s resources may be effectively utilized HMS will automate the management of the hospital making it more efficient and error free. It aims at standardizing data, consolidating data ensuring data integrity and reducing inconsistencies.&nbsp;</font></li></ul>', None, None, datetime.datetime(2020, 5, 20, 7, 21, 52), None]
+            fuzzed row: [1, 'aboutus', '""\'><script>xss(903468)</script>', '<ul style=""padding: 0px; margin-right: 0px; margin-bottom: 1.313em; margin-left: 1.655em;"" times="""" new="""" roman"";="""" font-size:="""" 14px;="""" text-align:="""" center;="""" background-color:="""" rgb(255,="""" 246,="""" 246);""=""""><li style=""text-align: left;""><font color=""#000000"">The Hospital Management System (HMS) is designed for Any Hospital to replace their existing manual, paper based system. The new system is to control the following information; patient information, room availability, staff and operating room schedules, and patient invoices. These services are to be provided in an efficient, cost effective manner, with the goal of reducing the time and resources currently required for such tasks.</font></li><li style=""text-align: left;""><font color=""#000000"">A significant part of the operation of any hospital involves the acquisition, management and timely retrieval of great volumes of information. This information typically involves; patient personal information and medical history, staff information, room and ward scheduling, staff scheduling, operating theater scheduling and various facilities waiting lists. All of this information must be managed in an efficient and cost wise fashion so that an institution\'s resources may be effectively utilized HMS will automate the management of the hospital making it more efficient and error free. It aims at standardizing data, consolidating data ensuring data integrity and reducing inconsistencies.&nbsp;</font></li></ul>', None, None, datetime.datetime(2020, 5, 20, 7, 21, 52), None]
+            change: 'About Us' => '""'><script>xss(903468)</script>'
+            
+fuzzed after scan 30 / 41
+found as XSS in scan 31 / 41"
+hospital,userlog.logout,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",905103,"""'><script>xss(905103)</script>","
+            hms.userlog.logout[5][5]
+            original row: [6, 1, 'johndoe12@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 39, 7), None, 1]
+            fuzzed row: [6, 1, 'johndoe12@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 39, 7), '""\'><script>xss(905103)</script>', 1]
+            change: 'None' => '""'><script>xss(905103)</script>'
+            
+fuzzed after scan 35 / 41
+found as XSS in scan 36 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#",905372,"""'><script>xss(905372)</script>","
+            hms.doctorspecilization.specilization[14][1]
+            original row: [15, 'Neurologists', datetime.datetime(2022, 10, 30, 18, 12, 30), None]
+            fuzzed row: [15, '""\'><script>xss(905372)</script>', datetime.datetime(2022, 10, 30, 18, 12, 30), None]
+            change: 'Neurologists' => '""'><script>xss(905372)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,users.city,"http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",906468,"""'><script>xss(906468)</script>","
+            hms.users.city[0][3]
+            original row: [1, 'John Doe', 'A 123 ABC Apartment GZB 201017', 'Ghaziabad', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            fuzzed row: [1, 'John Doe', 'A 123 ABC Apartment GZB 201017', '""\'><script>xss(906468)</script>', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            change: 'Ghaziabad' => '""'><script>xss(906468)</script>'
+            
+fuzzed after scan 38 / 41
+found as XSS in scan 39 / 41"
+hospital,tblpage.PageDescription,http://localhost/hospital/index.php,907499,"""'><script>xss(907499)</script>","
+            hms.tblpage.PageDescription[0][3]
+            original row: [1, 'aboutus', 'About Us', '<ul style=""padding: 0px; margin-right: 0px; margin-bottom: 1.313em; margin-left: 1.655em;"" times="""" new="""" roman"";="""" font-size:="""" 14px;="""" text-align:="""" center;="""" background-color:="""" rgb(255,="""" 246,="""" 246);""=""""><li style=""text-align: left;""><font color=""#000000"">The Hospital Management System (HMS) is designed for Any Hospital to replace their existing manual, paper based system. The new system is to control the following information; patient information, room availability, staff and operating room schedules, and patient invoices. These services are to be provided in an efficient, cost effective manner, with the goal of reducing the time and resources currently required for such tasks.</font></li><li style=""text-align: left;""><font color=""#000000"">A significant part of the operation of any hospital involves the acquisition, management and timely retrieval of great volumes of information. This information typically involves; patient personal information and medical history, staff information, room and ward scheduling, staff scheduling, operating theater scheduling and various facilities waiting lists. All of this information must be managed in an efficient and cost wise fashion so that an institution\'s resources may be effectively utilized HMS will automate the management of the hospital making it more efficient and error free. It aims at standardizing data, consolidating data ensuring data integrity and reducing inconsistencies.&nbsp;</font></li></ul>', None, None, datetime.datetime(2020, 5, 20, 7, 21, 52), None]
+            fuzzed row: [1, 'aboutus', 'About Us', '""\'><script>xss(907499)</script>', None, None, datetime.datetime(2020, 5, 20, 7, 21, 52), None]
+            change: '<ul style=""padding: 0px; margin-right: 0px; margin-bottom: 1.313em; margin-left: 1.655em;"" times="""" new="""" roman"";="""" font-size:="""" 14px;="""" text-align:="""" center;="""" background-color:="""" rgb(255,="""" 246,="""" 246);""=""""><li style=""text-align: left;""><font color=""#000000"">The Hospital Management System (HMS) is designed for Any Hospital to replace their existing manual, paper based system. The new system is to control the following information; patient information, room availability, staff and operating room schedules, and patient invoices. These services are to be provided in an efficient, cost effective manner, with the goal of reducing the time and resources currently required for such tasks.</font></li><li style=""text-align: left;""><font color=""#000000"">A significant part of the operation of any hospital involves the acquisition, management and timely retrieval of great volumes of information. This information typically involves; patient personal information and medical history, staff information, room and ward scheduling, staff scheduling, operating theater scheduling and various facilities waiting lists. All of this information must be managed in an efficient and cost wise fashion so that an institution's resources may be effectively utilized HMS will automate the management of the hospital making it more efficient and error free. It aims at standardizing data, consolidating data ensuring data integrity and reducing inconsistencies.&nbsp;</font></li></ul>' => '""'><script>xss(907499)</script>'
+            
+fuzzed after scan 31 / 41
+found as XSS in scan 32 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",908615,"""'><script>xss(908615)</script>","
+            hms.doctorslog.logout[1][5]
+            original row: [21, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 11, 59, 40), '06-11-2022 05:35:18 PM', 1]
+            fuzzed row: [21, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 11, 59, 40), '""\'><script>xss(908615)</script>', 1]
+            change: '06-11-2022 05:35:18 PM' => '""'><script>xss(908615)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,tblpatient.PatientName,"http://localhost/hospital/hms/admin/manage-patient.php
+http://localhost/hospital/hms/admin/manage-patient.php#
+http://localhost/hospital/hms/admin/view-patient.php?viewid=1",909477,"""'><script>xss(909477)</script>","
+            hms.tblpatient.PatientName[0][2]
+            original row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            fuzzed row: [1, 1, '""\'><script>xss(909477)</script>', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            change: 'Amit Kumar' => '""'><script>xss(909477)</script>'
+            
+fuzzed after scan 14 / 41
+found as XSS in scan 15 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",910019,"""'><script>xss(910019)</script>","
+            hms.doctorslog.logout[0][5]
+            original row: [20, None, 'gfdgdf', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 4, 1, 2, 16), None, 0]
+            fuzzed row: [20, None, 'gfdgdf', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 4, 1, 2, 16), '""\'><script>xss(910019)</script>', 0]
+            change: 'None' => '""'><script>xss(910019)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,userlog.username,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",911585,"""'><script>xss(911585)</script>","
+            hms.userlog.username[2][2]
+            original row: [3, None, 'amitk@gmail.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 43), None, 0]
+            fuzzed row: [3, None, '""\'><script>xss(911585)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 43), None, 0]
+            change: 'amitk@gmail.com' => '""'><script>xss(911585)</script>'
+            
+fuzzed after scan 34 / 41
+found as XSS in scan 35 / 41"
+hospital,tblcontactus.email,"http://localhost/hospital/hms/admin/query-details.php?id=1
+http://localhost/hospital/hms/admin/unread-queries.php
+http://localhost/hospital/hms/admin/unread-queries.php#",912519,"""'><script>xss(912519)</script>","
+            hms.tblcontactus.email[0][2]
+            original row: [1, 'Anuj kumar', 'anujk30@test.com', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', datetime.datetime(2022, 10, 30, 16, 52, 3), None, None, None]
+            fuzzed row: [1, 'Anuj kumar', '""\'><script>xss(912519)</script>', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', datetime.datetime(2022, 10, 30, 16, 52, 3), None, None, None]
+            change: 'anujk30@test.com' => '""'><script>xss(912519)</script>'
+            
+fuzzed after scan 26 / 41
+found as XSS in scan 27 / 41"
+hospital,users.gender,"http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",914617,"""'><script>xss(914617)</script>","
+            hms.users.gender[1][4]
+            original row: [2, 'Amit kumar', 'new Delhi india', 'New Delhi', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            fuzzed row: [2, 'Amit kumar', 'new Delhi india', 'New Delhi', '""\'><script>xss(914617)</script>', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            change: 'male' => '""'><script>xss(914617)</script>'
+            
+fuzzed after scan 39 / 41
+found as XSS in scan 40 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",914995,"""'><script>xss(914995)</script>","
+            hms.doctorslog.logout[8][5]
+            original row: [28, 1, 'anujk123@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 38, 7), None, 1]
+            fuzzed row: [28, 1, 'anujk123@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 38, 7), '""\'><script>xss(914995)</script>', 1]
+            change: 'None' => '""'><script>xss(914995)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,userlog.logout,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",916011,"""'><script>xss(916011)</script>","
+            hms.userlog.logout[2][5]
+            original row: [3, None, 'amitk@gmail.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 43), None, 0]
+            fuzzed row: [3, None, 'amitk@gmail.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 43), '""\'><script>xss(916011)</script>', 0]
+            change: 'None' => '""'><script>xss(916011)</script>'
+            
+fuzzed after scan 35 / 41
+found as XSS in scan 36 / 41"
+hospital,tblpatient.PatientMedhis,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,916323,"""'><script>xss(916323)</script>","
+            hms.tblpatient.PatientMedhis[0][8]
+            original row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            fuzzed row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, '""\'><script>xss(916323)</script>', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            change: 'NA' => '""'><script>xss(916323)</script>'
+            
+fuzzed after scan 18 / 41
+found as XSS in scan 19 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#",916578,"""'><script>xss(916578)</script>","
+            hms.doctorspecilization.specilization[9][1]
+            original row: [10, 'Pathology', datetime.datetime(2022, 10, 30, 18, 11, 22), None]
+            fuzzed row: [10, '""\'><script>xss(916578)</script>', datetime.datetime(2022, 10, 30, 18, 11, 22), None]
+            change: 'Pathology' => '""'><script>xss(916578)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#",916945,"""'><script>xss(916945)</script>","
+            hms.doctorspecilization.specilization[1][1]
+            original row: [2, 'Internal Medicine', datetime.datetime(2022, 10, 30, 18, 9, 57), None]
+            fuzzed row: [2, '""\'><script>xss(916945)</script>', datetime.datetime(2022, 10, 30, 18, 9, 57), None]
+            change: 'Internal Medicine' => '""'><script>xss(916945)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",917479,"""'><script>xss(917479)</script>","
+            hms.doctorslog.username[1][2]
+            original row: [21, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 11, 59, 40), '06-11-2022 05:35:18 PM', 1]
+            fuzzed row: [21, 2, '""\'><script>xss(917479)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 11, 59, 40), '06-11-2022 05:35:18 PM', 1]
+            change: 'charudua12@test.com' => '""'><script>xss(917479)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",917951,"""'><script>xss(917951)</script>","
+            hms.doctorslog.logout[3][5]
+            original row: [23, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 8, 56), '06-11-2022 05:42:53 PM', 1]
+            fuzzed row: [23, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 8, 56), '""\'><script>xss(917951)</script>', 1]
+            change: '06-11-2022 05:42:53 PM' => '""'><script>xss(917951)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,tblpatient.PatientGender,"http://localhost/hospital/hms/admin/manage-patient.php
+http://localhost/hospital/hms/admin/manage-patient.php#
+http://localhost/hospital/hms/admin/view-patient.php?viewid=1",919226,"""'><script>xss(919226)</script>","
+            hms.tblpatient.PatientGender[0][5]
+            original row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            fuzzed row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', '""\'><script>xss(919226)</script>', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            change: 'male' => '""'><script>xss(919226)</script>'
+            
+fuzzed after scan 16 / 41
+found as XSS in scan 17 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",921316,"""'><script>xss(921316)</script>","
+            hms.doctorslog.username[7][2]
+            original row: [27, 1, 'anujk123@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 40), '06-03-2023 01:02:48 PM', 1]
+            fuzzed row: [27, 1, '""\'><script>xss(921316)</script>', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 40), '06-03-2023 01:02:48 PM', 1]
+            change: 'anujk123@test.com' => '""'><script>xss(921316)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",924628,"""'><script>xss(924628)</script>","
+            hms.doctorslog.logout[7][5]
+            original row: [27, 1, 'anujk123@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 40), '06-03-2023 01:02:48 PM', 1]
+            fuzzed row: [27, 1, 'anujk123@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 40), '""\'><script>xss(924628)</script>', 1]
+            change: '06-03-2023 01:02:48 PM' => '""'><script>xss(924628)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",924647,"""'><script>xss(924647)</script>","
+            hms.doctorslog.username[8][2]
+            original row: [28, 1, 'anujk123@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 38, 7), None, 1]
+            fuzzed row: [28, 1, '""\'><script>xss(924647)</script>', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 38, 7), None, 1]
+            change: 'anujk123@test.com' => '""'><script>xss(924647)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=3",925715,"""'><script>xss(925715)</script>","
+            hms.doctorspecilization.specilization[2][1]
+            original row: [3, 'Obstetrics and Gynecology', datetime.datetime(2022, 10, 30, 18, 10, 18), None]
+            fuzzed row: [3, '""\'><script>xss(925715)</script>', datetime.datetime(2022, 10, 30, 18, 10, 18), None]
+            change: 'Obstetrics and Gynecology' => '""'><script>xss(925715)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,tblcontactus.AdminRemark,http://localhost/hospital/hms/admin/query-details.php?id=1,925898,"""'><script>xss(925898)</script>","
+            hms.tblcontactus.AdminRemark[0][6]
+            original row: [1, 'Anuj kumar', 'anujk30@test.com', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', datetime.datetime(2022, 10, 30, 16, 52, 3), None, None, None]
+            fuzzed row: [1, 'Anuj kumar', 'anujk30@test.com', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', datetime.datetime(2022, 10, 30, 16, 52, 3), '""\'><script>xss(925898)</script>', None, None]
+            change: 'None' => '""'><script>xss(925898)</script>'
+            
+fuzzed after scan 28 / 41
+found as XSS in scan 29 / 41"
+hospital,appointment.appointmentTime,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#",926508,"""'><script>xss(926508)</script>","
+            hms.appointment.appointmentTime[0][6]
+            original row: [1, 'ENT', 1, 1, 500, '2022-11-10', '12:45 PM', datetime.datetime(2022, 11, 6, 12, 21, 48), 1, 0, datetime.datetime(2022, 11, 6, 12, 23, 35)]
+            fuzzed row: [1, 'ENT', 1, 1, 500, '2022-11-10', '""\'><script>xss(926508)</script>', datetime.datetime(2022, 11, 6, 12, 21, 48), 1, 0, datetime.datetime(2022, 11, 6, 12, 23, 35)]
+            change: '12:45 PM' => '""'><script>xss(926508)</script>'
+            
+fuzzed after scan 5 / 41
+found as XSS in scan 6 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",926742,"""'><script>xss(926742)</script>","
+            hms.doctorslog.username[0][2]
+            original row: [20, None, 'gfdgdf', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 4, 1, 2, 16), None, 0]
+            fuzzed row: [20, None, '""\'><script>xss(926742)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 4, 1, 2, 16), None, 0]
+            change: 'gfdgdf' => '""'><script>xss(926742)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=5",928087,"""'><script>xss(928087)</script>","
+            hms.doctorspecilization.specilization[4][1]
+            original row: [5, 'Pediatrics', datetime.datetime(2022, 10, 30, 18, 10, 37), None]
+            fuzzed row: [5, '""\'><script>xss(928087)</script>', datetime.datetime(2022, 10, 30, 18, 10, 37), None]
+            change: 'Pediatrics' => '""'><script>xss(928087)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=4",928221,"""'><script>xss(928221)</script>","
+            hms.doctorspecilization.specilization[3][1]
+            original row: [4, 'Dermatology', datetime.datetime(2022, 10, 30, 18, 10, 28), None]
+            fuzzed row: [4, '""\'><script>xss(928221)</script>', datetime.datetime(2022, 10, 30, 18, 10, 28), None]
+            change: 'Dermatology' => '""'><script>xss(928221)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=7",928935,"""'><script>xss(928935)</script>","
+            hms.doctorspecilization.specilization[6][1]
+            original row: [7, 'General Surgery', datetime.datetime(2022, 10, 30, 18, 10, 56), None]
+            fuzzed row: [7, '""\'><script>xss(928935)</script>', datetime.datetime(2022, 10, 30, 18, 10, 56), None]
+            change: 'General Surgery' => '""'><script>xss(928935)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,tblcontactus.message,"http://localhost/hospital/hms/admin/query-details.php?id=1
+http://localhost/hospital/hms/admin/unread-queries.php
+http://localhost/hospital/hms/admin/unread-queries.php#",930418,"""'><script>xss(930418)</script>","
+            hms.tblcontactus.message[0][4]
+            original row: [1, 'Anuj kumar', 'anujk30@test.com', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', datetime.datetime(2022, 10, 30, 16, 52, 3), None, None, None]
+            fuzzed row: [1, 'Anuj kumar', 'anujk30@test.com', 1425362514, '""\'><script>xss(930418)</script>', datetime.datetime(2022, 10, 30, 16, 52, 3), None, None, None]
+            change: 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.' => '""'><script>xss(930418)</script>'
+            
+fuzzed after scan 27 / 41
+found as XSS in scan 28 / 41"
+hospital,tblcontactus.fullname,"http://localhost/hospital/hms/admin/query-details.php?id=2
+http://localhost/hospital/hms/admin/read-query.php
+http://localhost/hospital/hms/admin/read-query.php#",930655,"""'><script>xss(930655)</script>","
+            hms.tblcontactus.fullname[1][1]
+            original row: [2, 'Anuj kumar', 'ak@gmail.com', 1111122233, 'This is for testing', datetime.datetime(2022, 11, 6, 13, 13, 41), 'Contact the patient', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            fuzzed row: [2, '""\'><script>xss(930655)</script>', 'ak@gmail.com', 1111122233, 'This is for testing', datetime.datetime(2022, 11, 6, 13, 13, 41), 'Contact the patient', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            change: 'Anuj kumar' => '""'><script>xss(930655)</script>'
+            
+fuzzed after scan 25 / 41
+found as XSS in scan 26 / 41"
+hospital,tblpatient.PatientAdd,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,932437,"""'><script>xss(932437)</script>","
+            hms.tblpatient.PatientAdd[0][6]
+            original row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            fuzzed row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', '""\'><script>xss(932437)</script>', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            change: 'New Delhi india' => '""'><script>xss(932437)</script>'
+            
+fuzzed after scan 17 / 41
+found as XSS in scan 18 / 41"
+hospital,tblcontactus.AdminRemark,http://localhost/hospital/hms/admin/query-details.php?id=2,932605,"""'><script>xss(932605)</script>","
+            hms.tblcontactus.AdminRemark[1][6]
+            original row: [2, 'Anuj kumar', 'ak@gmail.com', 1111122233, 'This is for testing', datetime.datetime(2022, 11, 6, 13, 13, 41), 'Contact the patient', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            fuzzed row: [2, 'Anuj kumar', 'ak@gmail.com', 1111122233, 'This is for testing', datetime.datetime(2022, 11, 6, 13, 13, 41), '""\'><script>xss(932605)</script>', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            change: 'Contact the patient' => '""'><script>xss(932605)</script>'
+            
+fuzzed after scan 28 / 41
+found as XSS in scan 29 / 41"
+hospital,tblpatient.PatientEmail,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,934193,"""'><script>xss(934193)</script>","
+            hms.tblpatient.PatientEmail[0][4]
+            original row: [1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            fuzzed row: [1, 1, 'Amit Kumar', 1231231230, '""\'><script>xss(934193)</script>', 'male', 'New Delhi india', 35, 'NA', datetime.datetime(2022, 11, 6, 13, 18, 31), None]
+            change: 'amitk@gmail.com' => '""'><script>xss(934193)</script>'
+            
+fuzzed after scan 15 / 41
+found as XSS in scan 16 / 41"
+hospital,tblcontactus.fullname,"http://localhost/hospital/hms/admin/query-details.php?id=1
+http://localhost/hospital/hms/admin/unread-queries.php
+http://localhost/hospital/hms/admin/unread-queries.php#",935393,"""'><script>xss(935393)</script>","
+            hms.tblcontactus.fullname[0][1]
+            original row: [1, 'Anuj kumar', 'anujk30@test.com', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', datetime.datetime(2022, 10, 30, 16, 52, 3), None, None, None]
+            fuzzed row: [1, '""\'><script>xss(935393)</script>', 'anujk30@test.com', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', datetime.datetime(2022, 10, 30, 16, 52, 3), None, None, None]
+            change: 'Anuj kumar' => '""'><script>xss(935393)</script>'
+            
+fuzzed after scan 25 / 41
+found as XSS in scan 26 / 41"
+hospital,userlog.username,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",936661,"""'><script>xss(936661)</script>","
+            hms.userlog.username[3][2]
+            original row: [4, 2, 'amitk@gmail.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 58), '06-11-2022 06:50:46 PM', 1]
+            fuzzed row: [4, 2, '""\'><script>xss(936661)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 58), '06-11-2022 06:50:46 PM', 1]
+            change: 'amitk@gmail.com' => '""'><script>xss(936661)</script>'
+            
+fuzzed after scan 34 / 41
+found as XSS in scan 35 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#",937790,"""'><script>xss(937790)</script>","
+            hms.doctorspecilization.specilization[10][1]
+            original row: [11, 'ENT', datetime.datetime(2022, 10, 30, 18, 11, 30), None]
+            fuzzed row: [11, '""\'><script>xss(937790)</script>', datetime.datetime(2022, 10, 30, 18, 11, 30), None]
+            change: 'ENT' => '""'><script>xss(937790)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctors.doctorName,"http://localhost/hospital/hms/admin/Manage-doctors.php
+http://localhost/hospital/hms/admin/Manage-doctors.php#
+http://localhost/hospital/hms/admin/manage-doctors.php
+http://localhost/hospital/hms/admin/manage-doctors.php#",937792,"""'><script>xss(937792)</script>","
+            hms.doctors.doctorName[1][2]
+            original row: [2, 'Endocrinologists', 'Charu Dua', 'X 1212 ABC Apartment Laxmi Nagar New Delhi ', '800', 1231231230, 'charudua12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 4, 1, 6, 41), None]
+            fuzzed row: [2, 'Endocrinologists', '""\'><script>xss(937792)</script>', 'X 1212 ABC Apartment Laxmi Nagar New Delhi ', '800', 1231231230, 'charudua12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 4, 1, 6, 41), None]
+            change: 'Charu Dua' => '""'><script>xss(937792)</script>'
+            
+fuzzed after scan 7 / 41
+found as XSS in scan 8 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",938438,"""'><script>xss(938438)</script>","
+            hms.doctorslog.username[2][2]
+            original row: [22, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 6, 37), '06-11-2022 05:36:40 PM', 1]
+            fuzzed row: [22, 2, '""\'><script>xss(938438)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 6, 37), '06-11-2022 05:36:40 PM', 1]
+            change: 'charudua12@test.com' => '""'><script>xss(938438)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,appointment.doctorSpecialization,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#",938613,"""'><script>xss(938613)</script>","
+            hms.appointment.doctorSpecialization[1][1]
+            original row: [2, 'ENT', 1, 2, 500, '2022-11-17', '7:00 PM', datetime.datetime(2022, 11, 6, 13, 16, 18), 1, 1, None]
+            fuzzed row: [2, '""\'><script>xss(938613)</script>', 1, 2, 500, '2022-11-17', '7:00 PM', datetime.datetime(2022, 11, 6, 13, 16, 18), 1, 1, None]
+            change: 'ENT' => '""'><script>xss(938613)</script>'
+            
+fuzzed after scan 3 / 41
+found as XSS in scan 4 / 41"
+hospital,users.gender,"http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",938933,"""'><script>xss(938933)</script>","
+            hms.users.gender[0][4]
+            original row: [1, 'John Doe', 'A 123 ABC Apartment GZB 201017', 'Ghaziabad', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            fuzzed row: [1, 'John Doe', 'A 123 ABC Apartment GZB 201017', 'Ghaziabad', '""\'><script>xss(938933)</script>', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            change: 'male' => '""'><script>xss(938933)</script>'
+            
+fuzzed after scan 39 / 41
+found as XSS in scan 40 / 41"
+hospital,users.address,"http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",940004,"""'><script>xss(940004)</script>","
+            hms.users.address[1][2]
+            original row: [2, 'Amit kumar', 'new Delhi india', 'New Delhi', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            fuzzed row: [2, 'Amit kumar', '""\'><script>xss(940004)</script>', 'New Delhi', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            change: 'new Delhi india' => '""'><script>xss(940004)</script>'
+            
+fuzzed after scan 37 / 41
+found as XSS in scan 38 / 41"
+hospital,users.fullName,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#
+http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",940867,"""'><script>xss(940867)</script>","
+            hms.users.fullName[1][1]
+            original row: [2, 'Amit kumar', 'new Delhi india', 'New Delhi', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            fuzzed row: [2, '""\'><script>xss(940867)</script>', 'new Delhi india', 'New Delhi', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            change: 'Amit kumar' => '""'><script>xss(940867)</script>'
+            
+fuzzed after scan 36 / 41
+found as XSS in scan 37 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",945096,"""'><script>xss(945096)</script>","
+            hms.doctorslog.username[5][2]
+            original row: [25, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 16, 53), '06-11-2022 06:47:07 PM', 1]
+            fuzzed row: [25, 2, '""\'><script>xss(945096)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 16, 53), '06-11-2022 06:47:07 PM', 1]
+            change: 'charudua12@test.com' => '""'><script>xss(945096)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,tblmedicalhistory.BloodPressure,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,946948,"""'><script>xss(946948)</script>","
+            hms.tblmedicalhistory.BloodPressure[0][2]
+            original row: [1, 1, '80/120', '120', '85', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            fuzzed row: [1, 1, '""\'><script>xss(946948)</script>', '120', '85', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            change: '80/120' => '""'><script>xss(946948)</script>'
+            
+fuzzed after scan 19 / 41
+found as XSS in scan 20 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",947652,"""'><script>xss(947652)</script>","
+            hms.doctorslog.logout[5][5]
+            original row: [25, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 16, 53), '06-11-2022 06:47:07 PM', 1]
+            fuzzed row: [25, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 16, 53), '""\'><script>xss(947652)</script>', 1]
+            change: '06-11-2022 06:47:07 PM' => '""'><script>xss(947652)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,userlog.logout,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",952795,"""'><script>xss(952795)</script>","
+            hms.userlog.logout[3][5]
+            original row: [4, 2, 'amitk@gmail.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 58), '06-11-2022 06:50:46 PM', 1]
+            fuzzed row: [4, 2, 'amitk@gmail.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 15, 58), '""\'><script>xss(952795)</script>', 1]
+            change: '06-11-2022 06:50:46 PM' => '""'><script>xss(952795)</script>'
+            
+fuzzed after scan 35 / 41
+found as XSS in scan 36 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=9",953798,"""'><script>xss(953798)</script>","
+            hms.doctorspecilization.specilization[8][1]
+            original row: [9, 'Anesthesia', datetime.datetime(2022, 10, 30, 18, 11, 15), None]
+            fuzzed row: [9, '""\'><script>xss(953798)</script>', datetime.datetime(2022, 10, 30, 18, 11, 15), None]
+            change: 'Anesthesia' => '""'><script>xss(953798)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,appointment.doctorSpecialization,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#",954046,"""'><script>xss(954046)</script>","
+            hms.appointment.doctorSpecialization[0][1]
+            original row: [1, 'ENT', 1, 1, 500, '2022-11-10', '12:45 PM', datetime.datetime(2022, 11, 6, 12, 21, 48), 1, 0, datetime.datetime(2022, 11, 6, 12, 23, 35)]
+            fuzzed row: [1, '""\'><script>xss(954046)</script>', 1, 1, 500, '2022-11-10', '12:45 PM', datetime.datetime(2022, 11, 6, 12, 21, 48), 1, 0, datetime.datetime(2022, 11, 6, 12, 23, 35)]
+            change: 'ENT' => '""'><script>xss(954046)</script>'
+            
+fuzzed after scan 3 / 41
+found as XSS in scan 4 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=8",955142,"""'><script>xss(955142)</script>","
+            hms.doctorspecilization.specilization[7][1]
+            original row: [8, 'Ophthalmology', datetime.datetime(2022, 10, 30, 18, 11, 3), None]
+            fuzzed row: [8, '""\'><script>xss(955142)</script>', datetime.datetime(2022, 10, 30, 18, 11, 3), None]
+            change: 'Ophthalmology' => '""'><script>xss(955142)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,tblmedicalhistory.Weight,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,957431,"""'><script>xss(957431)</script>","
+            hms.tblmedicalhistory.Weight[0][4]
+            original row: [1, 1, '80/120', '120', '85', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            fuzzed row: [1, 1, '80/120', '120', '""\'><script>xss(957431)</script>', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            change: '85' => '""'><script>xss(957431)</script>'
+            
+fuzzed after scan 21 / 41
+found as XSS in scan 22 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",961490,"""'><script>xss(961490)</script>","
+            hms.doctorslog.username[3][2]
+            original row: [23, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 8, 56), '06-11-2022 05:42:53 PM', 1]
+            fuzzed row: [23, 2, '""\'><script>xss(961490)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 8, 56), '06-11-2022 05:42:53 PM', 1]
+            change: 'charudua12@test.com' => '""'><script>xss(961490)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,userlog.logout,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",964944,"""'><script>xss(964944)</script>","
+            hms.userlog.logout[0][5]
+            original row: [1, 1, 'johndoe12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 14, 11), None, 1]
+            fuzzed row: [1, 1, 'johndoe12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 14, 11), '""\'><script>xss(964944)</script>', 1]
+            change: 'None' => '""'><script>xss(964944)</script>'
+            
+fuzzed after scan 35 / 41
+found as XSS in scan 36 / 41"
+hospital,userlog.username,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",966374,"""'><script>xss(966374)</script>","
+            hms.userlog.username[0][2]
+            original row: [1, 1, 'johndoe12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 14, 11), None, 1]
+            fuzzed row: [1, 1, '""\'><script>xss(966374)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 14, 11), None, 1]
+            change: 'johndoe12@test.com' => '""'><script>xss(966374)</script>'
+            
+fuzzed after scan 34 / 41
+found as XSS in scan 35 / 41"
+hospital,users.address,"http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",967038,"""'><script>xss(967038)</script>","
+            hms.users.address[0][2]
+            original row: [1, 'John Doe', 'A 123 ABC Apartment GZB 201017', 'Ghaziabad', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            fuzzed row: [1, 'John Doe', '""\'><script>xss(967038)</script>', 'Ghaziabad', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            change: 'A 123 ABC Apartment GZB 201017' => '""'><script>xss(967038)</script>'
+            
+fuzzed after scan 37 / 41
+found as XSS in scan 38 / 41"
+hospital,appointment.appointmentDate,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#",968601,"""'><script>xss(968601)</script>","
+            hms.appointment.appointmentDate[0][5]
+            original row: [1, 'ENT', 1, 1, 500, '2022-11-10', '12:45 PM', datetime.datetime(2022, 11, 6, 12, 21, 48), 1, 0, datetime.datetime(2022, 11, 6, 12, 23, 35)]
+            fuzzed row: [1, 'ENT', 1, 1, 500, '""\'><script>xss(968601)</script>', '12:45 PM', datetime.datetime(2022, 11, 6, 12, 21, 48), 1, 0, datetime.datetime(2022, 11, 6, 12, 23, 35)]
+            change: '2022-11-10' => '""'><script>xss(968601)</script>'
+            
+fuzzed after scan 4 / 41
+found as XSS in scan 5 / 41"
+hospital,userlog.username,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",969000,"""'><script>xss(969000)</script>","
+            hms.userlog.username[4][2]
+            original row: [5, 1, 'johndoe12@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 14), '06-03-2023 01:02:22 PM', 1]
+            fuzzed row: [5, 1, '""\'><script>xss(969000)</script>', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 14), '06-03-2023 01:02:22 PM', 1]
+            change: 'johndoe12@test.com' => '""'><script>xss(969000)</script>'
+            
+fuzzed after scan 34 / 41
+found as XSS in scan 35 / 41"
+hospital,users.city,"http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",969360,"""'><script>xss(969360)</script>","
+            hms.users.city[1][3]
+            original row: [2, 'Amit kumar', 'new Delhi india', 'New Delhi', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            fuzzed row: [2, 'Amit kumar', 'new Delhi india', '""\'><script>xss(969360)</script>', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 13, 15, 32), None]
+            change: 'New Delhi' => '""'><script>xss(969360)</script>'
+            
+fuzzed after scan 38 / 41
+found as XSS in scan 39 / 41"
+hospital,tblpage.PageTitle,"http://localhost/hospital/hms/admin/contact.php
+http://localhost/hospital/hms/admin/contact.php#",971268,"""'><script>xss(971268)</script>","
+            hms.tblpage.PageTitle[1][2]
+            original row: [2, 'contactus', 'Contact Details', 'D-204, Hole Town South West, Delhi-110096,India', 'info@gmail.com', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '9 am To 8 Pm']
+            fuzzed row: [2, 'contactus', '""\'><script>xss(971268)</script>', 'D-204, Hole Town South West, Delhi-110096,India', 'info@gmail.com', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '9 am To 8 Pm']
+            change: 'Contact Details' => '""'><script>xss(971268)</script>'
+            
+fuzzed after scan 30 / 41
+found as XSS in scan 31 / 41"
+hospital,tblpage.Email,"http://localhost/hospital/hms/admin/contact.php
+http://localhost/hospital/hms/admin/contact.php#
+http://localhost/hospital/index.php",972570,"""'><script>xss(972570)</script>","
+            hms.tblpage.Email[1][4]
+            original row: [2, 'contactus', 'Contact Details', 'D-204, Hole Town South West, Delhi-110096,India', 'info@gmail.com', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '9 am To 8 Pm']
+            fuzzed row: [2, 'contactus', 'Contact Details', 'D-204, Hole Town South West, Delhi-110096,India', '""\'><script>xss(972570)</script>', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '9 am To 8 Pm']
+            change: 'info@gmail.com' => '""'><script>xss(972570)</script>'
+            
+fuzzed after scan 32 / 41
+found as XSS in scan 33 / 41"
+hospital,tblmedicalhistory.Temperature,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,974365,"""'><script>xss(974365)</script>","
+            hms.tblmedicalhistory.Temperature[0][5]
+            original row: [1, 1, '80/120', '120', '85', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            fuzzed row: [1, 1, '80/120', '120', '85', '""\'><script>xss(974365)</script>', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            change: '98' => '""'><script>xss(974365)</script>'
+            
+fuzzed after scan 22 / 41
+found as XSS in scan 23 / 41"
+hospital,users.fullName,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#
+http://localhost/hospital/hms/admin/manage-users.php
+http://localhost/hospital/hms/admin/manage-users.php#",974605,"""'><script>xss(974605)</script>","
+            hms.users.fullName[0][1]
+            original row: [1, 'John Doe', 'A 123 ABC Apartment GZB 201017', 'Ghaziabad', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            fuzzed row: [1, '""\'><script>xss(974605)</script>', 'A 123 ABC Apartment GZB 201017', 'Ghaziabad', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 6, 12, 13, 56), None]
+            change: 'John Doe' => '""'><script>xss(974605)</script>'
+            
+fuzzed after scan 36 / 41
+found as XSS in scan 37 / 41"
+hospital,userlog.username,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",975630,"""'><script>xss(975630)</script>","
+            hms.userlog.username[1][2]
+            original row: [2, 1, 'johndoe12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 21, 20), '06-11-2022 05:53:00 PM', 1]
+            fuzzed row: [2, 1, '""\'><script>xss(975630)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 21, 20), '06-11-2022 05:53:00 PM', 1]
+            change: 'johndoe12@test.com' => '""'><script>xss(975630)</script>'
+            
+fuzzed after scan 34 / 41
+found as XSS in scan 35 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",975879,"""'><script>xss(975879)</script>","
+            hms.doctorslog.username[6][2]
+            original row: [26, 1, 'anujk123@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 17, 33), '06-11-2022 06:50:28 PM', 1]
+            fuzzed row: [26, 1, '""\'><script>xss(975879)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 17, 33), '06-11-2022 06:50:28 PM', 1]
+            change: 'anujk123@test.com' => '""'><script>xss(975879)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,tblcontactus.email,"http://localhost/hospital/hms/admin/query-details.php?id=2
+http://localhost/hospital/hms/admin/read-query.php
+http://localhost/hospital/hms/admin/read-query.php#",976085,"""'><script>xss(976085)</script>","
+            hms.tblcontactus.email[1][2]
+            original row: [2, 'Anuj kumar', 'ak@gmail.com', 1111122233, 'This is for testing', datetime.datetime(2022, 11, 6, 13, 13, 41), 'Contact the patient', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            fuzzed row: [2, 'Anuj kumar', '""\'><script>xss(976085)</script>', 1111122233, 'This is for testing', datetime.datetime(2022, 11, 6, 13, 13, 41), 'Contact the patient', datetime.datetime(2022, 11, 6, 13, 13, 57), 1]
+            change: 'ak@gmail.com' => '""'><script>xss(976085)</script>'
+            
+fuzzed after scan 26 / 41
+found as XSS in scan 27 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",977051,"""'><script>xss(977051)</script>","
+            hms.doctorslog.logout[4][5]
+            original row: [24, 1, 'anujk123@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 23, 18), '06-11-2022 05:53:40 PM', 1]
+            fuzzed row: [24, 1, 'anujk123@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 23, 18), '""\'><script>xss(977051)</script>', 1]
+            change: '06-11-2022 05:53:40 PM' => '""'><script>xss(977051)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",977162,"""'><script>xss(977162)</script>","
+            hms.doctorslog.logout[6][5]
+            original row: [26, 1, 'anujk123@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 17, 33), '06-11-2022 06:50:28 PM', 1]
+            fuzzed row: [26, 1, 'anujk123@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 13, 17, 33), '""\'><script>xss(977162)</script>', 1]
+            change: '06-11-2022 06:50:28 PM' => '""'><script>xss(977162)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#",977626,"""'><script>xss(977626)</script>","
+            hms.doctorspecilization.specilization[12][1]
+            original row: [13, 'Dermatologists', datetime.datetime(2022, 10, 30, 18, 12, 2), None]
+            fuzzed row: [13, '""\'><script>xss(977626)</script>', datetime.datetime(2022, 10, 30, 18, 12, 2), None]
+            change: 'Dermatologists' => '""'><script>xss(977626)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctors.specilization,"http://localhost/hospital/hms/admin/Manage-doctors.php
+http://localhost/hospital/hms/admin/Manage-doctors.php#
+http://localhost/hospital/hms/admin/manage-doctors.php
+http://localhost/hospital/hms/admin/manage-doctors.php#",977854,"""'><script>xss(977854)</script>","
+            hms.doctors.specilization[1][1]
+            original row: [2, 'Endocrinologists', 'Charu Dua', 'X 1212 ABC Apartment Laxmi Nagar New Delhi ', '800', 1231231230, 'charudua12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 4, 1, 6, 41), None]
+            fuzzed row: [2, '""\'><script>xss(977854)</script>', 'Charu Dua', 'X 1212 ABC Apartment Laxmi Nagar New Delhi ', '800', 1231231230, 'charudua12@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 11, 4, 1, 6, 41), None]
+            change: 'Endocrinologists' => '""'><script>xss(977854)</script>'
+            
+fuzzed after scan 6 / 41
+found as XSS in scan 7 / 41"
+hospital,doctorslog.username,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",979206,"""'><script>xss(979206)</script>","
+            hms.doctorslog.username[4][2]
+            original row: [24, 1, 'anujk123@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 23, 18), '06-11-2022 05:53:40 PM', 1]
+            fuzzed row: [24, 1, '""\'><script>xss(979206)</script>', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 23, 18), '06-11-2022 05:53:40 PM', 1]
+            change: 'anujk123@test.com' => '""'><script>xss(979206)</script>'
+            
+fuzzed after scan 12 / 41
+found as XSS in scan 13 / 41"
+hospital,doctorslog.logout,"http://localhost/hospital/hms/admin/doctor-logs.php
+http://localhost/hospital/hms/admin/doctor-logs.php#",980070,"""'><script>xss(980070)</script>","
+            hms.doctorslog.logout[2][5]
+            original row: [22, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 6, 37), '06-11-2022 05:36:40 PM', 1]
+            fuzzed row: [22, 2, 'charudua12@test.com', bytearray(b'::1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'), datetime.datetime(2022, 11, 6, 12, 6, 37), '""\'><script>xss(980070)</script>', 1]
+            change: '06-11-2022 05:36:40 PM' => '""'><script>xss(980070)</script>'
+            
+fuzzed after scan 13 / 41
+found as XSS in scan 14 / 41"
+hospital,appointment.appointmentTime,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#",982024,"""'><script>xss(982024)</script>","
+            hms.appointment.appointmentTime[1][6]
+            original row: [2, 'ENT', 1, 2, 500, '2022-11-17', '7:00 PM', datetime.datetime(2022, 11, 6, 13, 16, 18), 1, 1, None]
+            fuzzed row: [2, 'ENT', 1, 2, 500, '2022-11-17', '""\'><script>xss(982024)</script>', datetime.datetime(2022, 11, 6, 13, 16, 18), 1, 1, None]
+            change: '7:00 PM' => '""'><script>xss(982024)</script>'
+            
+fuzzed after scan 5 / 41
+found as XSS in scan 6 / 41"
+hospital,tblpage.PageDescription,http://localhost/hospital/index.php,983013,"""'><script>xss(983013)</script>","
+            hms.tblpage.PageDescription[1][3]
+            original row: [2, 'contactus', 'Contact Details', 'D-204, Hole Town South West, Delhi-110096,India', 'info@gmail.com', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '9 am To 8 Pm']
+            fuzzed row: [2, 'contactus', 'Contact Details', '""\'><script>xss(983013)</script>', 'info@gmail.com', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '9 am To 8 Pm']
+            change: 'D-204, Hole Town South West, Delhi-110096,India' => '""'><script>xss(983013)</script>'
+            
+fuzzed after scan 31 / 41
+found as XSS in scan 32 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#",985334,"""'><script>xss(985334)</script>","
+            hms.doctorspecilization.specilization[13][1]
+            original row: [14, 'Endocrinologists', datetime.datetime(2022, 10, 30, 18, 12, 10), None]
+            fuzzed row: [14, '""\'><script>xss(985334)</script>', datetime.datetime(2022, 10, 30, 18, 12, 10), None]
+            change: 'Endocrinologists' => '""'><script>xss(985334)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#",985841,"""'><script>xss(985841)</script>","
+            hms.doctorspecilization.specilization[11][1]
+            original row: [12, 'Dental Care', datetime.datetime(2022, 10, 30, 18, 11, 39), None]
+            fuzzed row: [12, '""\'><script>xss(985841)</script>', datetime.datetime(2022, 10, 30, 18, 11, 39), None]
+            change: 'Dental Care' => '""'><script>xss(985841)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctors.doctorName,"http://localhost/hospital/hms/admin/Manage-doctors.php
+http://localhost/hospital/hms/admin/Manage-doctors.php#
+http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#
+http://localhost/hospital/hms/admin/manage-doctors.php
+http://localhost/hospital/hms/admin/manage-doctors.php#",988274,"""'><script>xss(988274)</script>","
+            hms.doctors.doctorName[0][2]
+            original row: [1, 'ENT', 'Anuj kumar', 'A 123 XYZ Apartment Raj Nagar Ext Ghaziabad', '500', 142536250, 'anujk123@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 10, 30, 18, 16, 52), datetime.datetime(2022, 11, 6, 13, 20, 17)]
+            fuzzed row: [1, 'ENT', '""\'><script>xss(988274)</script>', 'A 123 XYZ Apartment Raj Nagar Ext Ghaziabad', '500', 142536250, 'anujk123@test.com', 'f925916e2754e5e03f75dd58a5733251', datetime.datetime(2022, 10, 30, 18, 16, 52), datetime.datetime(2022, 11, 6, 13, 20, 17)]
+            change: 'Anuj kumar' => '""'><script>xss(988274)</script>'
+            
+fuzzed after scan 7 / 41
+found as XSS in scan 8 / 41"
+hospital,userlog.username,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",990688,"""'><script>xss(990688)</script>","
+            hms.userlog.username[5][2]
+            original row: [6, 1, 'johndoe12@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 39, 7), None, 1]
+            fuzzed row: [6, 1, '""\'><script>xss(990688)</script>', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 39, 7), None, 1]
+            change: 'johndoe12@test.com' => '""'><script>xss(990688)</script>'
+            
+fuzzed after scan 34 / 41
+found as XSS in scan 35 / 41"
+hospital,tblmedicalhistory.BloodSugar,http://localhost/hospital/hms/admin/view-patient.php?viewid=1,991001,"""'><script>xss(991001)</script>","
+            hms.tblmedicalhistory.BloodSugar[0][3]
+            original row: [1, 1, '80/120', '120', '85', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            fuzzed row: [1, 1, '80/120', '""\'><script>xss(991001)</script>', '85', '98', 'Test', datetime.datetime(2022, 11, 6, 13, 19, 41)]
+            change: '120' => '""'><script>xss(991001)</script>'
+            
+fuzzed after scan 20 / 41
+found as XSS in scan 21 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=6",995304,"""'><script>xss(995304)</script>","
+            hms.doctorspecilization.specilization[5][1]
+            original row: [6, 'Radiology', datetime.datetime(2022, 10, 30, 18, 10, 46), None]
+            fuzzed row: [6, '""\'><script>xss(995304)</script>', datetime.datetime(2022, 10, 30, 18, 10, 46), None]
+            change: 'Radiology' => '""'><script>xss(995304)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,doctorspecilization.specilization,"http://localhost/hospital/hms/admin/doctor-specilization.php
+http://localhost/hospital/hms/admin/doctor-specilization.php#
+http://localhost/hospital/hms/admin/edit-doctor-specialization.php?id=1",997256,"""'><script>xss(997256)</script>","
+            hms.doctorspecilization.specilization[0][1]
+            original row: [1, 'Orthopedics', datetime.datetime(2022, 10, 30, 18, 9, 46), None]
+            fuzzed row: [1, '""\'><script>xss(997256)</script>', datetime.datetime(2022, 10, 30, 18, 9, 46), None]
+            change: 'Orthopedics' => '""'><script>xss(997256)</script>'
+            
+fuzzed after scan 24 / 41
+found as XSS in scan 25 / 41"
+hospital,appointment.appointmentDate,"http://localhost/hospital/hms/admin/appointment-history.php
+http://localhost/hospital/hms/admin/appointment-history.php#",997737,"""'><script>xss(997737)</script>","
+            hms.appointment.appointmentDate[1][5]
+            original row: [2, 'ENT', 1, 2, 500, '2022-11-17', '7:00 PM', datetime.datetime(2022, 11, 6, 13, 16, 18), 1, 1, None]
+            fuzzed row: [2, 'ENT', 1, 2, 500, '""\'><script>xss(997737)</script>', '7:00 PM', datetime.datetime(2022, 11, 6, 13, 16, 18), 1, 1, None]
+            change: '2022-11-17' => '""'><script>xss(997737)</script>'
+            
+fuzzed after scan 4 / 41
+found as XSS in scan 5 / 41"
+hospital,userlog.logout,"http://localhost/hospital/hms/admin/user-logs.php
+http://localhost/hospital/hms/admin/user-logs.php#",998945,"""'><script>xss(998945)</script>","
+            hms.userlog.logout[4][5]
+            original row: [5, 1, 'johndoe12@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 14), '06-03-2023 01:02:22 PM', 1]
+            fuzzed row: [5, 1, 'johndoe12@test.com', bytearray(b'192.168.144.1\x00\x00\x00'), datetime.datetime(2023, 3, 6, 7, 32, 14), '""\'><script>xss(998945)</script>', 1]
+            change: '06-03-2023 01:02:22 PM' => '""'><script>xss(998945)</script>'
+            
+fuzzed after scan 35 / 41
+found as XSS in scan 36 / 41"
+hospital,tblpage.OpenningTime,http://localhost/hospital/index.php,999947,"""'><script>xss(999947)</script>","
+            hms.tblpage.OpenningTime[1][7]
+            original row: [2, 'contactus', 'Contact Details', 'D-204, Hole Town South West, Delhi-110096,India', 'info@gmail.com', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '9 am To 8 Pm']
+            fuzzed row: [2, 'contactus', 'Contact Details', 'D-204, Hole Town South West, Delhi-110096,India', 'info@gmail.com', 1122334455, datetime.datetime(2020, 5, 20, 7, 24, 7), '""\'><script>xss(999947)</script>']
+            change: '9 am To 8 Pm' => '""'><script>xss(999947)</script>'
+            
+fuzzed after scan 33 / 41
+found as XSS in scan 34 / 41"

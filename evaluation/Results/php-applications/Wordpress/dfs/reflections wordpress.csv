@@ -1,0 +1,121 @@
+web app,DB source,reflection sink,id,payload,description
+wordpress,wp_users.display_name,"http://localhost/
+http://localhost/sample-page/
+http://localhost/wp-admin/
+http://localhost/wp-admin/#
+http://localhost/wp-admin/about.php
+http://localhost/wp-admin/credits.php
+http://localhost/wp-admin/edit.php
+http://localhost/wp-admin/export.php
+http://localhost/wp-admin/import.php
+http://localhost/wp-admin/index.php
+http://localhost/wp-admin/plugins.php
+http://localhost/wp-admin/post-new.php
+http://localhost/wp-admin/privacy.php
+http://localhost/wp-admin/profile.php
+http://localhost/wp-admin/themes.php
+http://localhost/wp-admin/tools.php
+http://localhost/wp-admin/upload.php
+http://localhost/wp-admin/upload.php#
+http://localhost/wp-admin/users.php",906407,"""'><script>xss(906407)</script>","
+            wordpress.wp_users.display_name[0][9]
+            original row: [1, 'admin', '$P$BQyvAtwHJPxvPL5VFFuZakDIsAmYTz1', 'admin', 'admin@email.com', 'http://localhost', datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'admin']
+            fuzzed row: [1, 'admin', '$P$BQyvAtwHJPxvPL5VFFuZakDIsAmYTz1', 'admin', 'admin@email.com', 'http://localhost', datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, '""\'><script>xss(906407)</script>']
+            change: 'admin' => '""'><script>xss(906407)</script>'
+            
+fuzzed after scan 47 / 47
+found as XSS in scan 48 / 47"
+wordpress,wp_options.option_value,http://localhost/wp-admin/edit.php,913314,"""'><script>xss(913314)</script>","
+            wordpress.wp_options.option_value[27][2]
+            original row: [28, 'permalink_structure', '/%year%/%monthnum%/%day%/%postname%/', 'yes']
+            fuzzed row: [28, 'permalink_structure', '""\'><script>xss(913314)</script>', 'yes']
+            change: '/%year%/%monthnum%/%day%/%postname%/' => '""'><script>xss(913314)</script>'
+            
+fuzzed after scan 18 / 47
+found as XSS in scan 19 / 47"
+wordpress,wp_terms.name,"http://localhost/wp-admin/edit.php
+http://localhost/wp-admin/export.php",914435,"""'><script>xss(914435)</script>","
+            wordpress.wp_terms.name[0][1]
+            original row: [1, 'Uncategorized', 'uncategorized', 0]
+            fuzzed row: [1, '""\'><script>xss(914435)</script>', 'uncategorized', 0]
+            change: 'Uncategorized' => '""'><script>xss(914435)</script>'
+            
+fuzzed after scan 37 / 47
+found as XSS in scan 38 / 47"
+wordpress,wp_comments.comment_author,"http://localhost/wp-admin/
+http://localhost/wp-admin/#
+http://localhost/wp-admin/index.php",935342,"""'><script>xss(935342)</script>","
+            wordpress.wp_comments.comment_author[0][2]
+            original row: [1, 1, 'A WordPress Commenter', 'wapuu@wordpress.example', 'https://wordpress.org/', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=""https://en.gravatar.com/"">Gravatar</a>.', 0, '1', '', 'comment', 0, 0]
+            fuzzed row: [1, 1, '""\'><script>xss(935342)</script>', 'wapuu@wordpress.example', 'https://wordpress.org/', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), 'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=""https://en.gravatar.com/"">Gravatar</a>.', 0, '1', '', 'comment', 0, 0]
+            change: 'A WordPress Commenter' => '""'><script>xss(935342)</script>'
+            
+fuzzed after scan 2 / 47
+found as XSS in scan 3 / 47"
+wordpress,wp_posts.post_name,"http://localhost/
+http://localhost/wp-admin/edit.php",943961,"""'><script>xss(943961)</script>","
+            wordpress.wp_posts.post_name[0][11]
+            original row: [1, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n<!-- /wp:paragraph -->', 'Hello world!', '', 'publish', 'open', 'open', '', 'hello-world', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?p=1', 0, 'post', '', 1]
+            fuzzed row: [1, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n<!-- /wp:paragraph -->', 'Hello world!', '', 'publish', 'open', 'open', '', '""\'><script>xss(943961)</script>', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?p=1', 0, 'post', '', 1]
+            change: 'hello-world' => '""'><script>xss(943961)</script>'
+            
+fuzzed after scan 27 / 47
+found as XSS in scan 28 / 47"
+wordpress,wp_posts.post_content,http://localhost/sample-page/,946644,"""'><script>xss(946644)</script>","
+            wordpress.wp_posts.post_content[1][4]
+            original row: [2, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>This is an example page. It\'s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=""wp-block-quote""><p>Hi there! I\'m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin\' caught in the rain.)</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>...or something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=""wp-block-quote""><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>As a new WordPress user, you should go to <a href=""http://localhost/wp-admin/"">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>\n<!-- /wp:paragraph -->', 'Sample Page', '', 'publish', 'closed', 'open', '', 'sample-page', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?page_id=2', 0, 'page', '', 0]
+            fuzzed row: [2, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '""\'><script>xss(946644)</script>', 'Sample Page', '', 'publish', 'closed', 'open', '', 'sample-page', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?page_id=2', 0, 'page', '', 0]
+            change: '<!-- wp:paragraph -->
+<p>This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class=""wp-block-quote""><p>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>...or something like this:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class=""wp-block-quote""><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:paragraph -->
+<p>As a new WordPress user, you should go to <a href=""http://localhost/wp-admin/"">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>
+<!-- /wp:paragraph -->' => '""'><script>xss(946644)</script>'
+            
+fuzzed after scan 23 / 47
+found as XSS in scan 24 / 47"
+wordpress,wp_posts.post_title,http://localhost/sample-page/,947419,"""'><script>xss(947419)</script>","
+            wordpress.wp_posts.post_title[1][5]
+            original row: [2, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>This is an example page. It\'s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=""wp-block-quote""><p>Hi there! I\'m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin\' caught in the rain.)</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>...or something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=""wp-block-quote""><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>As a new WordPress user, you should go to <a href=""http://localhost/wp-admin/"">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>\n<!-- /wp:paragraph -->', 'Sample Page', '', 'publish', 'closed', 'open', '', 'sample-page', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?page_id=2', 0, 'page', '', 0]
+            fuzzed row: [2, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>This is an example page. It\'s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=""wp-block-quote""><p>Hi there! I\'m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin\' caught in the rain.)</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>...or something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=""wp-block-quote""><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>As a new WordPress user, you should go to <a href=""http://localhost/wp-admin/"">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>\n<!-- /wp:paragraph -->', '""\'><script>xss(947419)</script>', '', 'publish', 'closed', 'open', '', 'sample-page', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?page_id=2', 0, 'page', '', 0]
+            change: 'Sample Page' => '""'><script>xss(947419)</script>'
+            
+fuzzed after scan 24 / 47
+found as XSS in scan 25 / 47"
+wordpress,wp_posts.post_title,http://localhost/,957997,"""'><script>xss(957997)</script>","
+            wordpress.wp_posts.post_title[0][5]
+            original row: [1, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n<!-- /wp:paragraph -->', 'Hello world!', '', 'publish', 'open', 'open', '', 'hello-world', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?p=1', 0, 'post', '', 1]
+            fuzzed row: [1, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n<!-- /wp:paragraph -->', '""\'><script>xss(957997)</script>', '', 'publish', 'open', 'open', '', 'hello-world', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?p=1', 0, 'post', '', 1]
+            change: 'Hello world!' => '""'><script>xss(957997)</script>'
+            
+fuzzed after scan 24 / 47
+found as XSS in scan 25 / 47"
+wordpress,wp_posts.post_excerpt,http://localhost/,960863,"""'><script>xss(960863)</script>","
+            wordpress.wp_posts.post_excerpt[0][6]
+            original row: [1, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n<!-- /wp:paragraph -->', 'Hello world!', '', 'publish', 'open', 'open', '', 'hello-world', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?p=1', 0, 'post', '', 1]
+            fuzzed row: [1, 1, datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '<!-- wp:paragraph -->\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n<!-- /wp:paragraph -->', 'Hello world!', '""\'><script>xss(960863)</script>', 'publish', 'open', 'open', '', 'hello-world', '', '', datetime.datetime(2023, 2, 18, 1, 28, 17), datetime.datetime(2023, 2, 18, 1, 28, 17), '', 0, 'http://localhost/?p=1', 0, 'post', '', 1]
+            change: '' => '""'><script>xss(960863)</script>'
+            
+fuzzed after scan 25 / 47
+found as XSS in scan 26 / 47"
+wordpress,wp_options.option_value,http://localhost/wp-admin/edit.php,966867,"""'><script>xss(966867)</script>","
+            wordpress.wp_options.option_value[1][2]
+            original row: [2, 'home', 'http://localhost', 'yes']
+            fuzzed row: [2, 'home', '""\'><script>xss(966867)</script>', 'yes']
+            change: 'http://localhost' => '""'><script>xss(966867)</script>'
+            
+fuzzed after scan 18 / 47
+found as XSS in scan 19 / 47"

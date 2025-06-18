@@ -1,0 +1,5 @@
+Column,Type,Size,Fuzzed,XSS,Token
+messages.message_data,longtext,,True,True,True
+users.username,varchar,50,True,False,True
+users.password,varchar,255,True,False,False
+users.profile_data,longtext,,True,True,True

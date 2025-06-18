@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+  # MySQL 数据库服务
+  mysql:
+    image: mysql:8.0
+    container_name: redmine-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: redmine
+      MYSQL_USER: redmine
+      MYSQL_PASSWORD: redminepassword
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - redmine-network
+
+  # phpMyAdmin 服务
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: redmine-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - redmine-network
+
+  # Redmine 服务
+  redmine:
+    image: redmine:5.0
+    container_name: redmine-app
+    restart: always
+    environment:
+      REDMINE_DB_MYSQL: mysql
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_USERNAME: redmine
+      REDMINE_DB_PASSWORD: redminepassword
+      REDMINE_SECRET_KEY_BASE: supersecretkey
+    volumes:
+      - redmine-files:/usr/src/redmine/files
+      - redmine-plugins:/usr/src/redmine/plugins
+      - redmine-themes:/usr/src/redmine/public/themes
+    ports:
+      - "80:3000"
+    depends_on:
+      - mysql
+    networks:
+      - redmine-network
+
+networks:
+  redmine-network:
+
+volumes:
+  mysql-data:
+  redmine-files:
+  redmine-plugins:
+  redmine-themes:

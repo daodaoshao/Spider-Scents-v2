@@ -1,0 +1,17 @@
+Column,Type,Size,Fuzzed,XSS,Token
+auth_group.name,varchar,150,True,False,True
+auth_permission.name,varchar,255,True,False,False
+auth_permission.codename,varchar,100,True,False,False
+auth_user.password,varchar,128,True,False,False
+auth_user.username,varchar,150,True,False,False
+auth_user.first_name,varchar,150,True,False,False
+auth_user.last_name,varchar,150,True,False,False
+auth_user.email,varchar,254,True,False,False
+django_admin_log.object_repr,varchar,200,True,False,False
+django_admin_log.change_message,longtext,,True,False,False
+django_content_type.app_label,varchar,100,True,False,False
+django_content_type.model,varchar,100,True,False,False
+django_migrations.app,varchar,255,True,False,False
+django_migrations.name,varchar,255,True,False,False
+django_session.session_key,varchar,40,True,False,False
+django_session.session_data,longtext,,True,False,False
