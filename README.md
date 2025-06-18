@@ -19,3 +19,5 @@ pipenv run script --config 'webapp_config.ini' --insert-empty
 
 This introduces a new –traversal-order option, allowing users to select between
 BFS and DFS traversal orders.
+
+The results of evaluation can be found at evaluation directory.
